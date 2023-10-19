@@ -17,11 +17,15 @@
 }
 
 body {
+  font-family: var(--font-body);
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: white;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  background: white;
 }
