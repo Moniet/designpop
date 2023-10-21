@@ -13,18 +13,15 @@ const Accordion = ({ question, answer }: Props) => {
   const id2 = useId()
 
   return (
-    <div
-      className="relative mx-auto flex w-full flex-col md:max-w-[650px]"
-      aria-controls={id2}
-      id={id}
-      aria-expanded={open}
-    >
+    <div className="relative mx-auto flex w-full flex-col md:max-w-[650px]">
       <div
-        role="heading"
         className={`mt-7 flex w-full justify-between  text-base font-light text-black`}
       >
         <button
+          id={id}
+          aria-controls={id2}
           className="mr-5 h-full w-full text-left"
+          aria-expanded={open}
           onClick={() => setOpen(!open)}
         >
           {question}

@@ -65,7 +65,7 @@ const Logo = () => {
 
 const ContactUs = () => {
   return (
-    <a href="#contact-us">
+    <a href="https://calendar.app.google/Xs4uCryDAQJADdFb7" target="_blank">
       <div className="relative flex h-auto w-full md:w-[80px] lg:w-[100px]">
         <svg
           className="h-full w-full"

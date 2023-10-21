@@ -12,7 +12,7 @@ export const CarouselItem = ({ img = "", title, link, tags = [], index }) => {
         src={img}
         alt={title}
         rel="preload"
-        className="pointer-events-none absolute left-0 top-0 h-full w-full select-none rounded-md object-cover"
+        className="pointer-events-none absolute left-0 top-0 h-full w-full select-none rounded-md"
       />
 
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 select-none" />

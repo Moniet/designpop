@@ -21,6 +21,8 @@ const GravityText = forwardRef(
   ({ startX, startY, children, className, index, angle }, ref) => {
     useEffect(() => {}, [startX, startY, ref.current]) // eslint-disable-line
 
+    
+
     return (
       <div
         ref={ref}

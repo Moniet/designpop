@@ -59,6 +59,7 @@ const PricingCard = ({
   summary,
   tags,
   cta,
+  ctaLink,
   index,
   outline = TrendingUp,
 }: any) => {
@@ -85,9 +86,12 @@ const PricingCard = ({
             <span className="mb-5 text-base"> {ratePeriod}</span>
           </p>
           <p className="mt-5 h-[30px] text-sm text-[#6B7280]">{rateSummary}</p>
-          <button className="my-5 w-full rounded bg-black px-3 py-2 text-white">
+          <a
+            href="https://tally.so/r/merzWe"
+            className="my-5 w-full rounded bg-black px-3 py-2 text-white"
+          >
             {cta}
-          </button>
+          </a>
           <p className="text-medium mb-7 text-black xs:text-sm md:text-base">
             {summary}
           </p>
@@ -122,8 +126,9 @@ const pricingData = [
     title: "Basic",
     rate: "$1950",
     rateSummary: "We delivery 3 pages at a time",
-    summary: "",
+    summary: "Superfast design & code completion",
     cta: "Get started",
+    ctaLink: "https://tally.so/r/merzWe",
     ratePeriod: "/page",
     tags: [
       "48hr design delivery",
@@ -143,6 +148,7 @@ const pricingData = [
     rateSummary: "Pause or cancel anytime",
     summary: "Two requests at a time",
     cta: "Get started",
+    ctaLink: "https://tally.so/r/merzWe",
     ratePeriod: "/month",
     tags: [
       "Design turnaround of 2 days",
@@ -165,6 +171,7 @@ const pricingData = [
     rateSummary: "Have questions about how it works?",
     summary: "Learn about how we can help",
     cta: "Contact Us",
+    ctaLink: "https://calendar.app.google/Xs4uCryDAQJADdFb7",
     tags: [
       "Learn about how we can help",
       "Our process broken down",

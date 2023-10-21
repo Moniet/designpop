@@ -162,10 +162,10 @@ const CompareSheet = () => {
         </div>
         <div className="flex justify-between gap-10">
           <motion.div
-            animate={{ x: [0, -40, -20, 0], y: [0, -40, -20, 0] }}
+            animate={{ x: [0, -40, -20, 0], y: [0, 40, 20, 0] }}
             transition={{ ...transition, delay: 5, repeatDelay: 2.5 }}
           >
-            <CursorItem label="Backend-dveloper" />
+            <CursorItem label="Backend-developer" />
           </motion.div>
 
           <motion.div
@@ -179,11 +179,15 @@ const CompareSheet = () => {
       <div className="min-h-[150px] w-[1px] min-w-[1px] rounded bg-[#484848] xs:order-3 xs:hidden md:order-2 md:block" />
       <div className="flex min-w-[300px] flex-1 justify-center border-b xs:order-1 xs:mt-12 xs:border-[#484848] xs:pb-20 md:order-3 md:mt-0 md:border-transparent md:pb-0">
         <motion.div
-          animate={animSquare2}
+          animate={{
+            x: [0, 80, 30, 60, 20, 0],
+            y: [0, -70, -50, -20, -50, 0],
+          }}
           transition={{
             ...transition,
             delay: 2,
-            repeatDelay: 1,
+            repeatDelay: 3,
+            duration: 10,
           }}
         >
           <DesignPopCursor />
@@ -198,8 +202,8 @@ const DynamicDuoSection = () => {
     <div className="w-full bg-zinc-900 xs:py-10 md:py-16">
       <Gutter>
         <FadeInOnView>
-          <Header className="text-white xs:mb-10 xs:text-center md:mb-16 md:text-left">
-            <Balancer>
+          <Header className="leading-8 text-white xs:mb-10 xs:text-center md:mb-16 md:text-left">
+            <Balancer className="xs:leading-[1.25]">
               We&#39;re a dynamic duo, driven by the love for crafting
               pixel-perfect websites.
             </Balancer>

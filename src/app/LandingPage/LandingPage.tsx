@@ -18,6 +18,7 @@ import HowItWorks from "./HowItWorks"
 import DynamicDuoSection from "./DynamicDuoSection"
 import Balancer from "react-wrap-balancer"
 import { Zap } from "lucide-react"
+import WorkList from "./WorkList"
 
 const LandingPage = () => {
   return (
@@ -61,11 +62,12 @@ const LandingPage = () => {
           <DynamicDuoSection />
           <HowItWorks />
           <WorkCarousel />
+          <WorkList />
           <TestimonialQuote
-            quote="Working with designpop has been so productive for us founders at ____. Their creative excellence and communication keeps things high quality and quick. I can't recommend them enough."
-            position="Founder of blocs.me"
-            citeUrl="https://blocs.me"
-            personsName="Sarah J"
+            quote="Working with designpop has been so productive for us founders at Gavel. Their creative excellence and communication keeps things high quality and quick. I can't recommend them enough."
+            position="Founder of Gavel GmbH"
+            citeUrl="letsgavel.com"
+            personsName="Florian Bauer"
           />
           <WhatWeBring />
           <TechStack />
