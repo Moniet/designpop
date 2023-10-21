@@ -88,7 +88,7 @@ const PricingCard = ({
           <p className="mt-5 h-[30px] text-sm text-[#6B7280]">{rateSummary}</p>
           <a
             href="https://tally.so/r/merzWe"
-            className="my-5 w-full rounded bg-black px-3 py-2 text-white"
+            className="my-5 w-full rounded bg-black px-3 py-2 text-center text-white"
           >
             {cta}
           </a>
@@ -168,14 +168,16 @@ const pricingData = [
     rate: "Book a call",
     // outline: false,
     ratePeriod: "",
-    rateSummary: "Have questions about how it works?",
+    rateSummary: "Have something else in mind? Get in touch!",
     summary: "Learn about how we can help",
     cta: "Contact Us",
     ctaLink: "https://calendar.app.google/Xs4uCryDAQJADdFb7",
     tags: [
-      "Learn about how we can help",
-      "Our process broken down",
+      "Propose a different contractual agreement",
       "Discuss complex app requirements",
+      "Learn about our process and expertise",
+      "Dive into the details of our services",
+      "Enquire about longterm contracts"
       // "Cross-platform desktop apps",
       // "SEO & On-Page optimization",
       // "Interactive animations",

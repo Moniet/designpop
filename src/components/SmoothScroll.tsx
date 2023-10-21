@@ -18,6 +18,7 @@ export const SmoothScroll = ({ duration = 1, rootSelector = "#main" }) => {
     const setBodyHeight = () => {
       if (to) clearTimeout(to)
       to = setTimeout(() => {
+        console.log("resize")
         document.body.style.setProperty("height", root?.scrollHeight + "px")
       }, 100)
     }
@@ -66,6 +67,23 @@ export const SmoothScroll = ({ duration = 1, rootSelector = "#main" }) => {
     }
 
     handleScroll(cntrl)()
+
+    const faqEl = document.querySelector("#faqs")
+    let faqHeight = faqEl?.getBoundingClientRect().height as number
+
+    const handleFaqHeight = debounce(() => {
+      const currentHeight = faqEl?.getBoundingClientRect().height as number
+      if (faqHeight !== currentHeight && root && currentHeight) {
+        const diff = currentHeight - faqHeight ?? 0
+        document.body.style.setProperty(
+          "height",
+          root?.scrollHeight + diff + "px",
+        )
+      }
+    }, 100)
+
+    const resizeObs = new ResizeObserver(setBodyHeight)
+    resizeObs.observe(document.querySelector("#faqs") as HTMLElement)
 
     return () => {
       cntrl.abort()

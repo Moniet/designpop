@@ -1,18 +1,19 @@
 "use client"
 import React from "react"
 import FadeInOnView from "@/components/FadeInOnView"
+import Image from "next/image"
 
 export const CarouselItem = ({ img = "", title, link, tags = [], index }) => {
   return (
     <FadeInOnView
-      className="pointer-none relative flex-shrink-0 snap-center overflow-hidden rounded xs:w-[300px] sm:w-[500px] sm:select-none md:w-[600px]"
+      className="pointer-none ali relative flex h-auto w-[700px] flex-shrink-0 snap-center overflow-hidden rounded"
       delay={index / 3.5}
     >
       <img
         src={img}
         alt={title}
         rel="preload"
-        className="pointer-events-none absolute left-0 top-0 h-full w-full select-none rounded-md"
+        className="pointer-events-none absolute left-0 top-2/4 aspect-[1.2]  h-auto w-full -translate-y-2/4 select-none rounded-md object-cover"
       />
 
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 top-0 select-none" />

@@ -4,7 +4,7 @@ import Gutter from "./Gutter"
 
 const WorkItem = ({ tags, title, link }: any) => {
   return (
-    <article>
+    <li>
       <div className="md:itemscenter flex justify-between gap-5 border-b border-dashed pb-10 xs:flex-col xs:border-b-zinc-200 md:flex-row md:border-b-0">
         <div>
           <p className=" font-heading  text-zinc-900 xs:text-sm md:text-base">
@@ -25,13 +25,16 @@ const WorkItem = ({ tags, title, link }: any) => {
             })}
           </div>
           <div>
-            <a href={link} className="underline xs:text-sm md:text-base">
+            <a
+              href={link}
+              className="text-zinc-900 underline xs:text-sm md:text-base"
+            >
               View project
             </a>
           </div>
         </div>
       </div>
-    </article>
+    </li>
   )
 }
 
@@ -65,11 +68,11 @@ const WorkList = () => {
       <SectionHeader>recent work</SectionHeader>
       <Divider />
 
-      <div className="flex flex-col gap-10">
+      <ul className="flex flex-col gap-10">
         {components.map((d, i) => {
           return <WorkItem key={i} {...d} />
         })}
-      </div>
+      </ul>
     </Gutter>
   )
 }

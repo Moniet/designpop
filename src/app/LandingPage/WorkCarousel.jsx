@@ -47,7 +47,6 @@ const WorkCarousel = () => {
   const [mouseDown, setMouseDown] = useState(null)
   const scrolled = useRef(0)
   const container = useRef(null)
-  // const isTouchEnabled = useMediaQuery("(max-width: 900px)")
 
   const handlePointerDown = (e) => {
     setMouseDown({
@@ -109,19 +108,37 @@ const WorkCarousel = () => {
                 <CarouselItem
                   link="https://framerlib.com"
                   tags={["Wireframing", "Design", "Development", "On Page SEO"]}
-                  img="project_tile-0.jpg"
+                  img="tile-2.jpeg"
+                  title="framerlib"
+                />
+                <CarouselItem
+                  link="https://framerlib.com"
+                  tags={["Wireframing", "Design", "Development", "On Page SEO"]}
+                  img="tile-1.jpeg"
+                  title="framerlib"
+                />
+                <CarouselItem
+                  link="https://framerlib.com"
+                  tags={["Wireframing", "Design", "Development", "On Page SEO"]}
+                  img="tile-3.jpeg"
+                  title="framerlib"
+                />
+                <CarouselItem
+                  link="https://framerlib.com"
+                  tags={["Wireframing", "Design", "Development", "On Page SEO"]}
+                  img="slide-1.png"
                   title="framerlib"
                 />
                 <CarouselItem
                   link="https://blocs.me"
                   tags={["Wireframing", "Design", "Development", "SEO"]}
-                  img="project_tile-1.jpg"
+                  img="slide-2.jpg"
                   title="blocs (notion widgets)"
                 />
                 <CarouselItem
                   link="https://phoenixmedicalsystems.com"
                   tags={["Wireframing", "Design", "Development", "CMS", "SEO"]}
-                  img="project_tile-2.jpg"
+                  img="slide-3.png"
                   title="phoenix medical systems"
                 />
               </motion.div>
