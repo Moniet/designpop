@@ -1,39 +1,7 @@
-import { useState } from "react"
-import {
-  Divider,
-  Header,
-  SectionHeader,
-  Para,
-  HeaderSm,
-  ParaSm,
-} from "./Components"
+import { Divider, Header, SectionHeader, HeaderSm, ParaSm } from "./Components"
 import { AnimatePresence, motion } from "framer-motion"
 import Gutter from "./Gutter"
 import FadeInOnView from "@/components/FadeInOnView"
-
-const SharedImage = ({ src = "https://placehold.co/600x400" }) => {
-  return (
-    <motion.img
-      layout="position"
-      initial={{
-        x: 0,
-        y: 0,
-      }}
-      animate={{
-        y: 0,
-        rotate: -30,
-      }}
-      layoutId="shared-img"
-      src={src}
-      style={{
-        position: "absolute",
-        top: 0,
-        right: 0,
-      }}
-      className="h-full max-h-[125px] w-full max-w-[180px] rounded  border border-2 border-black object-cover"
-    />
-  )
-}
 
 const Item = ({
   step,

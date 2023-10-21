@@ -11,7 +11,7 @@ const WorkItem = ({ tags, title, link }: any) => {
             {title}
           </p>
         </div>
-        <div className="flex xs:flex-col xs:gap-10 md:flex-row md:items-center md:gap-12 ">
+        <div className="flex xs:flex-col xs:gap-5 md:flex-row md:items-center md:gap-12 ">
           <div className="flex flex-wrap gap-5">
             {tags.map((tag: string, i: number) => {
               return (
