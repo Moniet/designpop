@@ -20,9 +20,12 @@ export const metadata: Metadata = {
   title: "Designpop",
   description: "A subscription based design agency",
   openGraph: {
-    images: [{
-      'url': '/og.jpg'
-    }],
+    images: [
+      {
+        url: "/og.jpg",
+        alt: "Designpop: A Design and Development subscription agency",
+      },
+    ],
   },
 }
 
