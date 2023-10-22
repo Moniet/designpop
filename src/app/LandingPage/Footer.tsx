@@ -34,7 +34,10 @@ export default function Footer() {
                             </div>
                             <div className="mb-20 mt-6 flex w-fit max-w-full grow flex-col items-center justify-center rounded-md border border-solid border-zinc-100 px-6 py-3">
                               <div className="flex max-w-fit  grow-0 items-start gap-2 self-center">
-                                <a href="mailto:ceo@designpop.io">
+                                <a
+                                  href="mailto:hello@designpop.io"
+                                  className="cursor"
+                                >
                                   <div className="h-fit  max-h-fit min-w-fit whitespace-nowrap text-sm leading-5 text-zinc-100">
                                     <span className="mr-2 inline-block h-[5px] w-[5px] rounded-full bg-green-500 align-middle" />
                                     Send us an Email

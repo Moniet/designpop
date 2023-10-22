@@ -1,11 +1,12 @@
 import React from "react"
 import { Divider, SectionHeader } from "./Components"
 import Gutter from "./Gutter"
+import FadeInOnView from "@/components/FadeInOnView"
 
 const WorkItem = ({ tags, title, link }: any) => {
   return (
     <li>
-      <div className="md:itemscenter flex justify-between gap-5 border-b border-dashed pb-10 xs:flex-col xs:border-b-zinc-200 md:flex-row md:border-b-0">
+      <FadeInOnView className="md:itemscenter flex justify-between gap-5 border-b border-dashed pb-10 xs:flex-col xs:border-b-zinc-200 md:flex-row md:border-b-0">
         <div>
           <p className=" font-heading  text-zinc-900 xs:text-sm md:text-base">
             {title}
@@ -33,7 +34,7 @@ const WorkItem = ({ tags, title, link }: any) => {
             </a>
           </div>
         </div>
-      </div>
+      </FadeInOnView>
     </li>
   )
 }
@@ -65,7 +66,9 @@ const components = [
 const WorkList = () => {
   return (
     <Gutter>
-      <SectionHeader>recent work</SectionHeader>
+      <FadeInOnView>
+        <SectionHeader>recent work</SectionHeader>
+      </FadeInOnView>
       <Divider />
 
       <ul className="flex flex-col gap-10">

@@ -19,6 +19,11 @@ const roobert = loadFont({
 export const metadata: Metadata = {
   title: "Designpop",
   description: "A subscription based design agency",
+  openGraph: {
+    images: [{
+      'url': '/og.jpg'
+    }],
+  },
 }
 
 export default function RootLayout({
