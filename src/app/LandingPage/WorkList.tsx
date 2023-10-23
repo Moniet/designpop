@@ -48,18 +48,18 @@ const components = [
   {
     tags: ["A/B testing", "UI Design", "Full-Stack Development"],
     title: "Blocs: Habit tracker widgets for Notion",
-    link: "https://filebloc.com",
+    link: "https://blocs.me",
   },
   {
     tags: ["Full-Stack Development", "Figma Design"],
     title: "Framerlib: Component library for Framer",
-    link: "https://filebloc.com",
+    link: "https://framerlib.com",
   },
   {
     tags: ["CMS Development", "UI Design", "SEO"],
     title:
       "Phoenix Medical Systems: Neonatal Healthcare device manufacturing company",
-    link: "https://filebloc.com",
+    link: "https://phoenixmedicalsystems.com",
   },
 ]
 
