@@ -19,8 +19,11 @@ import DynamicDuoSection from "./DynamicDuoSection"
 import Balancer from "react-wrap-balancer"
 import { Zap } from "lucide-react"
 import WorkList from "./WorkList"
+import useScrollTo from "@/hooks/scrollToElement"
 
 const LandingPage = () => {
+  const scrollTo = useScrollTo()
+
   return (
     <>
       <div
@@ -45,16 +48,16 @@ const LandingPage = () => {
                   </Balancer>
                 </p>
                 <div className="mt-8 flex justify-center gap-4">
-                  <a href="#get-started">
+                  <button onClick={() => scrollTo("#services")}>
                     <div className="rounded-[5px] bg-black px-6 py-3 text-sm text-white">
                       Get started
                     </div>
-                  </a>
-                  <a href="#how-it-works">
+                  </button>
+                  <button onClick={() => scrollTo("#pricing")}>
                     <div className="rounded-[5px] bg-[#F4F4F5] px-6 py-3 text-sm text-black">
                       How it works
                     </div>
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
