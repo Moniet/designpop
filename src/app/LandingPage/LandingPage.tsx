@@ -72,7 +72,7 @@ const LandingPage = () => {
             quote="Working with designpop has been so productive for us founders at Gavel. Their creative excellence and communication keeps things high quality and quick. I can't recommend them enough."
             position="Founder of Gavel GmbH"
             citeUrl="letsgavel.com"
-            personsName="Florian Bauer"
+            personsName="Florian Braeuer"
           />
           <WorkCarousel />
           <WorkList />
