@@ -1,24 +1,30 @@
-"use client"
-import debounce from "@/hooks/debounce"
-import { lerp } from "@/hooks/lerp"
-import { useEffect, useLayoutEffect, useMemo } from "react"
+import { useEffect, useLayoutEffect, useMemo, useState } from "react"
+import debounce from "./debounce"
+import { lerp } from "./lerp"
 
-export const SmoothScroll = ({ duration = 1, rootSelector = "#main" }) => {
+export const useSmoothScroll = ({ duration = 1, rootSelector = "#main" }) => {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   const root = useMemo(
     () =>
       globalThis.window
         ? (document.querySelector(rootSelector) as HTMLDivElement)
         : null,
-    [],
+    [mounted],
   )
 
-  useLayoutEffect(() => {
+  useEffect(() => {
+    if (!mounted) return undefined
+
     let to: NodeJS.Timeout
 
     const setBodyHeight = () => {
       if (to) clearTimeout(to)
       to = setTimeout(() => {
-        console.log("resize")
+        console.log("set height", root?.scrollHeight)
         document.body.style.setProperty("height", root?.scrollHeight + "px")
       }, 100)
     }
@@ -98,8 +104,5 @@ export const SmoothScroll = ({ duration = 1, rootSelector = "#main" }) => {
         root?.style.setProperty("transform", `translateY(0) translateX(-50%)`)
       }
     }
-  }, [root, duration])
-
-  return <span />
+  }, [root, duration, mounted])
 }
-//

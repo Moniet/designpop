@@ -2,6 +2,8 @@ import "./globals.css"
 import type { Metadata } from "next"
 import { Nunito_Sans, Sora } from "next/font/google"
 import loadFont from "next/font/local"
+import Head from "next/head"
+import Nav from "./LandingPage/Nav"
 
 const nunito = Nunito_Sans({
   subsets: ["latin"],

@@ -6,16 +6,17 @@ const useMedia = (query: string) => {
 
   useEffect(() => {
     const handleMatch = (ev: MediaQueryListEvent) => {
-      if (ev.matches) {
-        setIsMedia(true)
-      } else {
-        setIsMedia(false)
-      }
+      console.log("change")
+      setIsMedia(ev.matches)
     }
-    window.matchMedia(query).addEventListener("change", handleMatch)
+    const q = window.matchMedia(query)
+
+    setIsMedia(q.matches)
+
+    q.addEventListener("change", handleMatch)
 
     return () => {
-      window.matchMedia(query).removeEventListener("change", handleMatch)
+      q.removeEventListener("change", handleMatch)
     }
   }, [query, isClient])
 

@@ -20,9 +20,32 @@ import Balancer from "react-wrap-balancer"
 import { Zap } from "lucide-react"
 import WorkList from "./WorkList"
 import useScrollTo from "@/hooks/scrollToElement"
+import { useSmoothScroll } from "@/hooks/useSmoothScroll"
+import { useWindowSize } from "@uidotdev/usehooks"
+import useMedia from "@/hooks/useMedia"
+import Portal from "@/components/Portal"
+import CircleCursor from "@/components/GlobalCursor"
+
+const RenderNav = () => {
+  const isSmall = useMedia("(max-width: 768px)")
+
+  if (isSmall) {
+    return (
+      <Portal>
+        <Nav />
+      </Portal>
+    )
+  }
+
+  return <Nav />
+}
 
 const LandingPage = () => {
   const scrollTo = useScrollTo()
+  useSmoothScroll({
+    duration: 0.5,
+    rootSelector: "#root",
+  })
 
   return (
     <>
@@ -30,10 +53,10 @@ const LandingPage = () => {
         className="fixed left-2/4 top-0 mx-auto min-h-screen w-full max-w-[2000px] -translate-x-2/4 overflow-x-hidden bg-transparent"
         id="root"
       >
-        <Nav />
-        <main>
+        <RenderNav />
+        <main id="main">
           <Gutter>
-            <div className="flex w-full  flex-col items-center justify-center pb-20 xs:h-[50vh] xs:pt-32 md:h-[50vh] md:pt-28">
+            <div className="flex w-full  flex-col items-center justify-center pb-20 xs:mt-[50px]  xs:h-[50vh] xs:pt-32 md:mt-0 md:h-[50vh] md:pt-28">
               <div className="max-w-[750px] text-center">
                 <h1 className="mb-8 select-none font-heading  text-black xs:text-4xl sm:text-4xl md:text-6xl">
                   <Balancer ratio={0.8}>
@@ -53,7 +76,7 @@ const LandingPage = () => {
                       Get started
                     </div>
                   </button>
-                  <button onClick={() => scrollTo("#pricing")}>
+                  <button onClick={() => scrollTo("#services")}>
                     <div className="rounded-[5px] bg-[#F4F4F5] px-6 py-3 text-sm text-black">
                       How it works
                     </div>
@@ -82,7 +105,7 @@ const LandingPage = () => {
           <ContactUs />
         </main>
         <Footer />
-        <SmoothScroll rootSelector="#root" duration={0.5} />
+        <CircleCursor bgColor="#222" delay={0.2} />
       </div>
     </>
   )

@@ -83,18 +83,16 @@ export default function Footer() {
                               <div className="flex w-fit flex-col items-stretch max-md:w-full">
                                 <div className="flex grow flex-col max-md:mt-12">
                                   <div className="flex w-[140px] max-w-full flex-col items-start">
-                                    <button>
-                                      <div className="text-xs uppercase leading-3 tracking-wide text-zinc-300 opacity-60">
-                                        Contact us
-                                      </div>
-                                    </button>
+                                    <div className="text-xs uppercase leading-3 tracking-wide text-zinc-300 opacity-60">
+                                      Contact us
+                                    </div>
                                     <a href="mailto:hello@designpop.com">
                                       <div className="mt-2 text-sm leading-5 text-zinc-300 underline">
                                         hello@designpop.com
                                       </div>
                                     </a>
                                   </div>
-                                  <div className="mt-14 flex w-[100px] max-w-full grow flex-col items-start">
+                                  {/* <div className="mt-14 flex w-[100px] max-w-full grow flex-col items-start">
                                     <div className="text-xs uppercase leading-3 tracking-wide text-zinc-300 opacity-60">
                                       SOCIAL MEDIA
                                     </div>
@@ -122,7 +120,7 @@ export default function Footer() {
                                         </span>
                                       </div>
                                     </div>
-                                  </div>
+                                  </div> */}
                                 </div>
                               </div>
                               <div className="flex w-fit flex-col items-stretch max-md:w-full">
@@ -168,7 +166,7 @@ export default function Footer() {
 
                   <div className="flex w-[3%] flex-col items-stretch max-md:w-full">
                     <button
-                      onClick={() => scrollToEl("#nav")}
+                      onClick={() => scrollToEl("#main")}
                       className="absolute right-10 top-10 ml-5 "
                     >
                       <svg

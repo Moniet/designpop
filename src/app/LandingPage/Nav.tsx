@@ -1,11 +1,19 @@
 "use client"
-import React, { useEffect, useState } from "react"
+import React, {
+  PropsWithChildren,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react"
 import Gutter from "./Gutter"
 import useScrollTo from "@/hooks/scrollToElement"
-import { useScroll, motion } from "framer-motion"
+import { useScroll, motion, AnimatePresence } from "framer-motion"
 import { useDebounce } from "@uidotdev/usehooks"
+import { createPortal } from "react-dom"
+import { Plus } from "lucide-react"
 
-const NavItem = ({ scrollToId, label }: any) => {
+const NavItem = ({ scrollToId, label, setOpen }: any) => {
   const scrollTo = useScrollTo()
   const [hover, setHover] = useState(false)
 
@@ -15,22 +23,15 @@ const NavItem = ({ scrollToId, label }: any) => {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      {hover && (
-        <motion.div
-          className="absolute left-0 top-0 h-full w-full rounded-full bg-zinc-900"
-          layoutId="nav-spy"
-        />
-      )}
       <button
         className="relative block flex-1"
         onClick={() => {
           scrollTo(scrollToId)
+          setOpen(false)
         }}
       >
         <div
-          className={`flex items-center justify-center rounded-full bg-transparent text-center  transition-colors duration-300 hover:text-white xs:px-[5px] xs:py-[10px] md:px-[14px] md:py-[10px] ${
-            hover ? "text-white" : "text-black"
-          }`}
+          className={`flex w-full items-center justify-center rounded-full bg-transparent text-center font-medium tracking-wide text-white transition-colors duration-300 hover:text-white xs:text-4xl  md:text-6xl`}
         >
           {label}
         </div>
@@ -41,7 +42,7 @@ const NavItem = ({ scrollToId, label }: any) => {
 
 const Logo = () => {
   return (
-    <div className="xs:w-[180px] sm:w-[130px] md:w-[125px] lg:w-[150px]">
+    <div className="xs:w-[125px] sm:w-[130px] md:w-[140px] lg:w-[150px]">
       <svg
         viewBox="0 0 142 25"
         fill="none"
@@ -120,63 +121,174 @@ const ContactUs = () => {
   )
 }
 
+const SlideIn = ({
+  children,
+  delay,
+  className = "",
+}: PropsWithChildren<{ delay: number; className?: string }>) => {
+  return (
+    <div
+      className={`h-full max-h-fit min-h-fit w-fit min-w-fit overflow-hidden `}
+    >
+      <motion.div
+        className={className}
+        initial={{ x: 0, y: 150, rotate: 15 }}
+        animate={{ rotate: 0, x: 0, y: 0 }}
+        transition={{
+          delay: delay ?? 0,
+          duration: 1,
+          type: "spring",
+          // damping: 2,
+        }}
+      >
+        {children}
+      </motion.div>
+    </div>
+  )
+}
+
 const Nav = () => {
-  // const [show, setShow] = useState(false)
+  const [open, setOpen] = useState(false)
+  const isClient = globalThis.window
+  const div = useMemo(
+    () => globalThis?.window?.document.createElement("div"),
+    [],
+  )
 
-  // useEffect(() => {
-  //   let lastScrollTop = 0
+  useEffect(() => {
+    if (isClient && div && !document.body.contains(div)) {
+      document.body.appendChild(div)
+    }
 
-  //   function onScroll() {
-  //     let scrollTop = window.scrollY || document.documentElement.scrollTop
-
-  //     if (scrollTop > lastScrollTop) {
-  //       // Scrolling down
-  //       setShow(false)
-  //     } else if (!show) {
-  //       // Scrolling up
-  //       setShow(true)
-  //     }
-
-  //     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop // For Mobile or negative scrolling
-  //   }
-
-  //   const debouncedScroll = debounce(onScroll, 50) // Adjust the delay (in milliseconds) according to your needs
-  //   window.addEventListener("scroll", onScroll)
-
-  //   return () => {
-  //     window.removeEventListener("scroll", onScroll)
-  //   }
-  // }, [])
-
-  // console.log({ show })
+    return () => {
+      document.body.removeChild(div)
+    }
+  }, [isClient, div])
 
   return (
     <header>
-      <nav className="z-[100000 mx-auto flex max-w-[2000px] border-b" id="nav">
-        <Gutter className="xs:py-0 md:py-5">
-          <div className="flex w-full items-center justify-between xs:flex-col xs:gap-0 md:flex-row  md:gap-3 lg:gap-0 ">
+      <nav className="z-[100000] w-full max-w-[2000px]" id="nav">
+        <Gutter className="bg-white/20 backdrop-blur-sm max-md:fixed md:py-5">
+          <div className="flex w-full items-center justify-between  md:gap-3 lg:gap-0 ">
             <a href="https://designpop.io">
-              <div className="flex items-center xs:mt-3 md:mt-0">
+              <div className="flex items-center  md:mt-0">
                 <Logo />
               </div>
             </a>
-            <div
-              className={
-                "z-[10000] flex items-center whitespace-nowrap rounded-full p-[10px] xs:gap-2 xs:text-xs md:gap-0 md:text-sm"
-              }
-            >
-              <NavItem scrollToId="#recent-work" label="Recent Work" />
-              <NavItem scrollToId="#services" label="Services" />
-              <NavItem scrollToId="#faqs" label="How it works" />
-              <NavItem scrollToId="#pricing" label="Pricing" />
-            </div>
-            <div className="h-0  overflow-visible xs:hidden md:block">
-              <div className="-translate-y-2/4">
-                <ContactUs />
-              </div>
+            <div className="ml-auto">
+              <button
+                onClick={() => setOpen(!open)}
+                className={`z-[100000000] font-medium text-zinc-900`}
+              >
+                Menu
+              </button>
             </div>
           </div>
         </Gutter>
+
+        <motion.div
+          className={"fixed left-0 top-0 flex h-full w-full bg-zinc-950"}
+          initial={{
+            opacity: 0,
+            pointerEvents: "none",
+          }}
+          animate={{
+            opacity: open ? 1 : 0,
+            pointerEvents: open ? "all" : "none",
+          }}
+        >
+          <div className="fixed flex   items-center justify-center gap-1 text-white hue-rotate-180 invert xs:left-5 xs:top-5 sm:left-8 sm:top-8 md:left-12 md:top-5 lg:left-[8%] lg:top-16">
+            <Logo />
+          </div>
+          <button
+            className="fixed flex   items-center justify-center gap-1 text-white xs:right-5 xs:top-5 sm:right-8 sm:top-8 md:right-12 md:top-5 lg:right-[8%] lg:top-16"
+            onClick={() => setOpen(false)}
+          >
+            <Plus size={"20px"} className="rotate-45" />
+            Menu
+          </button>
+          {open && (
+            <Gutter>
+              <div className="m-auto flex h-full w-full items-center xs:flex-col xs:justify-center md:flex-row md:justify-between">
+                <div className=" flex w-full flex-col justify-center gap-5 max-md:items-center">
+                  <SlideIn delay={0}>
+                    <NavItem
+                      scrollToId="#recent-work"
+                      label="Recent Work"
+                      setOpen={setOpen}
+                    />
+                  </SlideIn>
+                  <SlideIn delay={0.1}>
+                    <NavItem
+                      scrollToId="#services"
+                      label="Services"
+                      setOpen={setOpen}
+                    />
+                  </SlideIn>
+                  <SlideIn delay={0.15}>
+                    <NavItem
+                      scrollToId="#faqs"
+                      label="How it works"
+                      setOpen={setOpen}
+                    />
+                  </SlideIn>
+                  <SlideIn delay={0.2}>
+                    <NavItem
+                      scrollToId="#pricing"
+                      label="Pricing"
+                      setOpen={setOpen}
+                    />
+                  </SlideIn>
+                </div>
+                <div className="flex w-fit flex-col items-center max-md:w-full">
+                  <div className="my-auto flex grow flex-col max-md:mt-16">
+                    <div className="flex w-fit max-w-full flex-col items-start justify-end">
+                      <div className="flex w-full flex-col items-start">
+                        <SlideIn delay={0.3}>
+                          <div className="min-h-fit w-full pt-1 text-xl uppercase leading-3 tracking-wide text-zinc-200 opacity-60 xs:text-center md:text-left">
+                            Address
+                          </div>
+
+                          <div className="mt-2 w-full text-base leading-5 text-white xs:text-center md:text-left">
+                            <address className="leading-7">
+                              Kreutzigerstraße <br />
+                              Berlin Germany, 10245
+                            </address>
+                          </div>
+                        </SlideIn>
+                      </div>
+                      <SlideIn delay={0.3}>
+                        <div className="mt-8 flex grow flex-col max-md:w-full max-md:items-center">
+                          <div className="mb-1 w-full whitespace-nowrap text-xl uppercase leading-3 tracking-wide text-zinc-200 opacity-60 xs:text-center md:text-left">
+                            Opening hours
+                          </div>
+                          <div className="mt-2 w-full max-w-[111px] whitespace-nowrap text-center text-base leading-4 tracking-tight text-white xs:text-center md:text-left">
+                            9am—6pm (GMT)
+                          </div>
+                        </div>
+                      </SlideIn>
+                    </div>
+
+                    <div className="max-md:mx-auto">
+                      <SlideIn
+                        delay={0.3}
+                        className="mt-2 flex w-full max-w-full gap-2 max-md:justify-center xs:items-center md:items-start"
+                      >
+                        <div className="self-stretch text-base leading-4 text-white">
+                          Mo
+                        </div>
+                        <div className="my-auto flex h-px w-[60px] flex-col self-center bg-zinc-50 bg-opacity-20" />
+                        <div className="self-stretch text-base leading-4 text-white">
+                          Fr
+                        </div>
+                      </SlideIn>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Gutter>
+          )}
+        </motion.div>
       </nav>
     </header>
   )
