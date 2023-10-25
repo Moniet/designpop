@@ -76,7 +76,7 @@ const LandingPage = () => {
                       Get started
                     </div>
                   </button>
-                  <button onClick={() => scrollTo("#services")}>
+                  <button onClick={() => scrollTo("#how-it-works")}>
                     <div className="rounded-[5px] bg-[#F4F4F5] px-6 py-3 text-sm text-black">
                       How it works
                     </div>

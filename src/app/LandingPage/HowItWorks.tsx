@@ -45,7 +45,7 @@ const items = [
 
 const HowItWorks = () => {
   return (
-    <section id="services">
+    <section id="how-it-works">
       <Gutter>
         <div className="flex flex-col">
           <div>

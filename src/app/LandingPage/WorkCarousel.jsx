@@ -22,12 +22,12 @@ const Cursor = ({ showCursor, posX, posY }) => {
           }}
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          className="pointer-events-none fixed left-0 top-0 -ml-[50px] -mt-[50px] flex h-[100px] w-[100px] items-center justify-center rounded-full bg-neutral-800 text-sm font-light uppercase text-white max-md:hidden"
+          className="pointer-events-none fixed left-0 top-0 z-[1000000] -ml-[50px] -mt-[50px] flex h-[100px] w-[100px] items-center justify-center rounded-full bg-neutral-800 text-sm font-light uppercase text-white max-md:hidden"
           style={{
             position: "fixed",
             x: posX,
             y: posY,
-            zIndex: 1000,
+            zIndex: 1000000,
             transition: "transform ease-out 150ms",
           }}
         >

@@ -80,7 +80,7 @@ const CircleCursor = ({
     <>
       <motion.div
         className={
-          "delay-ease-out width-fit-content height-fit-content min-w-10 min-h-10 transform-origin-center pointer-events-none fixed left-0 top-0 z-[100000000]   transition-transform max-lg:hidden "
+          "delay-ease-out width-fit-content height-fit-content min-w-10 min-h-10 transform-origin-center pointer-events-none fixed left-0 top-0 z-[100000] transition-transform max-lg:hidden "
         }
         style={
           {
