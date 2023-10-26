@@ -18,7 +18,6 @@ export const SmoothScroll = ({ duration = 1, rootSelector = "#main" }) => {
     const setBodyHeight = () => {
       if (to) clearTimeout(to)
       to = setTimeout(() => {
-        console.log("resize")
         document.body.style.setProperty("height", root?.scrollHeight + "px")
       }, 100)
     }
@@ -31,7 +30,6 @@ export const SmoothScroll = ({ duration = 1, rootSelector = "#main" }) => {
 
     const handleScroll = (cntrl: AbortController) => () => {
       if (cntrl.signal.aborted) {
-        console.log("abort")
         return null
       }
 
