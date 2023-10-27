@@ -95,7 +95,7 @@ const CircleCursor = ({
       >
         <div
           className={
-            "w-max-content h-max-content transform-translate-x-[-50%] transform-translate-y-[-50%]"
+            "w-max-content h-max-content -translate-x-[50%] -translate-y-[50%]"
           }
         >
           <motion.div
