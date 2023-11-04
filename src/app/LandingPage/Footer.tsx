@@ -86,9 +86,9 @@ export default function Footer() {
                                     <div className="text-xs uppercase leading-3 tracking-wide text-zinc-300 opacity-60">
                                       Contact us
                                     </div>
-                                    <a href="mailto:hello@designpop.com">
+                                    <a href="mailto:hello@designpop.io">
                                       <div className="mt-2 text-sm leading-5 text-zinc-300 underline">
-                                        hello@designpop.com
+                                        hello@designpop.io
                                       </div>
                                     </a>
                                   </div>
