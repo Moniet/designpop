@@ -87,7 +87,7 @@ const PricingCard = ({
           </p>
           <p className="mt-5 h-[30px] text-sm text-[#6B7280]">{rateSummary}</p>
           <a
-            href="https://tally.so/r/merzWe"
+            href={ctaLink}
             className="my-5 w-full rounded bg-black px-3 py-2 text-center text-white"
           >
             {cta}
