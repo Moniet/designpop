@@ -123,13 +123,13 @@ const PricingCard = ({
 const pricingData = [
   {
     isMain: false,
-    title: "Basic",
-    rate: "$1950",
+    title: "Design",
+    rate: "$4950",
     rateSummary: "We deliver 3 pages at a time",
     summary: "Super fast design & code completion",
     cta: "Get started",
-    ctaLink: "https://tally.so/r/merzWe",
-    ratePeriod: "/page",
+    ctaLink: "https://tally.so/r/w4KK5r",
+    ratePeriod: "/month",
     tags: [
       "48hr design delivery",
       "Development within 1 week",
@@ -143,8 +143,8 @@ const pricingData = [
   },
   {
     isMain: true,
-    title: "Pro",
-    rate: "$6450",
+    title: "Development",
+    rate: "$4950",
     rateSummary: "Pause or cancel anytime",
     summary: "Two requests at a time",
     cta: "Get started",

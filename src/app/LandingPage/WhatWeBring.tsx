@@ -17,7 +17,7 @@ import { FaMoneyBill } from "react-icons/fa6"
 
 const data = [
   {
-    title: "Superfast Turnarounds",
+    title: "Super Fast Turnarounds",
     summary:
       "Time is of the essence. We value efficiency and strive for quick turnarounds without compromising on quality. Get your project off the ground and running in no time.",
     icon: <Zap />,
