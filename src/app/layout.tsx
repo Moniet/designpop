@@ -4,6 +4,7 @@ import { Nunito_Sans, Sora } from "next/font/google"
 import loadFont from "next/font/local"
 import Head from "next/head"
 import Nav from "./LandingPage/Nav"
+import Script from "next/script"
 
 const nunito = Nunito_Sans({
   subsets: ["latin"],
@@ -38,6 +39,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Script
+        defer
+        src="https://static.cloudflareinsights.com/beacon.min.js"
+        data-cf-beacon='{"token": "e0017098da724ebb8405569c3a9fb829"}'
+      />
       <body className={`${nunito.variable} ${roobert.variable}`}>
         {children}
       </body>
