@@ -42,8 +42,8 @@ const WorkItem = ({ tags, title, link }: any) => {
 const components = [
   {
     tags: ["UI/UX", "Development"],
-    title: "Filebloc: Digital Asset Management tool for Slack",
-    link: "https://filebloc.com",
+    title: "InstaApply: AI bot that speeds up job apps",
+    link: "https://instaapply.co",
   },
   {
     tags: ["A/B testing", "UI Design", "Full-Stack Development"],

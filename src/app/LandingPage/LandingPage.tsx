@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 import Nav from "./Nav"
 import BouncingText from "./BouncingText"
 import OurServices from "./OurServices"
@@ -25,6 +25,38 @@ import { useWindowSize } from "@uidotdev/usehooks"
 import useMedia from "@/hooks/useMedia"
 import Portal from "@/components/Portal"
 import CircleCursor from "@/components/GlobalCursor"
+import { createPortal } from "react-dom"
+import { AnimatePresence, motion, useMotionValue } from "framer-motion"
+
+const Cursor = ({ showCursor, posX, posY }: any) => {
+  if (!globalThis.window) return null
+
+  return createPortal(
+    <AnimatePresence>
+      {showCursor && (
+        <motion.div
+          aria-hidden="true"
+          exit={{
+            scale: 0,
+          }}
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          className="pointer-events-none fixed left-0 top-0 z-[1000000] -ml-[50px] -mt-[50px] flex h-[100px] w-[100px] items-center justify-center rounded-full bg-neutral-800 text-sm font-light uppercase text-white max-md:hidden"
+          style={{
+            position: "fixed",
+            x: posX,
+            y: posY,
+            zIndex: 1000000,
+            transition: "transform ease-out 150ms",
+          }}
+        >
+          Click
+        </motion.div>
+      )}
+    </AnimatePresence>,
+    document.body,
+  )
+}
 
 const RenderNav = () => {
   const isSmall = useMedia("(max-width: 768px)")
@@ -47,6 +79,26 @@ const LandingPage = () => {
     rootSelector: "#root",
   })
 
+  const posX = useMotionValue(0)
+  const posY = useMotionValue(0)
+  const [showCursor, setShowCursor] = useState(false)
+  const [mouseDown, setMouseDown] = useState(null)
+  const handlePointerDown = (e: any) => {
+    setMouseDown({
+      x: e.screenX,
+      y: e.screenY,
+    })
+  }
+
+  const handlePointerMove = (e: any) => {
+    posX.set(e.clientX)
+    posY.set(e.clientY)
+  }
+
+  const handlePointerUp = () => {
+    setShowCursor(false)
+  }
+
   return (
     <>
       <div
@@ -56,7 +108,12 @@ const LandingPage = () => {
         <RenderNav />
         <main id="main">
           <Gutter>
-            <div className="flex w-full  flex-col items-center justify-center pb-20 xs:mt-[50px]  xs:h-[50vh] xs:pt-32 md:mt-0 md:h-[50vh] md:pt-0">
+            <div
+              className="flex w-full flex-col items-center justify-center pb-20 xs:mt-[50px]  xs:h-[50vh] xs:pt-32 md:mt-0 md:h-[50vh] md:pt-0"
+              // onMouseLeave={() => handlePointerUp()}
+              // onMouseEnter={handlePointerDown}
+              // onPointerMove={handlePointerMove}
+            >
               <div className="max-w-[750px] text-center">
                 <h1 className="mb-8 select-none font-heading  text-black xs:text-4xl sm:text-4xl md:text-6xl">
                   <Balancer ratio={0.8}>
@@ -84,10 +141,11 @@ const LandingPage = () => {
                 </div>
               </div>
             </div>
+            {/* <Cursor showCursor={showCursor} posX={posX} posY={posY} /> */}
             <BouncingText />
           </Gutter>
           <div className="pt-20" />
-          <OurServices />
+          {/* <OurServices /> */}
           <DynamicDuoSection />
           <HowItWorks />
           <WhatWeBring />
@@ -99,7 +157,7 @@ const LandingPage = () => {
           />
           <WorkCarousel />
           <WorkList />
-          <TechStack />
+          {/* <TechStack /> */}
           <PricingSection />
           <FAQs />
           <ContactUs />
