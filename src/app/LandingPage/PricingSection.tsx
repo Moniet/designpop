@@ -6,6 +6,7 @@ import { Divider, SectionHeader } from "./Components"
 import { FaCircleCheck } from "react-icons/fa6"
 import FadeInOnView from "@/components/FadeInOnView"
 import { TrendingUp } from "lucide-react"
+import Balancer from "react-wrap-balancer"
 
 const TabItem = ({ setSelected, selectedId, id, label }: any) => {
   return (
@@ -190,9 +191,9 @@ const pricingData = [
 
 function Section() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-        <div className="rounded-lg border border-zinc-200 bg-white p-8 md:col-span-2">
+    <div className="mx-auto max-w-7xl text-black">
+      <div className="flex gap-8 max-md:flex-wrap">
+        <div className="md:flex-3 sm:flex-2 rounded-lg border border-zinc-200 bg-white p-8">
           <h2 className="font-heading text-2xl font-semibold">
             Subscription & Contracts
           </h2>
@@ -206,7 +207,7 @@ function Section() {
               What&#39;s included
             </h3>
             <div className="flex flex-wrap gap-10">
-              <div className="mt-4 space-y-2">
+              <div className="mt-4 space-y-2 text-black">
                 {/*
                   //     "48hr design delivery",
   //     "Responsive Design",
@@ -235,7 +236,7 @@ function Section() {
                   <span>Notion and Email Support</span>
                 </div>
               </div>
-              <div className="mt-4 space-y-2">
+              <div className="mt-4 space-y-2 text-black">
                 <div className="flex items-center">
                   <FaCircleCheck className="mr-2 text-black" size="15px" />
                   <span>Website Development</span>
@@ -260,7 +261,7 @@ function Section() {
             </div>
           </div>
         </div>
-        <div className="flex items-center justify-center rounded-lg border border-zinc-100 bg-white bg-zinc-100/30 p-8 shadow-lg">
+        <div className="flex min-w-[300px] items-center justify-center rounded-lg border border-zinc-100 bg-white bg-zinc-100/30 p-8 shadow-lg sm:flex-1 md:flex-auto">
           <div className="flex flex-col gap-2 text-center">
             <h3 className="font-heading text-lg font-semibold text-gray-700">
               Learn how we can help
@@ -274,8 +275,10 @@ function Section() {
               <span>Get started</span>
             </a>
             <p className="mt-4 text-sm text-gray-600">
-              Select one of our subscriptions or set you own budget and we&#39;
-              get right back to you
+              <Balancer>
+                Select one of our subscriptions or set you own budget and
+                we&#39; get right back to you
+              </Balancer>
             </p>
           </div>
         </div>
