@@ -33,9 +33,13 @@ const animate = () => {
   var runner = Runner.create()
   Runner.run(runner, engine)
 
+  const { height, top } = document
+    .querySelector("#hero")
+    .getBoundingClientRect()
+
   var ground = Bodies.rectangle(
     window.innerWidth / 2 + 160,
-    window.innerHeight + 80,
+    height + top,
     window.innerWidth + 320,
     160,
     { render: { visible: false }, isStatic: true },

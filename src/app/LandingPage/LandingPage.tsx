@@ -107,38 +107,39 @@ const LandingPage = () => {
       >
         <RenderNav />
         <main id="main">
-          <Gutter>
-            <div className="flex w-full flex-col items-center justify-center pb-20  xs:mt-[50px] xs:h-[50vh] xs:pt-32 md:mt-7 md:h-[50vh] md:pt-0">
-              <div className="max-w-[750px] text-center">
-                <h1 className="mb-8 select-none font-heading font-bold text-black xs:text-4xl sm:text-4xl md:text-6xl">
-                  <Balancer ratio={0.8}>
-                    Impactful websites delivered lightning fast
-                  </Balancer>
-                </h1>
-                <p className="md:text-md mx-auto max-w-[600px] select-none font-light leading-8 text-[#525252]  max-sm:text-[0.875rem]">
-                  <Balancer ratio={0.8}>
-                    DesignPop, your go-to design and development agency offering
-                    unbeatable web design and development services through
-                    convenient subscription plans.
-                  </Balancer>
-                </p>
-                <div className="mt-8 flex justify-center gap-4">
-                  <button onClick={() => scrollTo("#services")}>
-                    <div className="rounded-[5px] bg-black px-6 py-3 text-sm text-white">
-                      Get started
-                    </div>
-                  </button>
-                  <button onClick={() => scrollTo("#how-it-works")}>
-                    <div className="rounded-[5px] bg-[#F4F4F5] px-6 py-3 text-sm text-black">
-                      How it works
-                    </div>
-                  </button>
+          <div id="hero">
+            <Gutter>
+              <div className="flex h-screen w-full flex-col items-center  justify-center pb-20 xs:mt-[50px] xs:h-[50vh] xs:pt-32 md:mt-7 md:h-[50vh] md:pt-0">
+                <div className="max-w-[750px] text-center">
+                  <h1 className="mb-8 select-none font-heading font-bold text-black xs:text-4xl sm:text-4xl md:text-6xl">
+                    <Balancer ratio={0.8}>
+                      Impactful websites delivered lightning fast
+                    </Balancer>
+                  </h1>
+                  <p className="md:text-md mx-auto max-w-[600px] select-none font-light leading-8 text-[#525252]  max-sm:text-[0.875rem]">
+                    <Balancer ratio={0.8}>
+                      DesignPop, your go-to design and development agency
+                      offering unbeatable web design and development services
+                      through convenient subscription plans.
+                    </Balancer>
+                  </p>
+                  <div className="mt-8 flex justify-center gap-4">
+                    <button onClick={() => scrollTo("#services")}>
+                      <div className="rounded-[5px] bg-black px-6 py-3 text-sm text-white">
+                        Get started
+                      </div>
+                    </button>
+                    <button onClick={() => scrollTo("#how-it-works")}>
+                      <div className="rounded-[5px] bg-[#F4F4F5] px-6 py-3 text-sm text-black">
+                        How it works
+                      </div>
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-            <BouncingText />
-          </Gutter>
-          <div className="pt-20" />
+              <BouncingText />
+            </Gutter>
+          </div>
           {/* <OurServices /> */}
           <DynamicDuoSection />
           <HowItWorks />

@@ -21,8 +21,6 @@ const GravityText = forwardRef(
   ({ startX, startY, children, className, index, angle }, ref) => {
     useEffect(() => {}, [startX, startY, ref.current]) // eslint-disable-line
 
-    
-
     return (
       <div
         ref={ref}
@@ -59,7 +57,7 @@ const BouncingText = () => {
   return (
     <>
       <div
-        className="absolute left-0 top-0 -z-[1] h-screen w-full max-w-full"
+        className="absolute left-0 top-[80px] -z-[1] h-screen w-full max-w-full"
         ref={ref}
         id="debug"
       ></div>
