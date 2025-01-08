@@ -1,0 +1,4 @@
+.scroll::-webkit-scrollbar {
+  height: 5px;
+  background: @apply bg-zinc-50;
+}
