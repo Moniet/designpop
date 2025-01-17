@@ -5,18 +5,15 @@ const BlurInOnView = ({
   children,
   className,
   delay = 0,
-  threshold = 0.6
+  threshold = 0.6,
+  once = false
 }: {
   children: React.ReactNode
   delay?: number
   threshold?: number
   className?: string
+  once?: boolean
 }) => {
-  const { ref, inView } = useInView({
-    threshold,
-    root: globalThis?.window?.document
-  })
-
   const variants = {
     visible: {
       opacity: 1,
@@ -28,11 +25,14 @@ const BlurInOnView = ({
 
   return (
     <motion.div
-      ref={ref}
       variants={variants}
       initial="hidden"
       className={className}
-      animate={inView ? "visible" : "hidden"}
+      whileInView={"visible"}
+      viewport={{
+        once,
+        amount: threshold ?? "some"
+      }}
     >
       {children}
     </motion.div>

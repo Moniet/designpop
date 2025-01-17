@@ -23,7 +23,7 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--manrope), Helvetica, Arial, sans-serif;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.02rem;
 }
 
 .headline {
