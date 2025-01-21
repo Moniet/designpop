@@ -1,12 +1,12 @@
-import React from "react";
-import Accordion from "./Accordion";
-import { FaStripe } from "react-icons/fa";
+import React from "react"
+import Accordion from "./Accordion"
+import { FaStripe } from "react-icons/fa"
 
 const FAQs = () => {
   return (
     <section id="faqs">
       <div className="pb-8">
-        <h2 className="text-2xl sm:text-3xl xl:text-4xl text-center mt-5 font-semibold mb-16">
+        <h2 className="text-3xl xl:text-4xl text-center mt-5 font-semibold mb-16 [text-wrap:balance]">
           Got Questions? We&#39;ve Got Answers
         </h2>
         <div className="space-y-4">
@@ -61,10 +61,10 @@ const FAQs = () => {
           </Accordion>{" "}
           <Accordion title="Will I receive regular updates?">
             {" "}
-            <p className="text-sm md:text-base">
+            <p className="text-base">
               Yes! For web & mobile apps, we will provide live previews where
               you can view the updates as we make changes. We are also punctual
-              with publishing our progress on Trello & Slack to keep you
+              with publishing our progress on Notion & Slack to keep you
               informed throughout the process.
             </p>
           </Accordion>
@@ -110,7 +110,7 @@ const FAQs = () => {
               <li className="ml-4">Mobile-responsive layouts</li>
               <li className="ml-4">2 rounds of revisions</li>
               <li className="ml-4">Complete Figma file</li>
-              <li className="ml-4">Convert to Framer: $499+ (optional)</li>
+              <li className="ml-4">Convert to Framer: +$499 (optional)</li>
             </ul>
           </Accordion>{" "}
           <Accordion title="What's your payment structure?">
@@ -131,7 +131,7 @@ const FAQs = () => {
                     href="https://stripe.com"
                     className="h-1 inline-block overflow-visible"
                   >
-                    <FaStripe className="text-purple-500 text-2xl md:text-4xl  inline-block ml-1 skew-x-5" />
+                    <FaStripe className="text-purple-500 text-3xl md:text-4xl  inline-block sm:ml-1 skew-x-5" />
                     .
                   </a>
                 </p>
@@ -166,10 +166,23 @@ const FAQs = () => {
           </Accordion>{" "}
           <Accordion title="How do we get started?">
             {" "}
-            The process is simple: 1. Schedule a consultation 2. Receive a
-            proposal 3. Sign contract 4. Make initial payment 5. Begin project
-            We can typically start: - Landing Pages: Within 24-48 hours - MVPs:
-            Within one week of contract signing
+            <p>
+              <b>The process is simple:</b>
+            </p>
+            <ol className="list-decimal pl-5">
+              <li>Schedule a consultation</li>
+              <li>Receive a proposal</li>
+              <li>Sign contract</li>
+              <li>Make initial payment (50% upfront)</li>
+              <li>Begin project</li>
+            </ol>
+            <p className="mt-5">
+              <b>We can typically start:</b>
+            </p>
+            <ul className="list-disc pl-5">
+              <li>Landing Pages: Within 24-48 hours</li>
+              <li>MVPs: Within one week of contract signing</li>
+            </ul>
           </Accordion>{" "}
           <Accordion title="Do I own the source code?">
             {" "}
@@ -187,7 +200,7 @@ const FAQs = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default FAQs;
+export default FAQs

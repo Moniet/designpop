@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@calcom/embed-react':
+        specifier: ^1.5.2
+        version: 1.5.2(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)
       lenis:
         specifier: ^1.1.18
         version: 1.1.18(react@19.0.0-rc-66855b96-20241106)
@@ -38,6 +41,9 @@ importers:
       react-icons:
         specifier: ^5.4.0
         version: 5.4.0(react@19.0.0-rc-66855b96-20241106)
+      react-noise:
+        specifier: ^0.2.11
+        version: 0.2.11(react@19.0.0-rc-66855b96-20241106)
     devDependencies:
       '@types/lodash':
         specifier: ^4.17.13
@@ -72,6 +78,18 @@ packages:
   '@alloc/quick-lru@5.2.0':
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
     engines: {node: '>=10'}
+
+  '@calcom/embed-core@1.5.2':
+    resolution: {integrity: sha512-y1mpVDfcaVdLJ/CN17c7N2SyJAMiM3u9NYvL5mWFDBe4aa5HLTDc5g/DBbO2oCq859W3bxs11voC/E3KkJH3Iw==}
+
+  '@calcom/embed-react@1.5.2':
+    resolution: {integrity: sha512-DgY3RySiXOrbIVX1LiV/ucKilG+TkvqhP4/0nLlKPLOlk642cSO30xSu4nOmVgR60FLqMyp7Vlg/Xd6J5ijETg==}
+    peerDependencies:
+      react: ^18.2.0
+      react-dom: ^18.2.0
+
+  '@calcom/embed-snippet@1.3.2':
+    resolution: {integrity: sha512-EmW/ZjaQD0HjLI8yFNA5Mtb8zCOQQnj9RhChujuMijUK8EVyE1KtU9t3xIxm1hBMNHr4R1qMaBo2QYaZqQhzsw==}
 
   '@emnapi/runtime@1.3.1':
     resolution: {integrity: sha512-kEBmG8KyqtxJZv+ygbEim+KCGtIq1fC22Ms3S4ziXmYKm8uyoLX0MHONVKwp+9opg390VaKRNt4a7A9NwmpNhw==}
@@ -1439,6 +1457,11 @@ packages:
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
+  react-noise@0.2.11:
+    resolution: {integrity: sha512-itnC74VudXE1lIjLnQ44uocbX0NQC+SEnGCqJoTiHk8p0qCXPa5V4R7caofXYPQezViXQgymEiU9K8dRWHTTkw==}
+    peerDependencies:
+      react: '>=18'
+
   react@19.0.0-rc-66855b96-20241106:
     resolution: {integrity: sha512-klH7xkT71SxRCx4hb1hly5FJB21Hz0ACyxbXYAECEqssUjtJeFUAaI2U1DgJAzkGEnvEm3DkxuBchMC/9K4ipg==}
     engines: {node: '>=0.10.0'}
@@ -1742,6 +1765,19 @@ packages:
 snapshots:
 
   '@alloc/quick-lru@5.2.0': {}
+
+  '@calcom/embed-core@1.5.2': {}
+
+  '@calcom/embed-react@1.5.2(react-dom@19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106))(react@19.0.0-rc-66855b96-20241106)':
+    dependencies:
+      '@calcom/embed-core': 1.5.2
+      '@calcom/embed-snippet': 1.3.2
+      react: 19.0.0-rc-66855b96-20241106
+      react-dom: 19.0.0-rc-66855b96-20241106(react@19.0.0-rc-66855b96-20241106)
+
+  '@calcom/embed-snippet@1.3.2':
+    dependencies:
+      '@calcom/embed-core': 1.5.2
 
   '@emnapi/runtime@1.3.1':
     dependencies:
@@ -3212,6 +3248,10 @@ snapshots:
       react: 19.0.0-rc-66855b96-20241106
 
   react-is@16.13.1: {}
+
+  react-noise@0.2.11(react@19.0.0-rc-66855b96-20241106):
+    dependencies:
+      react: 19.0.0-rc-66855b96-20241106
 
   react@19.0.0-rc-66855b96-20241106: {}
 

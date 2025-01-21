@@ -2,15 +2,15 @@
 
 /* eslint-disable @next/next/no-img-element */
 import Cal, { getCalApi } from "@calcom/embed-react"
-import {
-  ArrowRight,
-  LucidePhoneCall,
-  LucideRocket,
-  LucideSend,
-  LucideX
-} from "lucide-react"
+import { ArrowRight, LucidePhoneCall, LucideSend } from "lucide-react"
 import Carousel from "./Landing/Carousel"
-import { AnimatePresence, motion, useScroll, useTransform } from "motion/react"
+import {
+  AnimatePresence,
+  motion,
+  transform,
+  useScroll,
+  useTransform
+} from "motion/react"
 import Testimonials from "./Landing/Testimonials"
 import Image from "next/image"
 import { ReactLenis } from "lenis/react"
@@ -22,7 +22,9 @@ import Pricing from "./Landing/Pricing"
 import { useRef } from "react"
 import FAQs from "./Landing/FAQs"
 import CustomCursor from "./Landing/CustomCursor"
-import { Noise, NoiseContent } from "react-noise"
+import HeroStackedCards from "./Landing/HeroStackedCards"
+import Switch from "./Landing/Switch"
+import WorkWithoutUsCards from "./Landing/WorkWithoutUsCards"
 
 const RevealText = () => {
   const containerRef = useRef(null)
@@ -35,7 +37,7 @@ const RevealText = () => {
 
   // Split text into individual words
   const line1 = "We are a results-driven team".split(" ")
-  const line2 = "building top-notch digital experiences".split(" ")
+  const line2 = "building high quality digital experiences".split(" ")
   const line3 = "to ensure your product stands out".split(" ")
 
   // Helper function to create word elements
@@ -74,7 +76,7 @@ const RevealText = () => {
   return (
     <h2
       ref={containerRef}
-      className="text-2xl sm:text-4xl xl:text-5xl mb-10 font-semibold leading-[1.25] max-w-[1000px] [text-wrap:balance]"
+      className="-tracking-[0.1rem] text-3xl sm:text-4xl xl:text-5xl mb-10 font-semibold leading-[1.25] max-w-[1000px] [text-wrap:balance]"
     >
       {/* First Line */}
       {createWordSpans(line1, 0, 0.33)}
@@ -122,7 +124,9 @@ const RollingText = ({ allText = [""], className = "" }) => {
         ? setTimeout(() => {
             setIndex(index === allText.length - 1 ? 0 : index + 1)
           }, 3000)
-        : setTimeout(() => {}, 100)
+        : setTimeout(() => {
+            setIndex(0)
+          }, 100)
 
     return () => {
       if (timeout) clearInterval(timeout)
@@ -159,6 +163,26 @@ export default function Home() {
       cal("ui", { hideEventTypeDetails: true, layout: "month_view" })
     })()
   }, [])
+
+  const [isChecked, setIsChecked] = useState(true)
+  const [toggleOffCards, setToggleOffCards] = useState(false)
+  const to = useRef<NodeJS.Timeout>()
+
+  useEffect(() => {
+    if (!isChecked) {
+      to.current = setTimeout(() => {
+        setToggleOffCards(true)
+      }, 500)
+    } else {
+      if (to.current) clearTimeout(to.current)
+      setToggleOffCards(false)
+    }
+
+    return () => {
+      if (to.current) clearTimeout(to.current)
+    }
+  }, [isChecked])
+
   return (
     <ReactLenis root>
       <div className="max-w-screen">
@@ -216,229 +240,218 @@ export default function Home() {
             >
               FAQ
             </button>
-            <a
-              className="whitespace-nowrap p-1 sm:p-2 px-4 sm:px-5 ml-2 sm:ml-12 bg-white text-[rgb(23_23_23)] rounded-full flex items-center justify-center gap-1"
+            <button
+              className="whitespace-nowrap p-1 sm:p-2 px-4 sm:px-5 ml-2 sm:ml-8 bg-white text-[rgb(23_23_23)] rounded-full flex items-center justify-center gap-1"
               aria-label="Scroll to Book a 30min call"
+              onClick={() => scrollTo("book-a-call")}
             >
               <LucidePhoneCall className="size-4 mr-2 ml-1 -mb-[2px] max-[425px]:hidden" />
               Book A Call
-            </a>
+            </button>
           </motion.nav>
         </header>
         <main>
-          <div className="p-2 sm:px-4 lg:pt-0 relative">
-            <section className="p-4 lg:p-6 bg-[#f6f6f6] rounded-[20px] border border-[#e9e9e9] sm:mt-2 lg:mt-5 h-fit min-h-fit max-sm:h-[80vh] lg:h-[calc(100vh-4.5rem)] max-w-[1600px] mx-auto relative flex flex-col max-md:justify-center">
-              <svg
-                className="w-[100px] xl:w-[150px] absolute top-8 sm:top-10 lg:top-12 left-8 sm:left-1/2 sm:-translate-x-1/2 hidden"
-                viewBox="0 0 98 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M22.8122 14.1247C21.9421 14.1247 21.1963 13.9326 20.5748 13.5484C19.9646 13.1642 19.4956 12.6388 19.1679 11.9721C18.8515 11.3054 18.6933 10.5539 18.6933 9.71774C18.6933 8.88154 18.8515 8.13009 19.1679 7.46339C19.4956 6.79668 19.9646 6.27123 20.5748 5.88704C21.1963 5.50284 21.9421 5.31073 22.8122 5.31073C23.4111 5.31073 23.9648 5.45198 24.4733 5.73449C24.9931 6.01699 25.3829 6.38424 25.6428 6.83624V1.93768H26.9988V13.9891H25.6428V12.5823C25.3829 13.0456 24.9931 13.4185 24.4733 13.701C23.9648 13.9835 23.4111 14.1247 22.8122 14.1247ZM22.9308 12.9043C23.4958 12.9043 23.9874 12.7744 24.4055 12.5145C24.8349 12.2546 25.1682 11.8817 25.4055 11.3958C25.6428 10.9099 25.7615 10.3505 25.7615 9.71774C25.7615 8.74594 25.5016 7.97188 24.9818 7.39558C24.4733 6.81928 23.7896 6.53113 22.9308 6.53113C22.3658 6.53113 21.8686 6.66108 21.4392 6.92098C21.0098 7.18089 20.6765 7.55379 20.4392 8.03969C20.2132 8.52559 20.1002 9.08494 20.1002 9.71774C20.1002 10.6895 20.3544 11.4636 20.8629 12.0399C21.3827 12.6162 22.072 12.9043 22.9308 12.9043ZM32.8703 14.1247C32.0567 14.1247 31.3278 13.927 30.6838 13.5315C30.0396 13.136 29.5368 12.5992 29.1752 11.9212C28.8249 11.2319 28.6497 10.4805 28.6497 9.66689C28.6497 8.83069 28.8136 8.08489 29.1413 7.42949C29.4803 6.76279 29.9549 6.24299 30.5651 5.87008C31.1866 5.49718 31.9042 5.31073 32.7178 5.31073C33.5314 5.31073 34.2376 5.48588 34.8365 5.83618C35.4354 6.17518 35.8931 6.64978 36.2095 7.25999C36.5372 7.87019 36.701 8.55384 36.701 9.31094C36.6897 9.50304 36.6784 9.70644 36.6671 9.92114H29.4294V8.81939H35.3111C35.2546 8.09619 34.9947 7.52554 34.5314 7.10744C34.0794 6.67803 33.4749 6.46333 32.7178 6.46333C32.1528 6.46333 31.6668 6.58763 31.26 6.83624C30.8532 7.08484 30.5368 7.45209 30.3108 7.93799C30.0961 8.41259 29.9888 8.98324 29.9888 9.64994C29.9888 10.2714 30.1131 10.8308 30.3617 11.328C30.6103 11.8252 30.9549 12.215 31.3956 12.4975C31.8364 12.78 32.3279 12.9213 32.8703 12.9213C33.5596 12.9213 34.119 12.78 34.5484 12.4975C34.9778 12.2037 35.2603 11.7856 35.3959 11.2432H36.7858C36.6954 11.8195 36.4694 12.328 36.1078 12.7687C35.7575 13.1981 35.3055 13.5315 34.7518 13.7688C34.1981 14.0061 33.5709 14.1247 32.8703 14.1247ZM41.1677 14.1247C40.5123 14.1247 39.936 14.0117 39.4388 13.7857C38.9416 13.5484 38.5461 13.2151 38.2523 12.7857C37.9698 12.3563 37.806 11.8421 37.7608 11.2432H39.0659C39.1224 11.7969 39.3315 12.2207 39.6931 12.5145C40.0547 12.797 40.5462 12.9382 41.1677 12.9382C41.6875 12.9382 42.1113 12.8139 42.439 12.5653C42.778 12.3167 42.9475 12.0116 42.9475 11.65C42.9475 11.2884 42.8514 11.0116 42.6593 10.8195C42.4785 10.6161 42.2469 10.4748 41.9644 10.3957C41.6932 10.3166 41.309 10.2432 40.8118 10.1754C40.2129 10.085 39.7213 9.97764 39.3371 9.85334C38.9642 9.71774 38.6422 9.48609 38.371 9.15839C38.1111 8.81939 37.9811 8.33914 37.9811 7.71764C37.9811 7.23174 38.1054 6.80799 38.354 6.44639C38.6139 6.08478 38.9699 5.80793 39.4219 5.61584C39.8739 5.41243 40.3993 5.31073 40.9982 5.31073C41.6197 5.31073 42.1678 5.41808 42.6424 5.63278C43.1283 5.84748 43.5068 6.15258 43.778 6.54809C44.0605 6.94359 44.2187 7.40124 44.2526 7.92104H42.9475C42.891 7.43514 42.6593 7.07354 42.2525 6.83624C41.857 6.58763 41.4276 6.46333 40.9643 6.46333C40.4671 6.46333 40.066 6.57633 39.7609 6.80233C39.4671 7.01703 39.3202 7.31084 39.3202 7.68374C39.3202 8.00014 39.4049 8.24309 39.5744 8.41259C39.7552 8.58209 39.9699 8.70074 40.2185 8.76854C40.4784 8.83634 40.8457 8.90414 41.3203 8.97194C41.9531 9.06234 42.4672 9.17534 42.8627 9.31094C43.2582 9.43524 43.5972 9.67819 43.8797 10.0398C44.1735 10.4014 44.3204 10.9268 44.3204 11.6161C44.3204 12.1133 44.1905 12.554 43.9306 12.9382C43.6707 13.3224 43.2978 13.6162 42.8119 13.8196C42.3373 14.023 41.7892 14.1247 41.1677 14.1247ZM45.9785 5.44634H47.3345V13.9891H45.9785V5.44634ZM47.4362 1.93768V3.83608H45.8768V1.93768H47.4362ZM50.138 16.2774H54.0873C54.6297 16.2774 55.0761 16.0909 55.4264 15.718C55.788 15.3451 55.9688 14.8762 55.9688 14.3112V12.8026C55.7767 13.1981 55.4151 13.5202 54.884 13.7688C54.3642 14.0061 53.7822 14.1247 53.1381 14.1247C52.268 14.1247 51.5222 13.9326 50.9007 13.5484C50.2905 13.1642 49.8216 12.6388 49.4939 11.9721C49.1775 11.3054 49.0193 10.5539 49.0193 9.71774C49.0193 8.88154 49.1775 8.13009 49.4939 7.46339C49.8216 6.79668 50.2905 6.27123 50.9007 5.88704C51.5222 5.50284 52.268 5.31073 53.1381 5.31073C53.7144 5.31073 54.2625 5.44068 54.7823 5.70058C55.3021 5.96049 55.6976 6.29384 55.9688 6.70064V5.44634H57.3248V14.362C57.3248 14.9609 57.1892 15.492 56.918 15.9553C56.6581 16.4299 56.2852 16.7972 55.7993 17.0571C55.3247 17.317 54.7823 17.4469 54.1721 17.4469H50.138V16.2774ZM53.2568 12.9043C53.8218 12.9043 54.3133 12.7744 54.7314 12.5145C55.1608 12.2546 55.4942 11.8817 55.7315 11.3958C55.9688 10.9099 56.0874 10.3505 56.0874 9.71774C56.0874 8.74594 55.8275 7.97188 55.3077 7.39558C54.7992 6.81928 54.1156 6.53113 53.2568 6.53113C52.6918 6.53113 52.1946 6.66108 51.7652 6.92098C51.3358 7.18089 51.0024 7.55379 50.7651 8.03969C50.5391 8.52559 50.4261 9.08494 50.4261 9.71774C50.4261 10.6895 50.6804 11.4636 51.1889 12.0399C51.7087 12.6162 52.398 12.9043 53.2568 12.9043ZM59.5689 5.44634H60.9249V7.09049C61.1509 6.50289 61.5069 6.06219 61.9928 5.76839C62.49 5.46329 63.0776 5.31073 63.7556 5.31073C64.3884 5.31073 64.9421 5.45763 65.4167 5.75143C65.9026 6.03393 66.2755 6.43508 66.5354 6.95489C66.8066 7.47469 66.9422 8.07924 66.9422 8.76854V13.9891H65.5692V8.98889C65.5692 8.25439 65.3771 7.66679 64.9929 7.22609C64.6087 6.77409 64.0946 6.54809 63.4505 6.54809C62.9646 6.54809 62.5295 6.67239 62.1453 6.92098C61.7611 7.15828 61.4617 7.49164 61.247 7.92104C61.0323 8.35044 60.9249 8.83634 60.9249 9.37874V13.9891H59.5689V5.44634ZM69.0623 5.44634H70.4183V6.85318C70.6782 6.38989 71.068 6.01699 71.5878 5.73449C72.1076 5.45198 72.6726 5.31073 73.2828 5.31073C74.1416 5.31073 74.8761 5.50284 75.4863 5.88704C76.1078 6.27123 76.5768 6.79668 76.8932 7.46339C77.2209 8.13009 77.3847 8.88154 77.3847 9.71774C77.3847 10.5539 77.2209 11.3054 76.8932 11.9721C76.5655 12.6388 76.0909 13.1642 75.4694 13.5484C74.8479 13.9326 74.1021 14.1247 73.232 14.1247C72.6444 14.1247 72.0907 13.9891 71.5709 13.7179C71.0624 13.4354 70.6782 13.0682 70.4183 12.6162V17.4469H69.0623V5.44634ZM73.1472 12.9043C73.7122 12.9043 74.2038 12.7744 74.6219 12.5145C75.0513 12.2546 75.3846 11.8817 75.6219 11.3958C75.8592 10.9099 75.9779 10.3505 75.9779 9.71774C75.9779 8.74594 75.718 7.97188 75.1982 7.39558C74.6897 6.81928 74.0004 6.53113 73.1303 6.53113C72.5653 6.53113 72.0681 6.66108 71.6387 6.92098C71.2206 7.18089 70.8929 7.55379 70.6556 8.03969C70.4183 8.52559 70.2996 9.08494 70.2996 9.71774C70.2996 10.6895 70.5539 11.4636 71.0624 12.0399C71.5822 12.6162 72.2771 12.9043 73.1472 12.9043ZM82.7816 14.1247C81.9567 14.1247 81.2109 13.9383 80.5442 13.5654C79.8775 13.1812 79.3577 12.6557 78.9848 11.989C78.6232 11.3223 78.4424 10.5652 78.4424 9.71774C78.4424 8.87024 78.6232 8.11314 78.9848 7.44644C79.3577 6.77974 79.8775 6.25994 80.5442 5.88704C81.2109 5.50284 81.9567 5.31073 82.7816 5.31073C83.6178 5.31073 84.3636 5.50284 85.019 5.88704C85.6857 6.25994 86.2055 6.77974 86.5784 7.44644C86.9513 8.11314 87.1377 8.87024 87.1377 9.71774C87.1377 10.5652 86.9513 11.3223 86.5784 11.989C86.2055 12.6557 85.6857 13.1812 85.019 13.5654C84.3636 13.9383 83.6178 14.1247 82.7816 14.1247ZM82.7816 12.9043C83.3579 12.9043 83.872 12.7687 84.324 12.4975C84.776 12.2263 85.1207 11.8478 85.358 11.3619C85.6066 10.876 85.7309 10.3279 85.7309 9.71774C85.7309 9.10754 85.6066 8.55949 85.358 8.07359C85.1207 7.58769 84.776 7.20914 84.324 6.93794C83.872 6.66674 83.3579 6.53113 82.7816 6.53113C82.2053 6.53113 81.6911 6.66674 81.2391 6.93794C80.7984 7.20914 80.4538 7.58769 80.2052 8.07359C79.9566 8.55949 79.8323 9.10754 79.8323 9.71774C79.8323 10.3279 79.9566 10.876 80.2052 11.3619C80.4538 11.8478 80.7984 12.2263 81.2391 12.4975C81.6911 12.7687 82.2053 12.9043 82.7816 12.9043ZM88.7772 5.44634H90.1332V6.85318C90.3931 6.38989 90.783 6.01699 91.3028 5.73449C91.8226 5.45198 92.3876 5.31073 92.9978 5.31073C93.8566 5.31073 94.5911 5.50284 95.2013 5.88704C95.8228 6.27123 96.2917 6.79668 96.6081 7.46339C96.9358 8.13009 97.0997 8.88154 97.0997 9.71774C97.0997 10.5539 96.9358 11.3054 96.6081 11.9721C96.2804 12.6388 95.8058 13.1642 95.1843 13.5484C94.5628 13.9326 93.817 14.1247 92.9469 14.1247C92.3593 14.1247 91.8056 13.9891 91.2858 13.7179C90.7773 13.4354 90.3931 13.0682 90.1332 12.6162V17.4469H88.7772V5.44634ZM92.8622 12.9043C93.4272 12.9043 93.9187 12.7744 94.3368 12.5145C94.7662 12.2546 95.0996 11.8817 95.3369 11.3958C95.5742 10.9099 95.6928 10.3505 95.6928 9.71774C95.6928 8.74594 95.4329 7.97188 94.9131 7.39558C94.4046 6.81928 93.7153 6.53113 92.8452 6.53113C92.2802 6.53113 91.783 6.66108 91.3536 6.92098C90.9355 7.18089 90.6078 7.55379 90.3705 8.03969C90.1332 8.52559 90.0146 9.08494 90.0146 9.71774C90.0146 10.6895 90.2688 11.4636 90.7773 12.0399C91.2971 12.6162 91.9921 12.9043 92.8622 12.9043Z"
-                  fill="#1F1F1F"
-                />
-                <circle
-                  cx="7.21045"
-                  cy="9.91345"
-                  r="6.771"
-                  fill="rgb(41,42,255)"
-                />
-                <circle cx="8.89357" cy="8.23061" r="2.57228" fill="white" />
-              </svg>
-              <div className="w-full bg-white rounded-[15px] flex flex-col py-10 pt-16 sm:py-16 lg:mt-0 flex-1 px-5 xl:px-16 justify-center">
-                {/* <div className="mt-24" /> */}
-
-                <div className="flex flex-col-reverse">
-                  <motion.div
-                    // style={{ display: "none" }}
-                    className="flex gap-3 items-center"
+          <div className="p-2 sm:px-4 lg:pt-0 relative max-w-screen overflow-hidden">
+            <section className="rounded-[20px] border border-[#e9e9e9] p-2 sm:p-4 bg-[#f9f9f9] sm:mt-2 lg:mt-5 h-fit min-h-fit max-sm:h-fit lg:h-[calc(100vh-2.5rem)] max-w-[1500px] mx-auto relative flex max-md:justify-center sm:max-lg:max-h-[900px]">
+              <div className="w-full bg-white h-full rounded-[15px] flex max-lg:flex-col max-lg: sm:gap-28 lg:gap-20 sm:max-lg:pb-28 py-10 pt-16 sm:py-16 lg:mt-0 px-5 sm:px-12 lg:px-16 items-center justify-between">
+                <div className="flex-1 flex flex-col h-full justify-center relative z-10">
+                  {/* <h2 className="text-sm sm:text-sm lg:text-base mb-5 bg-[#f9f9f9] w-fit p-2 px-5 rounded-full hidden">
+                    <span className="font-semibold">Sana & Moniet</span>:
+                    Product Designer, Full-Stack Developer
+                  </h2> */}
+                  <motion.h1
                     initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
                     animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                    layout
                     transition={{
                       duration: 3,
-                      type: "spring"
+                      type: "spring",
+                      delay: 0.2
                     }}
+                    className="text-zinc-950 text-3xl sm:text-4xl xl:text-5xl !leading-[1.25] font-semibold cursor-default -tracking-[0.05rem] sm:-tracking-[0.1rem]"
                   >
-                    <div className="flex select-none">
-                      <div className="sm:size-[45px] size-[35px] rounded-full overflow-hidden">
-                        <img
-                          alt=""
-                          src="/img/sana.png"
-                          className="pointer-events-none size-full object-cover saturate-0 relative"
-                        />
-                      </div>
-                      <div className="sm:size-[45px] size-[35px] -ml-[8px] rounded-full overflow-hidden ring-4 ring-white z-1">
-                        <img
-                          alt=""
-                          src="/img/moniet.png"
-                          className="pointer-events-none size-full object-cover z-2 relative"
-                        />
-                      </div>
-                    </div>
-                    <div className="relative w-full flex">
-                      <div className="flex flex-col justify-center">
-                        <h2 className="text-sm sm:text-base lg:text-lg font-semibold">
-                          Sana & Moniet
-                        </h2>
-                        <p className="text-[#171717]/60 text-xs sm:text-sm font-semibold">
-                          Product Design, Full-Stack Development
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-
-                <motion.h1
-                  initial={{ y: 20, opacity: 0, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  layout
-                  transition={{
-                    duration: 3,
-                    type: "spring",
-                    delay: 0.2
-                  }}
-                  className="text-zinc-950 text-2xl sm:text-4xl lg:text-5xl xl:text-6xl mt-12 lg:mt-10 leading-[1.5] font-semibold cursor-default -tracking-[0.1rem]"
-                >
-                  <motion.span
-                    layout
-                    className="inline-block align-baseline whitespace-nowrap"
-                  >
-                    In 2 weeks, launch your{" "}
-                    <RollingText
-                      allText={[
-                        "MVP.",
-                        "AI App.",
-                        "Web App.",
-                        "Website.",
-                        "Mobile-App.",
-                        "CMS Site.",
-                        "Extension.",
-                        "Desktop App."
-                      ]}
-                      className="text-zinc-900 min-[425px]:text-zinc-400 whitespace-nowrap max-sm:text-2xl max-sm:font-medium"
-                    />
-                  </motion.span>{" "}
-                  <br />
-                  <motion.span layout="position">
-                    We help startups turn their ideas
-                  </motion.span>
-                  <br className="max-sm:hidden" />
-                  <motion.span layout="position" className="max-sm:ml-1">
-                    into world-class apps
-                  </motion.span>
-                  {/* Helping <span className="text-zinc-500">startups</span> launch
+                    <motion.span
+                      layout
+                      className="inline-block align-baseline whitespace-nowrap"
+                    >
+                      We build top-notch{" "}
+                      <RollingText
+                        allText={[
+                          "MVPs",
+                          "AI Apps",
+                          "Web Apps",
+                          "Websites",
+                          "Mobile-Apps",
+                          "CMS Sites",
+                          "Extensions",
+                          "Desktop Apps"
+                        ]}
+                        className="text-zinc-900 w-0 overflow-visible inline-block min-[425px]:text-zinc-400 whitespace-nowrap max-sm:min-[400px]:text-3xl max-sm:font-medium max-sm:hidden"
+                      />
+                      <span className="sm:hidden">MVPs</span>
+                    </motion.span>{" "}
+                    <br />
+                    <motion.span
+                      layout="position"
+                      className="md:whitespace-nowrap"
+                    >
+                      for fast growing startups all over
+                    </motion.span>
+                    <br className="max-sm:hidden" />
+                    <motion.span layout="position" className="max-sm:ml-1">
+                      the world, in record time!
+                    </motion.span>
+                    {/* Helping <span className="text-zinc-500">startups</span> launch
                   fast and <br className="max-sm:hidden" />
                   look world-class. <br />
                   Launch your <span className="text-zinc-500">
                     idea
                   </span> in{" "}
                   <span className="inline-block relative ">2 weeks.</span> */}
-                </motion.h1>
-                <div className="flex flex-col w-fit  max-md:hidden">
-                  <motion.div
-                    className="mt-7  max-md:hidden"
-                    initial={{
-                      y: 20,
-                      opacity: 0,
-                      filter: "blur(10px)",
-                      height: 0
-                    }}
-                    animate={{
-                      y: 0,
-                      opacity: 1,
-                      height: 80,
-                      transition: { duration: 1, type: "spring", delay: 0.6 },
-                      filter: "blur(0px)"
-                    }}
-                  >
-                    <p className="text-sm font-medium lg:text-lg min-h-fit max-md:[text-wrap:pretty] text-[#171717]/60">
-                      We build web apps, landing pages, and mobile app MVPs with
-                      a record delivery time of 2-weeks.
-                      <br className="max-md:hidden" />
-                      With experience creating software for startups from
-                      YCombinator, you can rest assured of our high quality
-                      output.
-                    </p>
-                  </motion.div>
-                </div>
-                {/* <motion.div
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 1,
-                  type: "spring",
-                  delay: 0.1
-                }}
-                className="flex gap-3 items-center justify-start flex-wrap mt-5 xl:mt-10 text-[8px] sm:text-xs xl:text-base text-[#535353]"
-              >
-                <div className="py-2 px-3 rounded-full bg-[rgba(0,0,0,0.04)] text-center cursor-default">
-                  Website Design
-                </div>
-                <div className="py-2 px-3 rounded-full bg-[rgba(0,0,0,0.04)] text-center cursor-default">
-                  Development
-                </div>
-                <div className="py-2 px-3 rounded-full bg-[rgba(0,0,0,0.04)] text-center cursor-default">
-                  MVP
-                </div>
-                <div className="py-2 px-3 rounded-full bg-[rgba(0,0,0,0.04)] text-center cursor-default">
-                  CMS Integration
-                </div>
-                <div className="py-2 px-3 rounded-full bg-[rgba(0,0,0,0.04)] text-center cursor-default">
-                  AI Web Apps
-                </div>
-                <div className="py-2 px-3 rounded-full bg-[rgba(0,0,0,0.04)] text-center cursor-default">
-                  pSEO
-                </div>
-              </motion.div> */}
-                <div className="mt-5 xl:mt-5 flex max-sm:flex-col max-sm:mt-12">
-                  <div className="flex flex-wrap max-sm:flex-col gap-3 md:gap-5 max-sm:justify-start">
-                    <motion.a
-                      className="px-[2px] py-[3px] pl-8 h-[50px] text-sm xl:text-base bg-[rgb(42,41,255)] rounded-full text-center text-white w-fit mr-3 flex items-center justify-between whitespace-nowrap max-h-fit"
-                      href="#"
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{
-                        duration: 1,
-                        delay: 0.9,
-                        filter: "blur(10px)",
-                        type: "spring"
-                      }}
-                    >
-                      <div className="font-medium mr-5 captialize">
-                        Book a call
-                      </div>
-                      <div className="size-[45px] bg-white  rounded-full text-[rgb(42,41,255)] flex">
-                        <div className="m-auto -rotate-45">
-                          <ArrowRight className="size-[18px]" strokeWidth={2} />
-                        </div>
-                      </div>
-                    </motion.a>
+                  </motion.h1>
+                  <div className="flex flex-col w-fit  max-md:hidden">
                     <motion.div
-                      initial={{ y: 20, opacity: 0 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{
-                        duration: 1,
-                        delay: 1.2,
-                        filter: "blur(0px)",
-                        type: "spring"
+                      className="mt-7  max-md:hidden"
+                      initial={{
+                        y: 20,
+                        opacity: 0,
+                        filter: "blur(10px)",
+                        height: 0
                       }}
-                      className="bg-[rgba(0,0,0,0.0)] h-[50px] rounded-full flex items-center justify-center max-sm:w-fit"
+                      animate={{
+                        y: 0,
+                        opacity: 1,
+                        height: 80,
+                        transition: { duration: 1, type: "spring", delay: 0.6 },
+                        filter: "blur(0px)"
+                      }}
                     >
-                      <div className="flex border border-[#e8e8e8]/0 p-2 rounded-full h-fit w-fit">
-                        <div className="flex items-center text-sm">
-                          <div className="bg-green-300 size-2 rounded-full mr-2 animate-pulse" />
-                          <div className="font-semibold">3 slots left </div>{" "}
-                          <div className="text-[#1f1f1f]/70 font-semibold ml-1">
-                            {"  "}for{" "}
-                            {Intl.DateTimeFormat("en-US", {
-                              month: "long"
-                            }).format(new Date())}
-                          </div>
-                        </div>
-                      </div>
+                      <p className="text-sm font-medium lg:text-lg min-h-fit max-md:[text-wrap:pretty] text-[#171717]/60">
+                        We build web apps, landing pages, and mobile app MVPs
+                        with a record delivery time of 2-weeks.{" "}
+                        {/* <br className="max-md:hidden" /> */}
+                        With experience creating software for startups from
+                        YCombinator, you can rest assured of our high quality
+                        output.
+                      </p>
                     </motion.div>
                   </div>
+                  <div className="mt-5 sm:mt-12 xl:mt-12 flex max-sm:flex-col max-sm:mt-12">
+                    <div className="flex flex-wrap max-sm:flex-col gap-3 md:gap-5 max-sm:justify-start">
+                      <motion.a
+                        className="px-[2px] py-[3px] pl-8 h-[50px] text-sm xl:text-base bg-[rgb(42,41,255)] rounded-full text-center text-white w-fit mr-3 flex items-center justify-between whitespace-nowrap max-h-fit"
+                        href="#"
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                          duration: 1,
+                          delay: 0.9,
+                          filter: "blur(10px)",
+                          type: "spring"
+                        }}
+                      >
+                        <div className="font-medium mr-5 captialize">
+                          Book a call
+                        </div>
+                        <div className="size-[45px] bg-white  rounded-full text-[rgb(42,41,255)] flex">
+                          <div className="m-auto -rotate-45">
+                            <ArrowRight
+                              className="size-[18px]"
+                              strokeWidth={2}
+                            />
+                          </div>
+                        </div>
+                      </motion.a>
+                      <motion.div
+                        initial={{ y: 20, opacity: 0 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                          duration: 1,
+                          delay: 1.2,
+                          filter: "blur(0px)",
+                          type: "spring"
+                        }}
+                        className="bg-[rgba(0,0,0,0.0)] h-[50px] rounded-full flex items-center justify-center max-sm:w-fit"
+                      >
+                        <div className="flex border border-[#e8e8e8]/0 p-2 rounded-full h-fit w-fit">
+                          <div className="flex items-center text-sm">
+                            <div className="bg-green-300 size-2 rounded-full mr-2 animate-pulse" />
+                            <div className="font-semibold">3 slots left </div>{" "}
+                            <div className="text-[#1f1f1f]/70 font-semibold ml-1">
+                              {"  "}for{" "}
+                              {Intl.DateTimeFormat("en-US", {
+                                month: "long"
+                              }).format(new Date())}
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex-1 max-sm:mt-12 max-sm:bg-zinc-50 max-sm:py-20 max-sm:rounded-2xl portrait:flex-[0.4] min-h-full w-full flex items-center justify-center relative">
+                  <div className="absolute top-0 left-0 size-full bg-zinc-50 scale-y-150  rounded-2xl max-sm:hidden lg:hidden" />
+                  <svg
+                    viewBox="0 0 822 620"
+                    className="absolute w-auto portrait:h-[40vh] max-sm:scale-125 sm:max-lg:hidden landscape:h-[80vh] -translate-x-[7%] -translate-y-[7%] z-0"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <motion.path
+                      style={{ strokeDasharray: 1000 }}
+                      initial={{
+                        strokeDashoffset: 1000
+                      }}
+                      animate={{
+                        strokeDashoffset: 0,
+                        transition: { duration: 6 }
+                      }}
+                      d="M388.796 -17.3812L386.063 608.374M249.436 213.956H812.343M153.797 283.2L812.343 283.2M0.773438 353.956L822.343 353.956M153.797 424.665L822.343 424.665M77.285 496.642H822.343M263.099 570.421H819.61M473.505 105.584V616.572M563.68 149.305L563.679 619.304M651.121 184.828V619.304M738.563 154.77V619.304M301.355 -20.1137L298.622 605.642"
+                      stroke="url(#paint0_radial_5124_7117)"
+                    />
+                    <defs>
+                      <radialGradient
+                        id="paint0_radial_5124_7117"
+                        cx="0"
+                        cy="0"
+                        r="1"
+                        gradientUnits="userSpaceOnUse"
+                        className="transition-all"
+                        gradientTransform="translate(489.901 346.049) rotate(-42.9399) scale(268.751 375.728)"
+                      >
+                        <motion.stop
+                          animate={{
+                            stopColor: isChecked ? "#0012B3" : "#F39696"
+                          }}
+                        />
+                        <motion.stop
+                          offset="0.54"
+                          animate={{
+                            stopColor: isChecked ? "#F3F1FF" : "#F6F6F6"
+                          }}
+                        />
+                        <stop offset="1" stopColor="white" />
+                      </radialGradient>
+                    </defs>
+                  </svg>
+
+                  <HeroStackedCards hide={!isChecked} />
+                  <WorkWithoutUsCards isVisible={toggleOffCards} />
+                  <div className="absolute z-10 top-5 right-5 sm:hidden">
+                    <Switch
+                      label="Work with us"
+                      isChecked={isChecked}
+                      onToggle={(bool) => setIsChecked(bool)}
+                    />
+                  </div>
+                </div>
+                <div className="absolute max-sm:hidden max-sm:right-12 max-lg:top-10 max-lg:right-10 lg:top-16 lg:right-16 flex  items-center z-10">
+                  <Switch
+                    label="Work with us"
+                    isChecked={isChecked}
+                    onToggle={(bool) => setIsChecked(bool)}
+                  />
                 </div>
               </div>
             </section>
@@ -551,9 +564,9 @@ export default function Home() {
               <Pricing />
             </section>
             <FAQs />
-            <section className="w-full lg:w-[100%] mx-auto">
+            <section className="w-full lg:w-[100%] mx-auto" id="book-a-call">
               <motion.div
-                className="p-3 flex items-center flex-col w-full border border-[#e8e8e8] bg-[#f9f9f9] rounded-[30px] relative "
+                className="p-3 flex items-center flex-col w-full sm:border border-[#e8e8e8] sm:bg-[#f9f9f9] rounded-[30px] relative "
                 whileInView={{
                   y: 0,
                   opacity: 1,
@@ -562,10 +575,10 @@ export default function Home() {
                 initial={{ y: 50, opacity: 0 }}
                 viewport={{ once: true, amount: 0.5 }}
               >
-                <div className="bg-white rounded-[20px] p-20 border-red-500 text-zinc-700 flex items-between justify-center size-full gap-16">
+                <div className="bg-white rounded-[20px] p-0 sm:p-16 lg:p-20 border-red-500 text-zinc-700 flex max-lg:flex-col max-lg:items-start items-between justify-center size-full gap-16">
                   <div className="flex flex-col gap-5">
                     {/* <LucideRocket className="size-7" /> */}
-                    <div className="font-semibold text-6xl mb-2">
+                    <div className="font-semibold text-4xl sm:text-5xl lg:text-6xl mb-2">
                       <motion.span
                         className="inline-block"
                         initial={{ x: 0, opacity: 0, y: 10 }}
@@ -577,7 +590,33 @@ export default function Home() {
                         }}
                         viewport={{ amount: "all", once: true }}
                       >
-                        Always be shipping
+                        Always&nbsp;
+                      </motion.span>
+                      <motion.span
+                        className="inline-block"
+                        initial={{ x: 0, opacity: 0, y: 10 }}
+                        whileInView={{
+                          x: 0,
+                          y: 0,
+                          opacity: 1,
+                          transition: { type: "spring", duration: 2 }
+                        }}
+                        viewport={{ amount: "all", once: true }}
+                      >
+                        be&nbsp;
+                      </motion.span>
+                      <motion.span
+                        className="inline-block"
+                        initial={{ x: 0, opacity: 0, y: 10 }}
+                        whileInView={{
+                          x: 0,
+                          y: 0,
+                          opacity: 1,
+                          transition: { type: "spring", duration: 2 }
+                        }}
+                        viewport={{ amount: "all", once: true }}
+                      >
+                        shipping&nbsp;
                       </motion.span>
                       <br />
                       <motion.span
@@ -664,11 +703,11 @@ export default function Home() {
                     Let&#39;s talk
                   </a> */}
                   </div>
-                  <div className="flex-1  flex justify-end">
+                  <div className="flex-1  flex justify-end max-lg:w-full">
                     <Cal
                       namespace="30min"
-                      className="border border-zinc-200 rounded-xl max-w-[400px]"
-                      calLink="moniet-pisu7d/30min"
+                      className="border border-zinc-200 rounded-xl w-full lg:max-w-[400px]"
+                      calLink="designpop/30min"
                       style={{
                         width: "100%",
                         height: "100%",

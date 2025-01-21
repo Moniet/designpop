@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import {
   ArrowDown,
@@ -9,25 +9,25 @@ import {
   LucideMapPin,
   LucideSmartphone,
   Rocket,
-  Send,
-} from "lucide-react";
-import React from "react";
-import { motion } from "motion/react";
-import BlurInOnView from "./BlurInOnView";
+  Send
+} from "lucide-react"
+import React from "react"
+import { motion } from "motion/react"
+import BlurInOnView from "./BlurInOnView"
 
 const OurServices = () => {
   return (
     <div className="w-full h-fit relative" id="our-services">
       <motion.h2
-        className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-zinc-900 relative -z-1 mb-20"
+        className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-zinc-900 relative -z-1 mb-20 -tracking-[0.1rem]"
         whileInView={{
           y: 0,
           transition: {
             duration: 1.5,
             delay: 0.2,
-            type: "spring",
+            type: "spring"
           },
-          opacity: 1,
+          opacity: 1
         }}
         initial={{ y: 20, opacity: 0 }}
       >
@@ -87,8 +87,9 @@ const OurServices = () => {
               <div>Mobile App Development</div>
             </div>
             <div className="text-sm sm:text-base text-zinc-600 mt-4">
-              We have built top-notch cross-platform mobile apps coupled with
-              automated deployments for fast iteration.
+              We build highly scalable cross-platform mobile apps coupled with
+              automated deployments for fast iteration with React Native &
+              Node.js.
             </div>
           </div>
         </BlurInOnView>
@@ -111,7 +112,7 @@ const OurServices = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default OurServices;
+export default OurServices
