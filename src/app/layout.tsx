@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import { Manrope } from "next/font/google"
 import "./globals.css"
-import Script from "next/script"
 
 export const metadata: Metadata = {
   title: "designpop | Your one-stop service for MVP, Design and Development",
