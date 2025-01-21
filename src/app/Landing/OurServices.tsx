@@ -2,11 +2,8 @@
 
 import {
   ArrowDown,
-  Code,
-  Code2Icon,
   CodeSquare,
   Figma,
-  LucideMapPin,
   LucideSmartphone,
   Rocket,
   Send

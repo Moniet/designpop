@@ -1,7 +1,7 @@
 "use client"
 
 import { useCallback, useEffect, useRef, useState } from "react"
-import { motion, useInView, useTransform, useMotionValue } from "motion/react"
+import { motion, useInView, useMotionValue } from "motion/react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { throttle } from "lodash"
 
@@ -100,9 +100,8 @@ const TestimonialCard = ({ isActive, ...props }: TestimonialCardProps) => {
         <div className="size-[40px] aspect-square min-w-[40px] rounded-lg overflow-hidden bg-zinc-100 relative pointer-events-none">
           <img
             src={props.author.image}
-            alt={props.author.name}
+            alt={props.author.name + ", " + props.author.position}
             className="saturate-0"
-            alt=""
           />
           {/* <div
             className="absolute top-0 right-0 size-full bg-blue-500/40"

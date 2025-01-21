@@ -4,13 +4,7 @@
 import Cal, { getCalApi } from "@calcom/embed-react"
 import { ArrowRight, LucidePhoneCall, LucideSend } from "lucide-react"
 import Carousel from "./Landing/Carousel"
-import {
-  AnimatePresence,
-  motion,
-  transform,
-  useScroll,
-  useTransform
-} from "motion/react"
+import { AnimatePresence, motion, useScroll, useTransform } from "motion/react"
 import Testimonials from "./Landing/Testimonials"
 import Image from "next/image"
 import { ReactLenis } from "lenis/react"
@@ -39,6 +33,7 @@ const RevealText = () => {
   const line1 = "We are a results-driven team".split(" ")
   const line2 = "building high quality digital experiences".split(" ")
   const line3 = "to ensure your product stands out".split(" ")
+  const transform = useTransform
 
   // Helper function to create word elements
   const createWordSpans = (
@@ -57,7 +52,7 @@ const RevealText = () => {
         <motion.span
           className="absolute inset-0 text-zinc-900 mt-[0rem]"
           style={{
-            clipPath: useTransform(
+            clipPath: transform(
               scrollYProgress,
               [
                 startProgress + i * progressPerWord,

@@ -1,16 +1,7 @@
-import { useMotionValue, motion } from "motion/react"
-import React, {
-  MouseEventHandler,
-  ReactNode,
-  useEffect,
-  useRef,
-  useState
-} from "react"
+import React, { useEffect, useRef } from "react"
 
 const CustomCursor = () => {
   const ref = useRef<HTMLDivElement>(null)
-  const [text, setText] = useState<ReactNode>("")
-  const [size, setSize] = useState(25)
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -51,13 +42,11 @@ const CustomCursor = () => {
         className="fixed items-center justify-center text-2xl font-semibold bg-[rgba(41,42,255,0.9)] rounded-full z-50 top-0 left-0 backdrop-invert pointer-events-none hidden text-white lg:flex "
         style={{
           transition: "transform 0.3s ease-out, opacity 0.3s ease",
-          width: size + "px",
-          height: size + "px"
+          width: 25 + "px",
+          height: 25 + "px"
         }}
         ref={ref}
-      >
-        {text}
-      </div>
+      />
     </div>
   )
 }

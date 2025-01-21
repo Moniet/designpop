@@ -1,21 +1,9 @@
 "use client"
 
-import {
-  AnimatePresence,
-  AnimationPlaybackControls,
-  motion,
-  stagger
-} from "motion/react"
+import { AnimationPlaybackControls, motion, stagger } from "motion/react"
 import { useAnimate } from "motion/react"
 import WhiteLogo from "./WhiteLogo"
-import { useDeferredValue, useEffect, useRef, useState } from "react"
-
-const variants = {
-  swipeOut: {
-    x: [10, 0],
-    rotate: [0, 10, 0]
-  }
-}
+import { useEffect, useRef, useState } from "react"
 
 const Card = ({ text }: { text: string }) => {
   return (
@@ -77,10 +65,8 @@ const HeroStackedCards = ({ hide = false }) => {
         {
           onComplete: () => {
             setTimeout(() => {
-              //@ts-ignore
-              document.querySelector<HTMLDivElement>(
-                selector
-              )!.style!.opacity = 1
+              document.querySelector<HTMLDivElement>(selector)!.style!.opacity =
+                "1"
             }, 1)
           },
           duration: 1

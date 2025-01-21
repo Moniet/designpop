@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react"
-import { useInView } from "../hooks/useInView"
 
 interface Box {
   x: number
@@ -125,17 +124,17 @@ export const useGravity = ({
       lastScrollX.current = window.scrollX
     }
 
-    const createGradient = (
-      x: number,
-      y: number,
-      width: number,
-      height: number
-    ) => {
-      const gradient = ctx.createLinearGradient(x, y, x + width, y + height)
-      gradient.addColorStop(0, "#ED732E")
-      gradient.addColorStop(1, "#FFBE99")
-      return gradient
-    }
+    // const createGradient = (
+    //   x: number,
+    //   y: number,
+    //   width: number,
+    //   height: number
+    // ) => {
+    //   const gradient = ctx.createLinearGradient(x, y, x + width, y + height)
+    //   gradient.addColorStop(0, "#ED732E")
+    //   gradient.addColorStop(1, "#FFBE99")
+    //   return gradient
+    // }
 
     const roundRect = (
       x: number,
@@ -193,7 +192,7 @@ export const useGravity = ({
       box2.velocityY += impulse * normalY
 
       // Gentle angular velocity based on collision point
-      const collisionAngle = Math.atan2(dy, dx)
+      // const collisionAngle = Math.atan2(dy, dx)
       // const angularImpulse = 0.01 * Math.sin(collisionAngle) * impulse
 
       // box1.angularVelocity -= angularImpulse * 0.5

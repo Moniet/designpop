@@ -1,21 +1,12 @@
 import {
-  Clock,
   LucideBadgeDollarSign,
-  LucideDollarSign,
   LucideFrown,
   LucideScatterChart,
   LucideTimer,
   TextSearch
 } from "lucide-react"
-import {
-  AnimatePresence,
-  AnimationProps,
-  motion,
-  MotionProps,
-  stagger
-} from "motion/react"
+import { motion } from "motion/react"
 import { useEffect, useRef, useState } from "react"
-import { FaMoneyBill, FaMountain } from "react-icons/fa6"
 
 const data = [
   {
@@ -141,7 +132,7 @@ const WorkWithoutUsCards = ({ isVisible = false }) => {
       : setTimeout(() => {}, 1)
 
     return () => {
-      to.current && clearTimeout(to.current)
+      if (to.current) clearTimeout(to.current)
     }
   }, [index, isVisible])
 

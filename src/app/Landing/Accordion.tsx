@@ -1,21 +1,21 @@
-"use client";
+"use client"
 
-import React, { ReactNode, useState } from "react";
-import { ChevronDown, ChevronUp, Minus, Plus } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import React, { ReactNode, useState } from "react"
+import { Minus, Plus } from "lucide-react"
+import { AnimatePresence, motion } from "motion/react"
 
 const Accordion = ({
   title,
-  children,
+  children
 }: {
-  title: string;
-  children: ReactNode;
+  title: string
+  children: ReactNode
 }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
   const toggleAccordion = () => {
-    setIsOpen(!isOpen);
-  };
+    setIsOpen(!isOpen)
+  }
 
   return (
     <div
@@ -40,7 +40,7 @@ const Accordion = ({
                   animate={{
                     opacity: 1,
                     rotate: "90deg",
-                    transition: { duration: 0.5 },
+                    transition: { duration: 0.5 }
                   }}
                 >
                   <Plus
@@ -57,7 +57,7 @@ const Accordion = ({
                   animate={{
                     rotate: "360deg",
                     opacity: 1,
-                    transition: { duration: 0.5 },
+                    transition: { duration: 0.5 }
                   }}
                 >
                   <Minus
@@ -81,13 +81,13 @@ const Accordion = ({
             : "pb-0 translate-y-0 opacity-0"
         }`}
         style={{
-          gridTemplateRows: isOpen ? "1fr" : "0fr",
+          gridTemplateRows: isOpen ? "1fr" : "0fr"
         }}
       >
         <div className="overflow-hidden">{children}</div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Accordion;
+export default Accordion

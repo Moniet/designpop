@@ -1,24 +1,10 @@
 "use client"
 
-import React, { ReactNode, useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { motion, useScroll, useTransform } from "motion/react"
 import { debounce } from "lodash"
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
-
-const item = {
-  init: {
-    y: 20,
-    opacity: 0,
-    filter: "blur(10px)"
-  },
-  animateIn: {
-    y: 0,
-    opacity: 1,
-    filter: "blur(0px)"
-  }
-}
-
 const cards = [
   {
     image: "/img/blocs tile 2.png",
