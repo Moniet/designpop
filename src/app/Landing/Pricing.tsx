@@ -7,6 +7,7 @@ const optionData = [
   {
     title: "Landing Page",
     timeline: "1 week",
+    calEvent: "designpop/30-min-meeting-landing-page",
     description: "Landing page design + development (optional)",
     bulletsHeading: "Re-vamp or validate site:",
     bullets: [
@@ -21,6 +22,7 @@ const optionData = [
   {
     title: "MVP Design & Dev.",
     timeline: "2-6 weeks",
+    calEvent: "designpop/30-min-meeting-mvp",
     description: "Receive a functioning MVP in record time",
     bulletsHeading: "Build a simple or complex MVP:",
     bullets: [
@@ -39,6 +41,7 @@ const optionData = [
   },
   {
     title: "Subscription",
+    calEvent: "designpop/30-min-meeting-subscription",
     timeline: "",
     description: "Design + dev. work on a monthly basis",
     bullets: [
@@ -201,9 +204,11 @@ const Pricing = () => {
               </motion.p>
             </AnimatePresence>
           </div>
-          <motion.a
+          <motion.button
             className="mt-16 px-[2px] py-[3px] pl-8 h-[50px] text-xs xl:text-base bg-[rgb(42,41,255)] rounded-full text-center text-white w-fit mr-3 flex items-center justify-between whitespace-nowrap max-h-fit"
-            href="#"
+            // href="https://cal.com/designpop/30min"
+            data-cal-link={data.calEvent}
+            data-cal-config='{"layout":"month_view"}'
             initial={{ y: 20, opacity: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -219,7 +224,7 @@ const Pricing = () => {
                 <ArrowRight className="size-[18px]" strokeWidth={2} />
               </div>
             </div>
-          </motion.a>
+          </motion.button>
         </div>
         <div className="text-[#171717] font-semibold mb-10 pl-2 sm:pl-12 lg:pl-16 mt-16">
           {data.bulletsHeading}

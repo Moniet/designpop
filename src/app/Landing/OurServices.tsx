@@ -11,6 +11,7 @@ import {
 import React from "react"
 import { motion } from "motion/react"
 import BlurInOnView from "./BlurInOnView"
+import { scrollTo } from "../hooks/scrollTo"
 
 const OurServices = () => {
   return (
@@ -102,7 +103,10 @@ const OurServices = () => {
               .
             </span>
           </div>
-          <button className="text-zinc-500 rounded-full text-sm text-700 w-fit mr-5 font-medium bg-zinc-200 p-1 px-2 flex items-center">
+          <button
+            className="text-zinc-500 rounded-full text-sm text-700 w-fit mr-5 font-medium bg-zinc-200 p-1 px-2 flex items-center"
+            onClick={() => scrollTo("book-a-call")}
+          >
             <ArrowDown className="size-4 mr-1" />
             Get started now!
           </button>

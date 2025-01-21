@@ -19,6 +19,7 @@ import CustomCursor from "./Landing/CustomCursor"
 import HeroStackedCards from "./Landing/HeroStackedCards"
 import Switch from "./Landing/Switch"
 import WorkWithoutUsCards from "./Landing/WorkWithoutUsCards"
+import { scrollTo } from "./hooks/scrollTo"
 
 const RevealText = () => {
   const containerRef = useRef(null)
@@ -101,14 +102,6 @@ const staggerFadeIn = {
     }
   }
 }
-
-const scrollTo = (id: string) =>
-  window.scrollTo({
-    top:
-      document.getElementById(id)!.getBoundingClientRect()!.top +
-      window.scrollY,
-    behavior: "smooth"
-  })
 
 const RollingText = ({ allText = [""], className = "" }) => {
   const [index, setIndex] = useState(0)
@@ -333,9 +326,9 @@ export default function Home() {
                   </div>
                   <div className="mt-5 sm:mt-12 xl:mt-12 flex max-sm:flex-col max-sm:mt-12">
                     <div className="flex flex-wrap max-sm:flex-col gap-3 md:gap-5 max-sm:justify-start">
-                      <motion.a
+                      <motion.button
                         className="px-[2px] py-[3px] pl-8 h-[50px] text-sm xl:text-base bg-[rgb(42,41,255)] rounded-full text-center text-white w-fit mr-3 flex items-center justify-between whitespace-nowrap max-h-fit"
-                        href="#"
+                        onClick={() => scrollTo("book-a-call")}
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{
@@ -356,7 +349,7 @@ export default function Home() {
                             />
                           </div>
                         </div>
-                      </motion.a>
+                      </motion.button>
                       <motion.div
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ opacity: 1, y: 0 }}
