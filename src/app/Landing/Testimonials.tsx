@@ -24,15 +24,7 @@ const testimonials = [
     },
     text: "I can't recommend designpop highly enough, they are conscientious self-starters, who were able to work closely with our product manager, designers, and other engineers to deliver an MVP of our student facing checkout experience in record time."
   },
-  {
-    id: "3",
-    author: {
-      name: "Marvin Musialek",
-      position: "Founder of Strom AI",
-      image: "/img/marvin.jpeg"
-    },
-    text: "What impressed me most about designpop was their ability to transform our rough concept into a polished product in just two weeks. Their team's attention to detail and quick turnaround time helped us launch faster than we ever thought possible. They truly deliver on their promise of speed without compromising quality."
-  },
+
   {
     id: "4",
     author: {
@@ -59,6 +51,15 @@ const testimonials = [
       image: "/img/mohit.jpeg"
     },
     text: "The development service was simply excellent! designpop not only helped deliver our site re-design in a matter weeks but also cleaned up our React architecture by a long shot. The quality output, coupled with the increase in developer experience was a delightful outcome!"
+  },
+  {
+    id: "3",
+    author: {
+      name: "Marvin Musialek",
+      position: "Founder of Strom AI",
+      image: "/img/marvin.jpeg"
+    },
+    text: "What impressed me most about designpop was their ability to transform our rough concept into a polished product in just two weeks. Their team's attention to detail and quick turnaround time helped us launch faster than we ever thought possible. They truly deliver on their promise of speed without compromising quality."
   }
 ]
 
