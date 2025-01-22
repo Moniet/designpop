@@ -396,7 +396,7 @@ export default function Home() {
                   <div className="absolute top-0 left-0 size-full bg-zinc-50 scale-y-150  rounded-2xl max-sm:hidden lg:hidden" />
                   <svg
                     viewBox="0 0 822 620"
-                    className="absolute w-auto portrait:h-[40vh] max-sm:scale-125 sm:max-lg:hidden landscape:h-[80vh] -translate-x-[7%] -translate-y-[7%] z-0"
+                    className="absolute w-auto portrait:h-[40dvh] max-sm:scale-125 sm:max-lg:hidden landscape:h-[80dvh] -translate-x-[7%] -translate-y-[7%] z-0"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >

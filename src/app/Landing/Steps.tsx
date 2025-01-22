@@ -17,7 +17,7 @@ import { SiNotion } from "react-icons/si"
 const Steps = () => {
   return (
     <div className="flex gap-10 max-lg:flex-col items-start min-h-fit">
-      <div className="lg:sticky top-20 left-0 bottom-20 h-fit mb-12 lg:h-[50vh]">
+      <div className="lg:sticky top-20 left-0 bottom-20 h-fit mb-12 lg:h-[50dvh]">
         <div className="min-h-fit pb-1 overflow-hidden max-h-fit">
           <motion.h2
             className="text-zinc-900 text-3xl sm:text-4xl lg:text-5xl font-semibold sm:whitespace-nowrap -tracking-[0.1rem]"
@@ -185,14 +185,14 @@ const Steps = () => {
         </motion.div>
       </div>
       <div className="ml-2 sm:ml-10 md:ml-20 xl:ml-40 h-full relative flex flex-col items-start">
-        <div className="w-full sticky top-20 left-0 h-[50vh] flex flex-col border-l border-l-[rgb(159,159,253)] ">
+        <div className="w-full sticky top-20 left-0 h-[50dvh] flex flex-col border-l border-l-[rgb(159,159,253)] ">
           <div className="bg-[rgb(41,42,255)] text-white text-2xl p-2 flex size-[30px] sm:size-[50px] rounded-full -translate-x-1/2 font-semibold">
             <span className="m-auto">
               <LucidePhoneCall className="size-3 sm:size-4" />
             </span>
           </div>
 
-          <div className="ml-5 sm:ml-16 lg:ml-20 h-[50vh] relative flex items-start -mt-[28px] sm:-mt-[50px]">
+          <div className="ml-5 sm:ml-16 lg:ml-20 h-[50dvh] relative flex items-start -mt-[28px] sm:-mt-[50px]">
             <div className="max-sm:hidden text-zinc-100 text-[100px] sm:text-[140px] lg:text-[170px] font-bold leading-[0.75] w-[100px] text-center">
               1
             </div>
@@ -229,14 +229,14 @@ const Steps = () => {
             </div>
           </div>
         </div>
-        <div className="w-full sticky top-20 left-0 h-[50vh] flex flex-col border-l border-l-[rgb(159,159,253)] ">
+        <div className="w-full sticky top-20 left-0 h-[50dvh] flex flex-col border-l border-l-[rgb(159,159,253)] ">
           <div className="bg-[rgb(41,42,255)] text-white text-2xl p-2 flex size-[30px] sm:size-[50px] rounded-full -translate-x-1/2 font-semibold">
             <span className="m-auto">
               <LucidePaintBucket className="size-3 sm:size-4" />
             </span>
           </div>
 
-          <div className="ml-5 sm:ml-16 lg:ml-20 h-[50vh] relative flex items-start -mt-[36px] sm:-mt-[50px] bg-white pt-2 pb-5 rounded-xl">
+          <div className="ml-5 sm:ml-16 lg:ml-20 h-[50dvh] relative flex items-start -mt-[36px] sm:-mt-[50px] bg-white pt-2 pb-5 rounded-xl">
             <div className="max-sm:hidden text-zinc-100 text-[100px] sm:text-[140px] lg:text-[170px] font-bold leading-[0.75] w-[100px] text-center">
               2
             </div>
@@ -273,13 +273,13 @@ const Steps = () => {
             </div>
           </div>
         </div>
-        <div className="w-full sticky top-20 left-0 h-[50vh] flex flex-col border-l border-l-[rgb(159,159,253)] l">
+        <div className="w-full sticky top-20 left-0 h-[50dvh] flex flex-col border-l border-l-[rgb(159,159,253)] l">
           <div className="bg-[rgb(41,42,255)] text-white text-2xl p-2 flex size-[30px] sm:size-[50px] rounded-full -translate-x-1/2 font-semibold">
             <span className="m-auto">
               <LucideCode2 className="size-3 sm:size-4" />
             </span>
           </div>
-          <div className="ml-5 sm:ml-16 lg:ml-20 h-[50vh] relative flex items-start -mt-[36px] sm:-mt-[50px] bg-white pt-2 pb-5 rounded-xl">
+          <div className="ml-5 sm:ml-16 lg:ml-20 h-[50dvh] relative flex items-start -mt-[36px] sm:-mt-[50px] bg-white pt-2 pb-5 rounded-xl">
             <div className="max-sm:hidden text-zinc-100 text-[100px] sm:text-[140px] lg:text-[170px] font-bold leading-[0.75] w-[100px] text-center">
               3
             </div>
@@ -317,7 +317,7 @@ const Steps = () => {
             </div>
           </div>
         </div>
-        <div className="w-full sticky top-20 left-0 h-[50vh] flex flex-col border-l border-l-white">
+        <div className="w-full sticky top-20 left-0 h-[50dvh] flex flex-col border-l border-l-white">
           <div className="bg-[rgb(41,42,255)] text-white text-2xl p-2 flex size-[30px] sm:size-[50px] rounded-full -translate-x-1/2 font-semibold ">
             <span className="m-auto">
               <LucideRocket className="size-3 sm:size-4" />
