@@ -22,6 +22,7 @@ const Switch: React.FC<SwitchProps> = ({
       className="flex items-center gap-3 cursor-pointer"
       onClick={toggleSwitch}
       role="checkbox"
+      aria-checked={isChecked}
       aria-label={label}
     >
       <span className="sm:text-sm lg:text-base" id={id}>
