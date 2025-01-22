@@ -131,7 +131,6 @@ const HeroStackedCards = ({ hide = false }) => {
         ".stacked-cards",
         {
           opacity: 0,
-          rotate: 0,
           x: 1000
         },
         {
@@ -143,6 +142,37 @@ const HeroStackedCards = ({ hide = false }) => {
     } else {
       animate(
         ".stacked-cards",
+        {
+          opacity: 1,
+          x: 0
+        },
+        {
+          duration: 2,
+          type: "spring",
+          bounce: 0.2,
+          damping: 13,
+          bounceStiffness: 200,
+          delay: stagger(0.1)
+        }
+      )
+      animate(
+        "#stacked-card-1",
+        {
+          opacity: 1,
+          x: 0,
+          rotate: 0
+        },
+        {
+          duration: 2,
+          type: "spring",
+          bounce: 0.2,
+          damping: 13,
+          bounceStiffness: 200,
+          delay: stagger(0.1)
+        }
+      )
+      animate(
+        "#stacked-card-2",
         {
           opacity: 1,
           x: 0,

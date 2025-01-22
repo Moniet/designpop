@@ -318,9 +318,9 @@ export default function Home() {
                         We build web apps, landing pages, and mobile app MVPs
                         with a record delivery time of 2-weeks.{" "}
                         {/* <br className="max-md:hidden" /> */}
-                        With experience creating software for startups from
-                        YCombinator, you can rest assured of our high quality
-                        output.
+                        With experience creating projects for startups from the
+                        likes of YCombinator, you can rest assured of our high
+                        quality output.
                       </p>
                     </motion.div>
                   </div>
