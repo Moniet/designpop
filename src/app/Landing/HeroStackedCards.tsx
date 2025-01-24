@@ -24,7 +24,7 @@ const data = [
   "Async = less meetings",
   "Fast execution",
   "MVP delivered in 2-6 weeks",
-  "Validate your idea before commiting",
+  "Validate your idea before committing",
   "State-of the art technology",
   "Effective & frequent communication (no silos!)",
   "Trusted by world-class startups"
