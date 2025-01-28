@@ -8,16 +8,16 @@ const optionData = [
     title: "Landing Page",
     timeline: "1 week",
     calEvent: "designpop/30-min-meeting-landing-page",
-    description: "Landing page design + development (optional)",
-    bulletsHeading: "Re-vamp or validate site:",
+    description: "Landing page design + development",
+    bulletsHeading: "Re-vamp, validate, or build a new site:",
     bullets: [
       "48 hour turn-around for designs",
       "Figma file delivery",
-      "Design: One page included <b>($199+ per extra page)</b>",
-      "Development: <b>+$199 per page</b>",
+      "Design: One full page included <b>($99+ per extra page)</b>",
+      "Development: 4 pages included <b>($99+ per extra page)</b>",
       "2 revision requests"
     ],
-    price: { amount: "$790", detail: " /design" }
+    price: { amount: "$599", detail: " /landing page" }
   },
   {
     title: "MVP Design & Dev.",
@@ -52,7 +52,7 @@ const optionData = [
       "Priority support"
     ],
     bulletsHeading: "Everything that's included:",
-    price: { amount: "$4999", detail: " /month" }
+    price: { amount: "$1999", detail: " /month" }
   }
 ]
 
