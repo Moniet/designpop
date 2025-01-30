@@ -155,11 +155,12 @@ const Carousel = () => {
 
   useEffect(() => {
     const getAndSetCardHeight = debounce(() => {
-      const sw =
-        document.querySelector<HTMLDivElement>("#carousel-items-container")!
-          .scrollWidth -
-        (window?.innerWidth - 50)
-      setScrollWidth(sw)
+      const sw = document.querySelector<HTMLDivElement>(
+        "#carousel-items-container"
+      )!.scrollWidth
+      setScrollWidth(
+        sw - containerRef.current!.getBoundingClientRect().width + 20
+      )
     }, 100)
 
     getAndSetCardHeight()
@@ -196,7 +197,7 @@ const Carousel = () => {
   return (
     <section
       id="our-work"
-      className="max-w-screen px-5 flex flex-col gap-[20px] relative md:h-[300vh] max-md:mt-20"
+      className="max-w-screen xl:max-w-[1440px] mx-auto px-5 flex flex-col gap-[20px] relative md:h-[300dvh] max-md:mt-20"
       ref={containerRef}
     >
       <div className="w-[300px] sm:w-[500px] lg:w-[700px] aspect-[16/11] md:sticky top-0 left-0 items-center justify-center flex-col  md:-mb-[25%] md:translate-y-1/4 flex">
