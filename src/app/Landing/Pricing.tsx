@@ -17,7 +17,7 @@ const optionData = [
       "Development: 4 pages included <b>($99+ per extra page)</b>",
       "2 revision requests"
     ],
-    price: { amount: "$599", detail: " /landing page" }
+    price: { amount: "$790", detail: " /landing page" }
   },
   {
     title: "MVP Design & Dev.",
