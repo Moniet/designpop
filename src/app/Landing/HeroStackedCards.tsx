@@ -23,7 +23,7 @@ const Card = ({ text }: { text: string }) => {
 const data = [
   "Async = less meetings",
   "Fast execution",
-  "MVP delivered in 2-6 weeks",
+  "MVP delivered in 2-4 weeks",
   "Validate your idea before committing",
   "State-of the art technology",
   "Effective & frequent communication (no silos!)",

@@ -21,7 +21,7 @@ const optionData = [
   },
   {
     title: "MVP Design & Dev.",
-    timeline: "2-6 weeks",
+    timeline: "2-4 weeks",
     calEvent: "designpop/30-min-meeting-mvp",
     description: "Receive a functioning MVP in record time",
     bulletsHeading: "Build a simple or complex MVP:",
@@ -37,7 +37,7 @@ const optionData = [
       "$3950 / complex mvp",
       "6 months support <small>(extendable)</small>"
     ],
-    price: { amount: "$1950", detail: " /project" }
+    price: { amount: "$1950", detail: " /simple mvp" }
   },
   {
     title: "Subscription",

@@ -353,10 +353,10 @@ const Steps = () => {
                   transition: { duration: 0.5, delay: 0.5 }
                 }}
               >
-                Within our agreed timeline (between 2-4 weeks), you can expect
-                to receive a fully functioning MVP. We will deliver the designs
-                and code; providing support between 3-6 months based on the
-                selected package. Please note, support is extendable up to 1
+                Within our agreed timeline (usually between 2-4 weeks), you can
+                expect to receive a fully functioning MVP. We will deliver the
+                designs and code; providing support between 3-6 months based on
+                the selected package. Please note, support is extendable up to 1
                 year.
               </motion.p>
             </div>
