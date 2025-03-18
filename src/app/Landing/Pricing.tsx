@@ -32,7 +32,7 @@ const optionData = [
       "3 months support <small>(extendable)</small>"
     ],
     bullets2: [
-      "Complex MVP in 4-6 weeks",
+      "Complex MVP in 4-8 weeks",
       "4 design revisions",
       "$3950 / complex mvp",
       "6 months support <small>(extendable)</small>"
