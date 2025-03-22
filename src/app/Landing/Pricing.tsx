@@ -1,7 +1,7 @@
-import { ArrowRight, Check } from "lucide-react"
-import React, { useState } from "react"
-import { BiStopwatch } from "react-icons/bi"
-import { AnimatePresence, motion } from "motion/react"
+import { ArrowRight, Check } from "lucide-react";
+import React, { useState } from "react";
+import { BiStopwatch } from "react-icons/bi";
+import { AnimatePresence, motion } from "motion/react";
 
 const optionData = [
   {
@@ -15,9 +15,9 @@ const optionData = [
       "Figma file delivery",
       "Design: One full page included <b>($99+ per extra page)</b>",
       "Development: 4 pages included <b>($99+ per extra page)</b>",
-      "2 revision requests"
+      "2 revision requests",
     ],
-    price: { amount: "$790", detail: " /landing page" }
+    price: { amount: "$790", detail: " /landing page" },
   },
   {
     title: "MVP Design & Dev.",
@@ -29,15 +29,17 @@ const optionData = [
       "Simple MVP in 2 weeks",
       "2 design revisions",
       "Own the codebase",
-      "3 months support <small>(extendable)</small>"
+      "2-3 core features",
+      "3 months support <small>(extendable)</small>",
     ],
     bullets2: [
       "Complex MVP in 4-8 weeks",
       "4 design revisions",
+      "4-6 core features",
       "$3950 / complex mvp",
-      "6 months support <small>(extendable)</small>"
+      "6 months support <small>(extendable)</small>",
     ],
-    price: { amount: "$1950", detail: " /simple mvp" }
+    price: { amount: "$1950", detail: " /simple mvp" },
   },
   {
     title: "Subscription",
@@ -49,16 +51,16 @@ const optionData = [
       "Unlimited development requests",
       "Access to Slack & Notion for async work",
       "Pause or cancel subscription at anytime",
-      "Priority support"
+      "Priority support",
     ],
     bulletsHeading: "Everything that's included:",
-    price: { amount: "$1999", detail: " /month" }
-  }
-]
+    price: { amount: "$1999", detail: " /month" },
+  },
+];
 
 const Pricing = () => {
-  const [selected, setSelected] = useState(0)
-  const data = optionData[selected]
+  const [selected, setSelected] = useState(0);
+  const data = optionData[selected];
 
   return (
     <div className="flex flex-col" id="pricing">
@@ -157,13 +159,13 @@ const Pricing = () => {
                   exit={{
                     opacity: 0,
                     transition: { duration: 0.5 },
-                    filter: "blur(10px)"
+                    filter: "blur(10px)",
                   }}
                   initial={{ opacity: 0, filter: "blur(2px)" }}
                   animate={{
                     opacity: 1,
                     transition: { duration: 0.6 },
-                    filter: "blur(0px)"
+                    filter: "blur(0px)",
                   }}
                   key={data.title}
                 >
@@ -174,14 +176,14 @@ const Pricing = () => {
                   exit={{
                     opacity: 0,
                     transition: { duration: 0.5 },
-                    filter: "blur(2px)"
+                    filter: "blur(2px)",
                   }}
                   initial={{ opacity: 0, filter: "blur(2px)" }}
                   animate={{
                     filter: "blur(0px)",
                     opacity: 1,
                     y: 0,
-                    transition: { duration: 0.5 }
+                    transition: { duration: 0.5 },
                   }}
                   key={data.price.amount}
                 >
@@ -215,7 +217,7 @@ const Pricing = () => {
               duration: 1,
               delay: 0.9,
               filter: "blur(10px)",
-              type: "spring"
+              type: "spring",
             }}
           >
             <div className="font-medium mr-5 captialize">Get started</div>
@@ -269,7 +271,7 @@ const Pricing = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Pricing
+export default Pricing;
