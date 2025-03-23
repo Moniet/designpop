@@ -39,7 +39,7 @@ const optionData = [
       "$3950 / complex mvp",
       "6 months support <small>(extendable)</small>",
     ],
-    price: { amount: "$1950", detail: " /simple mvp" },
+    price: { amount: "$1950", detail: " /Simple MVP" },
   },
   {
     title: "Subscription",
