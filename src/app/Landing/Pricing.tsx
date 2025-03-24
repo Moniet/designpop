@@ -54,7 +54,7 @@ const optionData = [
       "Priority support",
     ],
     bulletsHeading: "Everything that's included:",
-    price: { amount: "$1999", detail: " /month" },
+    price: { amount: "$2999", detail: " /month" },
   },
 ];
 
