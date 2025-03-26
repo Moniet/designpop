@@ -2,6 +2,7 @@ import { ArrowRight, Check } from "lucide-react";
 import React, { useState } from "react";
 import { BiStopwatch } from "react-icons/bi";
 import { AnimatePresence, motion } from "motion/react";
+import { pricing } from "@/prices";
 
 const optionData = [
   {
@@ -17,7 +18,7 @@ const optionData = [
       "Development: 4 pages included <b>($99+ per extra page)</b>",
       "2 revision requests",
     ],
-    price: { amount: "$790", detail: " /landing page" },
+    price: { amount: pricing.landingPage, detail: " /landing page" },
   },
   {
     title: "MVP Design & Dev.",
@@ -36,13 +37,13 @@ const optionData = [
       "Complex MVP in 4-8 weeks",
       "4 design revisions",
       "4-6 core features",
-      "$3950 / complex mvp",
+      `${pricing.complexMVP} / complex mvp`,
       "6 months support <small>(extendable)</small>",
     ],
-    price: { amount: "$1950", detail: " /Simple MVP" },
+    price: { amount: pricing.simpleMVP, detail: " /Simple MVP" },
   },
   {
-    title: "Subscription",
+    title: `Subscription`,
     calEvent: "designpop/30-min-meeting-subscription",
     timeline: "",
     description: "Design + dev. work on a monthly basis",
@@ -54,7 +55,7 @@ const optionData = [
       "Priority support",
     ],
     bulletsHeading: "Everything that's included:",
-    price: { amount: "$2999", detail: " /month" },
+    price: { amount: pricing.subscription, detail: " /month" },
   },
 ];
 

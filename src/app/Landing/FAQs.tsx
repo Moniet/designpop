@@ -1,6 +1,7 @@
-import React from "react"
-import Accordion from "./Accordion"
-import { FaStripe } from "react-icons/fa"
+import React from "react";
+import Accordion from "./Accordion";
+import { FaStripe } from "react-icons/fa";
+import { pricing } from "@/prices";
 
 const FAQs = () => {
   return (
@@ -15,7 +16,9 @@ const FAQs = () => {
             {" "}
             <ul className="list-disc pl-2">
               <li>
-                <strong className="-ml-2">Landing Page Design ($790)</strong>
+                <strong className="-ml-2">
+                  Landing Page Design ({pricing.landingPage})
+                </strong>
               </li>
               <li className="ml-4">Custom design tailored to your brand </li>
               <li className="ml-4">Hi-fi design delivered in 48 hours</li>
@@ -24,7 +27,7 @@ const FAQs = () => {
               <li className="ml-4">2 rounds of revisions</li>
               <li>
                 <strong className="mt-3 -ml-2 block">
-                  Simple MVP ($1,950)
+                  Simple MVP ({pricing.simpleMVP})
                 </strong>
               </li>
               <li className="ml-4">Basic functionality</li>
@@ -34,7 +37,7 @@ const FAQs = () => {
               <li className="ml-4">3 months support</li>
               <li>
                 <strong className="mt-3 -ml-2 block">
-                  Complex MVP ($3,950)
+                  Complex MVP ({pricing.complexMVP})
                 </strong>
               </li>
               <li className="ml-4">Advanced functionality</li>
@@ -43,7 +46,9 @@ const FAQs = () => {
               <li className="ml-4">4-6 week delivery</li>
               <li className="ml-4">6 months support (extendable to 1 year)</li>
               <li>
-                <strong className="mt-3 -ml-2 block">Subscription</strong>
+                <strong className="mt-3 -ml-2 block">
+                  Subscription ({pricing.subscription})
+                </strong>
               </li>
               <li className="ml-4">
                 Ideal for ongoing Design Engineering work
@@ -153,8 +158,8 @@ const FAQs = () => {
               <li className="ml-4">
                 <span className="text-zinc-700">Extended support</span> packages
                 are available after the initial period costing{" "}
-                <span className="text-zinc-700">$249</span> for each 3 month
-                extension.
+                <span className="text-zinc-700">{pricing.maintenance}</span> for
+                each 3 month extension.
               </li>
               <li className="mt-4">
                 <b>Support covers</b>
@@ -194,13 +199,13 @@ const FAQs = () => {
               Yes! We provide extended support
             </span>{" "}
             packages even after the initial period; costing{" "}
-            <span className="text-zinc-700">$249</span> for each 3 month
-            extension.
+            <span className="text-zinc-700">{pricing.maintenance}</span> for
+            each 3 month extension.
           </Accordion>{" "}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default FAQs
+export default FAQs;
