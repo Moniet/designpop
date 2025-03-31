@@ -269,7 +269,7 @@ export default function Home() {
               <circle cx="8.89357" cy="8.23061" r="2.57228" fill="white" />
             </svg>
 
-            <section className="rounded-[20px] border border-[#e9e9e9] p-2 sm:p-4 bg-[#f9f9f9] sm:mt-2 lg:mt-5 h-fit min-h-fit max-sm:h-fit lg:h-[calc(100vh-2.5rem)] max-w-[1500px] mx-auto relative flex max-md:justify-center sm:max-lg:max-h-[900px]">
+            <section className="rounded-[20px] border border-[#e9e9e9] p-2 sm:p-4 bg-[#f9f9f9] sm:mt-2 lg:mt-5 h-fit min-h-fit max-sm:h-fit portrait:sm:max-xl:max-h-[800px] lg:h-[calc(100vh-2.5rem)] max-w-[1500px] mx-auto relative flex max-md:justify-center sm:max-lg:max-h-[900px]">
               <div className="w-full bg-white h-full rounded-[15px] flex max-lg:flex-col max-lg: sm:gap-28 lg:gap-20 sm:max-lg:pb-28 py-10 pt-16 sm:py-16 lg:mt-0 px-5 sm:px-12 lg:px-16 items-center justify-between">
                 <div className="flex-1 flex flex-col h-full justify-center relative z-10 max-sm:pt-5">
                   {/* <h2 className="text-sm sm:text-sm lg:text-base mb-5 bg-[#f9f9f9] w-fit p-2 px-5 rounded-full hidden">
@@ -573,7 +573,7 @@ export default function Home() {
               </motion.div>
             </section>
 
-            <section className="overflow-hidden max-w-full pb-10">
+            <section className="overflow-hidden max-w-full pb-10 relative">
               <Testimonials />
             </section>
             {/* <GravityBox /> */}

@@ -8,11 +8,11 @@ import {
   LucideCode2,
   LucidePaintBucket,
   LucidePhoneCall,
-  LucideRocket
-} from "lucide-react"
-import { motion } from "motion/react"
-import { RiNextjsFill, RiNodejsFill, RiReactjsFill } from "react-icons/ri"
-import { SiNotion } from "react-icons/si"
+  LucideRocket,
+} from "lucide-react";
+import { motion } from "motion/react";
+import { RiNextjsFill, RiNodejsFill, RiReactjsFill } from "react-icons/ri";
+import { SiNotion } from "react-icons/si";
 
 const Steps = () => {
   return (
@@ -37,7 +37,7 @@ const Steps = () => {
             whileInView={{
               y: 0,
               opacity: 1,
-              transition: { type: "spring", damping: 12, delay: 0.2 }
+              transition: { type: "spring", damping: 12, delay: 0.2 },
             }}
           >
             Get started with building your project in 4 simple steps.
@@ -49,7 +49,7 @@ const Steps = () => {
           viewport={{ once: true }}
           whileInView={{
             opacity: 1,
-            transition: { duration: 1, delay: 0.5 }
+            transition: { duration: 1, delay: 0.5 },
           }}
           className="w-full mt-10 space-y-2"
         >
@@ -184,7 +184,7 @@ const Steps = () => {
           </li>
         </motion.div>
       </div>
-      <div className="ml-2 sm:ml-10 md:ml-20 xl:ml-40 h-full relative flex flex-col items-start">
+      <div className="ml-2 sm:ml-10 md:ml-8 lg:ml-20 xl:ml-40 h-full relative flex flex-col items-start">
         <div className="w-full sticky top-20 left-0 h-[50dvh] flex flex-col border-l border-l-[rgb(159,159,253)] ">
           <div className="bg-[rgb(41,42,255)] text-white text-2xl p-2 flex size-[30px] sm:size-[50px] rounded-full -translate-x-1/2 font-semibold">
             <span className="m-auto">
@@ -193,7 +193,7 @@ const Steps = () => {
           </div>
 
           <div className="ml-5 sm:ml-16 lg:ml-20 h-[50dvh] relative flex items-start -mt-[28px] sm:-mt-[50px]">
-            <div className="max-sm:hidden text-zinc-100 text-[100px] sm:text-[140px] lg:text-[170px] font-bold leading-[0.75] w-[100px] text-center">
+            <div className="max-sm:hidden portrait:sm:lg:hidden text-zinc-100 text-[100px] sm:text-[140px] lg:text-[170px] font-bold leading-[0.75] w-[100px] text-center">
               1
             </div>
             <div>
@@ -205,7 +205,7 @@ const Steps = () => {
                   y: 0,
                   filter: "blur(0px)",
                   opacity: 1,
-                  transition: { duration: 1, delay: 0.5 }
+                  transition: { duration: 1, delay: 0.5 },
                 }}
               >
                 Discovery Call
@@ -218,7 +218,7 @@ const Steps = () => {
                   y: 0,
                   filter: "blur(0px)",
                   opacity: 1,
-                  transition: { duration: 1, delay: 0.5 }
+                  transition: { duration: 1, delay: 0.5 },
                 }}
               >
                 In this quick 30 minute call, we will discuss your idea and
@@ -237,7 +237,7 @@ const Steps = () => {
           </div>
 
           <div className="ml-5 sm:ml-16 lg:ml-20 h-[50dvh] relative flex items-start -mt-[36px] sm:-mt-[50px] bg-white pt-2 pb-5 rounded-xl">
-            <div className="max-sm:hidden text-zinc-100 text-[100px] sm:text-[140px] lg:text-[170px] font-bold leading-[0.75] w-[100px] text-center">
+            <div className="max-sm:hidden portrait:sm:lg:hidden text-zinc-100 text-[100px] sm:text-[140px] lg:text-[170px] font-bold leading-[0.75] w-[100px] text-center">
               2
             </div>
             <div>
@@ -249,7 +249,7 @@ const Steps = () => {
                   y: 0,
                   filter: "blur(0px)",
                   opacity: 1,
-                  transition: { duration: 0.5, delay: 0.5 }
+                  transition: { duration: 0.5, delay: 0.5 },
                 }}
               >
                 Design Delivery
@@ -262,7 +262,7 @@ const Steps = () => {
                   y: 0,
                   filter: "blur(0px)",
                   opacity: 1,
-                  transition: { duration: 0.5, delay: 0.5 }
+                  transition: { duration: 0.5, delay: 0.5 },
                 }}
               >
                 You will have access to Notion & Slack to effectively
@@ -280,7 +280,7 @@ const Steps = () => {
             </span>
           </div>
           <div className="ml-5 sm:ml-16 lg:ml-20 h-[50dvh] relative flex items-start -mt-[36px] sm:-mt-[50px] bg-white pt-2 pb-5 rounded-xl">
-            <div className="max-sm:hidden text-zinc-100 text-[100px] sm:text-[140px] lg:text-[170px] font-bold leading-[0.75] w-[100px] text-center">
+            <div className="max-sm:hidden portrait:sm:lg:hidden text-zinc-100 text-[100px] sm:text-[140px] lg:text-[170px] font-bold leading-[0.75] w-[100px] text-center">
               3
             </div>
             <div>
@@ -292,7 +292,7 @@ const Steps = () => {
                   y: 0,
                   filter: "blur(0px)",
                   opacity: 1,
-                  transition: { duration: 0.5, delay: 0.5 }
+                  transition: { duration: 0.5, delay: 0.5 },
                 }}
               >
                 Development
@@ -305,7 +305,7 @@ const Steps = () => {
                   y: 0,
                   filter: "blur(0px)",
                   opacity: 1,
-                  transition: { duration: 0.5, delay: 0.5 }
+                  transition: { duration: 0.5, delay: 0.5 },
                 }}
               >
                 Once the designs are finalized, we will start developing the app
@@ -337,7 +337,7 @@ const Steps = () => {
                   y: 0,
                   filter: "blur(0px)",
                   opacity: 1,
-                  transition: { duration: 0.5, delay: 0.5 }
+                  transition: { duration: 0.5, delay: 0.5 },
                 }}
               >
                 Project Delivery
@@ -350,7 +350,7 @@ const Steps = () => {
                   y: 0,
                   filter: "blur(0px)",
                   opacity: 1,
-                  transition: { duration: 0.5, delay: 0.5 }
+                  transition: { duration: 0.5, delay: 0.5 },
                 }}
               >
                 Within our agreed timeline (usually between 2-4 weeks), you can
@@ -364,7 +364,7 @@ const Steps = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Steps
+export default Steps;
