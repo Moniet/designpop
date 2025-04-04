@@ -192,7 +192,7 @@ const Steps = () => {
             </span>
           </div>
 
-          <div className="ml-5 sm:ml-16 lg:ml-20 h-[50dvh] relative flex items-start -mt-[28px] sm:-mt-[50px]">
+          <div className="[box-shadow:10px_-20px_10px_white] ml-5 sm:ml-16 lg:ml-20 h-[50dvh] relative flex items-start -mt-[28px] sm:-mt-[50px]">
             <div className="max-sm:hidden portrait:sm:lg:hidden text-zinc-100 text-[100px] sm:text-[140px] lg:text-[170px] font-bold leading-[0.75] w-[100px] text-center">
               1
             </div>
@@ -236,7 +236,7 @@ const Steps = () => {
             </span>
           </div>
 
-          <div className="ml-5 sm:ml-16 lg:ml-20 h-[50dvh] relative flex items-start -mt-[36px] sm:-mt-[50px] bg-white pt-2 pb-5 rounded-xl">
+          <div className="[box-shadow:10px_-20px_10px_white] ml-5 sm:ml-16 lg:ml-20 h-[50dvh] relative flex items-start -mt-[36px] sm:-mt-[50px] bg-white pt-2 pb-5 rounded-xl">
             <div className="max-sm:hidden portrait:sm:lg:hidden text-zinc-100 text-[100px] sm:text-[140px] lg:text-[170px] font-bold leading-[0.75] w-[100px] text-center">
               2
             </div>
@@ -273,13 +273,13 @@ const Steps = () => {
             </div>
           </div>
         </div>
-        <div className="w-full sticky top-20 left-0 h-[50dvh] flex flex-col border-l border-l-[rgb(159,159,253)] l">
+        <div className="w-full sticky top-20 left-0 h-[50dvh] flex flex-col border-l border-l-[rgb(159,159,253)]">
           <div className="bg-[rgb(41,42,255)] text-white text-2xl p-2 flex size-[30px] sm:size-[50px] rounded-full -translate-x-1/2 font-semibold">
             <span className="m-auto">
               <LucideCode2 className="size-3 sm:size-4" />
             </span>
           </div>
-          <div className="ml-5 sm:ml-16 lg:ml-20 h-[50dvh] relative flex items-start -mt-[36px] sm:-mt-[50px] bg-white pt-2 pb-5 rounded-xl">
+          <div className="[box-shadow:10px_-20px_10px_white] ml-5 sm:ml-16 lg:ml-20 h-[50dvh] relative flex items-start -mt-[36px] sm:-mt-[50px] bg-white pt-2 pb-5 rounded-xl">
             <div className="max-sm:hidden portrait:sm:lg:hidden text-zinc-100 text-[100px] sm:text-[140px] lg:text-[170px] font-bold leading-[0.75] w-[100px] text-center">
               3
             </div>
@@ -324,7 +324,7 @@ const Steps = () => {
             </span>
           </div>
 
-          <div className="ml-5 sm:ml-16 lg:ml-20 h-fit relative flex items-start -mt-[36px] sm:-mt-[50px] bg-white pt-2 pb-5 rounded-xl">
+          <div className="[box-shadow:10px_-20px_10px_white] ml-5 sm:ml-16 lg:ml-20 h-fit relative flex items-start -mt-[36px] sm:-mt-[50px] bg-white pt-2 pb-5 rounded-xl">
             <div className="text-zinc-100 text-[100px] sm:text-[140px] lg:text-[170px] font-bold leading-[0.75] w-[100px] max-sm:hidden ">
               4
             </div>
