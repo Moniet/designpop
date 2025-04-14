@@ -15,7 +15,7 @@ const optionData = [
       "48 hour turn-around for designs",
       "Figma file delivery",
       "Design: One full page included <b>($99+ per extra page)</b>",
-      "Development: 4 pages included <b>($99+ per extra page)</b>",
+      "Development: 2 pages included <b>($99+ per extra page)</b>",
       "2 revision requests",
     ],
     price: { amount: pricing.landingPage, detail: " /landing page" },
