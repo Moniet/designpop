@@ -77,7 +77,9 @@ const FAQs = () => {
             {" "}
             <ul className="list-disc pl-2">
               <li>
-                <b>We use modern, industry-standard technologies including:</b>{" "}
+                <b>
+                  We use modern, industry-standard technologies including:
+                </b>{" "}
               </li>
               <li>• Next.js</li>
               <li>• React.js</li>
@@ -122,13 +124,10 @@ const FAQs = () => {
             {" "}
             <ul className="list-disc pl-2">
               <li className="-ml-2">
-                <b>We typically require:</b>
+                <b>We typically require (for MVP Projects):</b>
               </li>
               <li className="ml-4">50% upfront to begin work </li>
-              <li className="ml-4">
-                50% upon completion For MVP projects, we can arrange
-                milestone-based payments.{" "}
-              </li>
+              <li className="ml-4">50% upon completion</li>
               <li className="mt-5 text-sm">
                 <p>
                   <b>Note:</b> Our payments are done securely through{" "}
