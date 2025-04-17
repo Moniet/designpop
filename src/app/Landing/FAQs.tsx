@@ -1,6 +1,6 @@
 import React from "react";
 import Accordion from "./Accordion";
-import { FaStripe } from "react-icons/fa";
+
 import { pricing } from "@/prices";
 
 const FAQs = () => {
@@ -132,11 +132,10 @@ const FAQs = () => {
                 <p>
                   <b>Note:</b> Our payments are done securely through{" "}
                   <a
-                    href="https://stripe.com"
-                    className="h-1 inline-block overflow-visible"
+                    href="https://paypal.com"
+                    className="h-1 inline-block overflow-visible font-semibold"
                   >
-                    <FaStripe className="text-purple-500 text-3xl md:text-4xl  inline-block sm:ml-1 skew-x-5" />
-                    .
+                    PayPal
                   </a>
                 </p>
                 <p>
@@ -171,7 +170,7 @@ const FAQs = () => {
           <Accordion title="How do we get started?">
             {" "}
             <p>
-              <b>The process is simple:</b>
+              <b>For MVP Projects:</b>
             </p>
             <ol className="list-decimal pl-5">
               <li>Schedule a consultation</li>
@@ -181,11 +180,25 @@ const FAQs = () => {
               <li>Begin project</li>
             </ol>
             <p className="mt-5">
+              <b>For Landing Pages:</b>
+            </p>
+            <ol className="list-decimal pl-5">
+              <li>Schedule a consultation</li>
+              <li>Receive a proposal</li>
+              <li>Sign contract</li>
+              <li>We start on the project, delivering a live preview</li>
+              <li>Project handover (after payment)</li>
+            </ol>
+            <p className="mt-5">
               <b>We can typically start:</b>
             </p>
             <ul className="list-disc pl-5">
               <li>Landing Pages: Within 24-48 hours</li>
               <li>MVPs: Within one week of contract signing</li>
+              <li>
+                Subscriptions: Within 24 hours (if provided with documentation /
+                guidelines)
+              </li>
             </ul>
           </Accordion>{" "}
           <Accordion title="Do I own the source code?">
