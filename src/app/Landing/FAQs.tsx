@@ -98,6 +98,14 @@ const FAQs = () => {
               </li>
             </ul>
           </Accordion>{" "}
+          <Accordion title="How does unlimited requests work?">
+            <p>
+              With our subscription plan, you can submit as many design and
+              development requests as you&#39;d like. We tackle each request
+              sequentially, providing clear timeline estimates to keep you
+              informed of progress.
+            </p>
+          </Accordion>{" "}
           <Accordion title="Can I opt for design only?">
             {" "}
             <ul className="list-disc pl-2">
