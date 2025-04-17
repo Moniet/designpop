@@ -48,7 +48,7 @@ const optionData = [
     timeline: "",
     description: "Design + dev. work on a monthly basis",
     bullets: [
-      "4 design requests per month",
+      "Unlimited monthly design requests",
       "Unlimited development requests",
       "Access to Slack & Notion for async work",
       "Pause or cancel subscription at anytime",
