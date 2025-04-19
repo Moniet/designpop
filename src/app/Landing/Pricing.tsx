@@ -12,6 +12,7 @@ const optionData = [
     description: "Landing page design + development",
     bulletsHeading: "Re-vamp, validate, or build a new site:",
     bullets: [
+      "SEO: Keyword research & On-page SEO",
       "48 hour turn-around for designs",
       "Figma file delivery",
       "Design: One full page included <b>($99+ per extra page)</b>",
