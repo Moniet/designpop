@@ -1,56 +1,70 @@
-"use client"
+"use client";
 
-import React, { useEffect, useRef, useState } from "react"
-import { motion, useScroll, useTransform } from "motion/react"
-import { debounce } from "lodash"
-import Image from "next/image"
-import { ArrowRight } from "lucide-react"
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { debounce } from "lodash";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 const cards = [
+  {
+    image: "/img/roomix-tile.jpg",
+    title: "Roomix - Custom furniture, e-commerce store",
+    url: "roomix.com",
+    link: "https://roomix.com",
+    logo: "/img/logos/roomix logo.jpg",
+  },
   {
     image: "/img/blocs tile 2.png",
     title: "Blocs - habit tracker widgets for Notion",
     url: "blocs.me",
     link: "https://blocs.me",
-    logo: "/img/logos/blocs-logo.svg"
+    logo: "/img/logos/blocs-logo.svg",
+  },
+  {
+    image: "/img/oneway-tile.jpg",
+    title: "Onewayhandshake - Cybersecurity and infosec blog",
+    url: "onewayhandshake.com",
+    link: "https://www.figma.com/proto/yh3l6OC6V3odYJjKZXACq4/DesignPop?node-id=5298-8018&t=pkpvVucGrhuvOV26-0&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=5298%3A8018",
+    logo: "/img/logos/owh logo.jpg",
   },
   {
     image: "/img/phoenix tile.png",
     title: "Phoenix Medical Systems",
     url: "phoenixmedicalsystems.com",
     link: "https://phoenixmedicalsystems.com",
-    logo: "/img/logos/phoenix-logo.svg"
+    logo: "/img/logos/phoenix-logo.svg",
   },
   {
     image: "/img/instaapply tile.png",
     title: "InstaApply - Apply to jobs in one-click!",
     url: "instaapply.co",
     link: "https://instaapply.co",
-    logo: "/img/logos/instaapply-logo.svg"
+    logo: "/img/logos/instaapply-logo.svg",
   },
   {
     image: "/img/ficus tile.png",
     title: "Ficus - Infinite LoFi Music Player",
     url: "ficus.fm",
     link: "https://ficus.fm",
-    logo: "/img/logos/ficus-logo.svg"
+    logo: "/img/logos/ficus-logo.svg",
   },
   {
     image: "/img/framerlib tile.png",
     title: "FramerLib - No-code components for Framer",
     url: "framerlib.com",
     link: "https://framerlib.com",
-    logo: "/img/logos/framerlib-logo.svg"
-  }
+    logo: "/img/logos/framerlib-logo.svg",
+  },
   // {
   //   image: "/img/filebloc-landing-page.png",
   //   title: "Filebloc - digital asset management directly from slack",
   //   url: "filebloc.co",
   //   link: "#"
   // }
-]
+];
 
 const Card = (card: (typeof cards)[0]) => {
-  const [isHovering, setIsHovering] = useState(false)
+  const [isHovering, setIsHovering] = useState(false);
 
   return (
     <motion.a
@@ -64,17 +78,17 @@ const Card = (card: (typeof cards)[0]) => {
         y: 0,
         transition: {
           type: "spring",
-          duration: 2
-        }
+          duration: 2,
+        },
       }}
       initial={{
         opacity: 0,
 
-        y: 40
+        y: 40,
       }}
       viewport={{
         amount: 0.15,
-        once: true
+        once: true,
       }}
       // style={{ top: i == 0 ? 100 : i * cardHeight }}
     >
@@ -86,7 +100,7 @@ const Card = (card: (typeof cards)[0]) => {
               animate={{
                 scale: isHovering ? 1.05 : 1,
                 rotate: isHovering ? "-1deg" : "0deg",
-                transition: { duration: 1, type: "spring" }
+                transition: { duration: 1, type: "spring" },
               }}
             >
               <Image
@@ -139,73 +153,73 @@ const Card = (card: (typeof cards)[0]) => {
         </div>
       </div>
     </motion.a>
-  )
-}
+  );
+};
 
 const Carousel = () => {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [scrollWidth, setScrollWidth] = useState(0)
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [scrollWidth, setScrollWidth] = useState(0);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"]
-  })
-  const [mounted, setMounted] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
+    offset: ["start start", "end end"],
+  });
+  const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   // const inViewProps = useInView({ threshold: 0.5, root: window.document })
 
   useEffect(() => {
     const getAndSetCardHeight = debounce(() => {
       const sw = document.querySelector<HTMLDivElement>(
-        "#carousel-items-container"
-      )!.scrollWidth
+        "#carousel-items-container",
+      )!.scrollWidth;
       const margin = (() => {
-        const width = window.innerWidth
+        const width = window.innerWidth;
 
         if (width >= 1200) {
-          return 40
+          return 40;
         }
 
         if (width <= 1024 && width >= 640) {
-          return 40
+          return 40;
         }
 
-        return 20
-      })()
+        return 20;
+      })();
       setScrollWidth(
         //bodmas
-        sw - containerRef.current!.getBoundingClientRect().width + margin
-      )
-    }, 100)
+        sw - containerRef.current!.getBoundingClientRect().width + margin,
+      );
+    }, 100);
 
-    getAndSetCardHeight()
+    getAndSetCardHeight();
 
-    window.addEventListener("resize", getAndSetCardHeight)
+    window.addEventListener("resize", getAndSetCardHeight);
 
     return () => {
-      window.removeEventListener("resize", getAndSetCardHeight)
-    }
-  }, [])
+      window.removeEventListener("resize", getAndSetCardHeight);
+    };
+  }, []);
 
   useEffect(() => {
-    setMounted(true)
-  }, [mounted])
+    setMounted(true);
+  }, [mounted]);
 
   useEffect(() => {
     const cb = debounce(() => {
-      setIsMobile(window?.innerWidth < 768)
-    }, 100)
+      setIsMobile(window?.innerWidth < 768);
+    }, 100);
 
-    cb()
+    cb();
 
-    window.addEventListener("resize", cb)
+    window.addEventListener("resize", cb);
 
     return () => {
-      window.removeEventListener("resize", cb)
-    }
-  }, [])
+      window.removeEventListener("resize", cb);
+    };
+  }, []);
 
-  const scrollX = useTransform(scrollYProgress, [0, 1], [0, -scrollWidth])
-  const h2Opacity = useTransform(scrollYProgress, [0, 1], [1, 0])
+  const scrollX = useTransform(scrollYProgress, [0, 1], [0, -scrollWidth]);
+  const h2Opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
   // const h2Blur = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   return (
@@ -249,7 +263,7 @@ const Carousel = () => {
               initial={{ scaleX: 1 }}
               whileInView={{
                 scaleX: 0,
-                transition: { duration: 2, type: "spring" }
+                transition: { duration: 2, type: "spring" },
               }}
               style={{ transformOrigin: "right center" }}
               viewport={{ amount: "all", once: true }}
@@ -300,7 +314,7 @@ const Carousel = () => {
         </motion.div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Carousel
+export default Carousel;

@@ -9,7 +9,7 @@ const testimonials = [
   {
     id: "1",
     author: {
-      name: "Florian Brauer",
+      name: "Florian Braeuer",
       position: "CTO of Gavel GmbH",
       image: "/img/florian.jpeg",
     },
@@ -28,11 +28,11 @@ const testimonials = [
   {
     id: "4",
     author: {
-      name: "Sashi Kumar",
+      name: "Sashikumar",
       position: "M.D at Phoenix Medical Systems",
       image: "/img/sash.jpeg",
     },
-    text: "Designpop re-vamped our website in one week and helped tremendously boost our SEO rankings in just 1 month. We are now outranking our competitors on Google search and also have a high quality design that gives our company a great image to potential customers on a international scale.",
+    text: "Designpop re-vamped our website in record time and helped tremendously boost our SEO rankings. We are now outranking our competitors on Google search and also have a high quality design that gives our company a great image to potential customers on a international scale.",
   },
   {
     id: "5",
