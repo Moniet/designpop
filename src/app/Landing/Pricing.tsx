@@ -67,8 +67,8 @@ const optionData = [
     timeline: "",
     description: "Get a taste of working with designpop",
     bullets: [
-      `Unlimited <b>design</b> requests`,
-      "Unlimited development requests",
+      `<a href="#unlimited-requests-faq"><span class="text-zinc-500">Unlimited design</span></a> requests`,
+      `<a href="#unlimited-requests-faq"><span class="text-zinc-500">Unlimited development</span></a> requests`,
       "Access to Slack & Notion for async work",
       "Pause or cancel subscription at anytime",
       "Priority support",
