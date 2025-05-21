@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import OurServices from "./Landing/OurServices";
 import Steps from "./Landing/Steps";
 import Pricing from "./Landing/Pricing";
+import AgenticSection from "./Landing/AgenticSection";
 
 import { useRef } from "react";
 import FAQs from "./Landing/FAQs";
@@ -355,30 +356,6 @@ export default function Home() {
                   </div>
                   <div className="mt-5 sm:mt-12 xl:mt-12 flex max-sm:flex-col max-sm:mt-12">
                     <div className="flex flex-wrap max-sm:flex-col gap-3 md:gap-5 max-sm:justify-start">
-                      <motion.button
-                        className="px-[2px] py-[3px] pl-8 h-[50px] text-sm xl:text-base bg-[rgb(42,41,255)] rounded-full text-center text-white w-fit mr-3 flex items-center justify-between whitespace-nowrap max-h-fit"
-                        onClick={() => scrollTo("book-a-call")}
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                          duration: 1,
-                          delay: 0.9,
-                          filter: "blur(10px)",
-                          type: "spring",
-                        }}
-                      >
-                        <div className="font-medium mr-5 captialize">
-                          Book a call
-                        </div>
-                        <div className="size-[45px] bg-white  rounded-full text-[rgb(42,41,255)] flex">
-                          <div className="m-auto -rotate-45">
-                            <ArrowRight
-                              className="size-[18px]"
-                              strokeWidth={2}
-                            />
-                          </div>
-                        </div>
-                      </motion.button>
                       <motion.div
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -573,13 +550,15 @@ export default function Home() {
               </motion.div>
             </section>
 
+            {/* <GravityBox /> */}
             <section className="overflow-hidden max-w-full pb-10 relative">
               <Testimonials />
             </section>
-            {/* <GravityBox /> */}
+            <AgenticSection />
             <section>
               <Pricing />
             </section>
+
             <FAQs />
             <section className="w-full lg:w-[100%] mx-auto" id="book-a-call">
               <motion.div
@@ -723,12 +702,12 @@ export default function Home() {
                   <div className="flex-1  flex justify-end max-lg:w-full">
                     <Cal
                       namespace="30min"
-                      className="border border-zinc-200 rounded-xl w-full lg:max-w-[400px]"
+                      className="border border-zinc-200 rounded-xl w-full lg:max-w-[400px] overflow-hidden"
                       calLink="designpop/30min"
                       style={{
                         width: "100%",
                         height: "100%",
-                        overflow: "scroll",
+                        overflow: "clip",
                       }}
                       config={{
                         layout: "month_view",

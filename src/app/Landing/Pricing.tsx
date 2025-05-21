@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { BiStopwatch } from "react-icons/bi";
 import { AnimatePresence, motion } from "motion/react";
 import { pricing } from "@/prices";
-import { Switch } from "@/components/ui/switch";
 
 const optionData = [
   {
