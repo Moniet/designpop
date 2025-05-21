@@ -48,13 +48,13 @@ const cards = [
     link: "https://ficus.fm",
     logo: "/img/logos/ficus-logo.svg",
   },
-  {
-    image: "/img/framerlib tile.png",
-    title: "FramerLib - No-code components for Framer",
-    url: "framerlib.com",
-    link: "https://framerlib.com",
-    logo: "/img/logos/framerlib-logo.svg",
-  },
+  // {
+  //   image: "/img/framerlib tile.png",
+  //   title: "FramerLib - No-code components for Framer",
+  //   url: "framerlib.com",
+  //   link: "https://framerlib.com",
+  //   logo: "/img/logos/framerlib-logo.svg",
+  // },
   // {
   //   image: "/img/filebloc-landing-page.png",
   //   title: "Filebloc - digital asset management directly from slack",
