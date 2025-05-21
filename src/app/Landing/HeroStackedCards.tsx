@@ -10,7 +10,7 @@ const Card = ({ text }: { text: string }) => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="w-[225px] sm:w-[270px] lg:w-[300px] aspect-[5/4] bg-[rgb(41,42,255)] rounded-xl p-5 flex flex-col justify-between relative -row-start-1 -col-start-1 [box-shadow:0px_0px_15px_rgba(0,0,0,0.2)]"
+      className="w-[225px] sm:w-[270px] lg:w-[350px] aspect-[5/4] bg-[rgb(41,42,255)] rounded-xl p-5 flex flex-col justify-between relative -row-start-1 -col-start-1 [box-shadow:0px_0px_15px_rgba(0,0,0,0.2)]"
     >
       <WhiteLogo className="w-[100px]" />
       <div className="text-2xl md:text-3xl font-semibold text-white">
@@ -196,9 +196,13 @@ const HeroStackedCards = ({ hide = false }) => {
       ref={scope}
     >
       <motion.div
-        className="p-5 bg-[rgb(41,42,255)]/30 rounded-xl stacked-cards w-[225px] sm:w-[270px] lg:w-[300px] aspect-[5/4] absolute top-0 left-0 z-0"
+        className="p-5 bg-[rgb(41,42,255)]/30 rounded-xl stacked-cards w-[225px] sm:w-[270px] lg:w-[350px] aspect-[5/4] absolute top-0 left-0 z-0"
         initial={{ rotate: 0, opacity: 0 }}
-        animate={{ rotate: 5, opacity: 1, transition: { duration: 0.5 } }}
+        animate={{
+          rotate: 5,
+          opacity: 1,
+          transition: { duration: 1 }
+        }}
       >
         <WhiteLogo className="w-[100px]" />
       </motion.div>

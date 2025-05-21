@@ -105,7 +105,7 @@ const Card = ({ icon, title, currentIndex, index, isVisible }: CardProps) => {
       variants={variants}
     >
       <div
-        className={`rounded-xl border bg-white border-[#cfcfcf] flex flex-col gap-3 p-5 w-[270px] md:w-[300px] h-[150px] overflow-hidden relative`}
+        className={`rounded-xl border bg-white border-[#cfcfcf] flex flex-col gap-3 p-5 w-[270px] md:w-[350px] h-[150px] lg:h-[165px] justify-center overflow-hidden relative`}
       >
         <div className="min-w-[35px] min-h-[35px] aspect-square max-w-[35px] rounded-md bg-zinc-100 flex items-center justify-center text-[#DB5F5F]">
           {icon}
