@@ -306,8 +306,8 @@ const Testimonials = () => {
           </motion.div>
         </div>
       </motion.div>
-      <div className="hidden xl:block absolute bottom-0 left-0 h-full w-[100px] bg-gradient-to-r from-[rgb(248,248,248)] to-[rgba(255,255,255,0)] z-0 pointer-events-none" />
-      <div className="hidden xl:block absolute bottom-0 right-0 h-full w-[100px] bg-gradient-to-l from-[rgb(248,248,248)] to-[rgba(255,255,255,0)] z-0 pointer-events-none" />
+      <div className="hidden xl:block absolute bottom-0 left-0 h-full w-[100px] bg-gradient-to-r from-[rgb(255,255,255)] to-[rgba(255,255,255,0)] z-0 pointer-events-none" />
+      <div className="hidden xl:block absolute bottom-0 right-0 h-full w-[100px] bg-gradient-to-l from-[rgb(255,255,255)] to-[rgba(255,255,255,0)] z-0 pointer-events-none" />
       <motion.div
         data-component="testimonials"
         className="fixed top-0 left-0 pointer-events-none max-lg:hidden portrait:hidden"
