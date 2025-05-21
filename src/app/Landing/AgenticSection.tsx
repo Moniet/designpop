@@ -1,8 +1,8 @@
-"use client";
+"use client"
 
-import { PropsWithChildren, useState } from "react";
-import { ArrowRight, Check, LucideMessageCircleQuestion } from "lucide-react";
-import { scrollTo } from "../hooks/scrollTo";
+import { useState } from "react"
+import { ArrowRight, Check, LucideMessageCircleQuestion } from "lucide-react"
+import { scrollTo } from "../hooks/scrollTo"
 import {
   SiHubspot,
   SiLangchain,
@@ -10,20 +10,20 @@ import {
   SiTelegram,
   SiTwilio,
   SiWhatsapp,
-  SiZendesk,
-} from "react-icons/si";
+  SiZendesk
+} from "react-icons/si"
 import {
   Tooltip,
   TooltipContent,
   TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { Switch } from "@/components/ui/switch";
-import { AnimatePresence, motion } from "motion/react";
-import { RiOpenaiFill } from "react-icons/ri";
+  TooltipTrigger
+} from "@/components/ui/tooltip"
+import { Switch } from "@/components/ui/switch"
+import { AnimatePresence, motion } from "motion/react"
+import { RiOpenaiFill } from "react-icons/ri"
 
 const AgenticSection = () => {
-  const [isPro, setIsPro] = useState(false);
+  const [isPro, setIsPro] = useState(false)
   return (
     <div className="flex flex-col md:flex-row rounded-[25px] bg-[#f9f9f9] border p-[0.25rem] sm:p-[0.5rem]  md:p-[0.8rem] border-[#e8e8e8]/0 overflow-hidden">
       <div className="w-full rounded-[20px] bg-white flex flex-col lg:flex-row p-5 sm:p-6 md:p-8 lg:p-10 gap-20 lg:gap-10 lg:min-h-[500px] flex-wrap">
@@ -278,7 +278,7 @@ const AgenticSection = () => {
             className="h-fit w-full border-zinc-100 border rounded-[20px] sm:rounded-[25px] p-4 sm:p-6 md:p-10"
             style={{
               boxShadow:
-                "0 0 5px rgba(0, 0, 0, 0.03), 2px 2px 5px 3px rgba(0,0,0,0.005), 10px 10px 20px rgba(0, 0, 0, 0.03), 5px 5px 12px rgba(0,0,0,0.01)",
+                "0 0 5px rgba(0, 0, 0, 0.03), 2px 2px 5px 3px rgba(0,0,0,0.005), 10px 10px 20px rgba(0, 0, 0, 0.03), 5px 5px 12px rgba(0,0,0,0.01)"
             }}
           >
             <div className="flex items-center gap-3 sm:gap-5">
@@ -419,7 +419,7 @@ const AgenticSection = () => {
         </motion.div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AgenticSection;
+export default AgenticSection
