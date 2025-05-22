@@ -275,7 +275,7 @@ const AgenticSection = () => {
           transition={{ duration: 1, type: "spring", delay: 0.2 }}
         >
           <div
-            className="h-fit w-full border-zinc-100 border rounded-[20px] sm:rounded-[25px] p-4 sm:p-6 md:p-10"
+            className="h-fit w-full border-zinc-100 border rounded-[20px] sm:rounded-[25px] p-7 sm:p-8 md:p-10"
             style={{
               boxShadow:
                 "0 0 5px rgba(0, 0, 0, 0.03), 2px 2px 5px 3px rgba(0,0,0,0.005), 10px 10px 20px rgba(0, 0, 0, 0.03), 5px 5px 12px rgba(0,0,0,0.01)"
@@ -294,7 +294,7 @@ const AgenticSection = () => {
               </div>
             </div>
 
-            <div className="text-zinc-500 mt-6 sm:mt-10 text-base sm:text-lg">
+            <div className="text-zinc-500 mt-10 text-base sm:text-lg">
               {isPro ? "Pro Pricing" : "Starting At"}
             </div>
             <div className="w-full relative h-[42px] mt-3 mb-10">
@@ -304,7 +304,7 @@ const AgenticSection = () => {
                   animate={{ opacity: 1, filter: "blur(0px)" }}
                   exit={{ opacity: 0, filter: "blur(5px)" }}
                   transition={{ duration: 1 }}
-                  className="text-zinc-900 text-3xl sm:text-4xl md:text-5xl font-semibold absolute top-0 left-0"
+                  className="text-zinc-900 text-4xl md:text-5xl font-semibold absolute top-0 left-0"
                   key={isPro ? 1 : 0}
                 >
                   {isPro ? "$3,950" : "$1,950"}
@@ -313,30 +313,30 @@ const AgenticSection = () => {
             </div>
             <motion.ul
               layout
-              className="flex flex-col gap-2 sm:gap-3 text-sm sm:text-base font-medium text-zinc-500 w-full mt-3 sm:mt-5"
+              className="flex flex-col gap-2 sm:gap-3 text-xs sm:text-base font-medium text-zinc-500 w-full mt-3 sm:mt-5"
             >
               <li className="flex items-center gap-3">
-                <div className="bg-blue-700/90 size-[15px] min-w-[15px] min-h-[15px] rounded-full flex">
+                <div className="bg-blue-700/90 max-sm:size-[12px] max-sm:min-w-[12px] max-sm:min-h-[12px] size-[15px] min-w-[15px] min-h-[15px] rounded-full flex">
                   <Check
-                    className="size-[8px] text-white m-auto"
+                    className="size-[5px] sm:size-[8px] text-white m-auto"
                     strokeWidth={3}
                   />
                 </div>
                 <span>Custom agentic tooling for your business</span>
               </li>
               <li className="flex items-center gap-3">
-                <div className="bg-blue-700/90 size-[15px] min-w-[15px] min-h-[15px] rounded-full flex">
+                <div className="bg-blue-700/90 max-sm:size-[12px] max-sm:min-w-[12px] max-sm:min-h-[12px] size-[15px] min-w-[15px] min-h-[15px] rounded-full flex">
                   <Check
-                    className="size-[8px] text-white m-auto"
+                    className="size-[5px] sm:size-[8px] text-white m-auto"
                     strokeWidth={3}
                   />
                 </div>
                 <span>Fine tune a custom model on relevant company data</span>
               </li>
               <li className="flex items-center gap-3">
-                <div className="bg-blue-700/90 size-[15px] min-w-[15px] min-h-[15px] rounded-full flex">
+                <div className="bg-blue-700/90 max-sm:size-[12px] max-sm:min-w-[12px] max-sm:min-h-[12px] size-[15px] min-w-[15px] min-h-[15px] rounded-full flex">
                   <Check
-                    className="size-[8px] text-white m-auto"
+                    className="size-[5px] sm:size-[8px] text-white m-auto"
                     strokeWidth={3}
                   />
                 </div>
@@ -346,9 +346,9 @@ const AgenticSection = () => {
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <div className="bg-blue-700/90 size-[15px] min-w-[15px] min-h-[15px] rounded-full flex">
+                <div className="bg-blue-700/90 max-sm:size-[12px] max-sm:min-w-[12px] max-sm:min-h-[12px] size-[15px] min-w-[15px] min-h-[15px] rounded-full flex">
                   <Check
-                    className="size-[8px] text-white m-auto"
+                    className="size-[5px] sm:size-[8px] text-white m-auto"
                     strokeWidth={3}
                   />
                 </div>
@@ -358,27 +358,27 @@ const AgenticSection = () => {
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <div className="bg-blue-700/90 size-[15px] min-w-[15px] min-h-[15px] rounded-full flex">
+                <div className="bg-blue-700/90 max-sm:size-[12px] max-sm:min-w-[12px] max-sm:min-h-[12px] size-[15px] min-w-[15px] min-h-[15px] rounded-full flex">
                   <Check
-                    className="size-[8px] text-white m-auto"
+                    className="size-[5px] sm:size-[8px] text-white m-auto"
                     strokeWidth={3}
                   />
                 </div>
                 <span>Customer support agents on WhatsApp & Telegram</span>
               </li>
               <li className="flex items-center gap-3">
-                <div className="bg-blue-700/90 size-[15px] min-w-[15px] min-h-[15px] rounded-full flex">
+                <div className="bg-blue-700/90 max-sm:size-[12px] max-sm:min-w-[12px] max-sm:min-h-[12px] size-[15px] min-w-[15px] min-h-[15px] rounded-full flex">
                   <Check
-                    className="size-[8px] text-white m-auto"
+                    className="size-[5px] sm:size-[8px] text-white m-auto"
                     strokeWidth={3}
                   />
                 </div>
                 <span>Voice-enabled agents that can speak to customers</span>
               </li>
               <li className="flex items-center gap-3">
-                <div className="bg-blue-700/90 size-[15px] min-w-[15px] min-h-[15px] rounded-full flex">
+                <div className="bg-blue-700/90 max-sm:size-[12px] max-sm:min-w-[12px] max-sm:min-h-[12px] size-[15px] min-w-[15px] min-h-[15px] rounded-full flex">
                   <Check
-                    className="size-[8px] text-white m-auto"
+                    className="size-[5px] sm:size-[8px] text-white m-auto"
                     strokeWidth={3}
                   />
                 </div>
@@ -406,9 +406,9 @@ const AgenticSection = () => {
                 </AnimatePresence>
               </li>
               <li className="flex items-center gap-3">
-                <div className="bg-blue-700/90 size-[15px] min-w-[15px] min-h-[15px] rounded-full flex">
+                <div className="bg-blue-700/90 max-sm:size-[12px] max-sm:min-w-[12px] max-sm:min-h-[12px] size-[15px] min-w-[15px] min-h-[15px] rounded-full flex">
                   <Check
-                    className="size-[8px] text-white m-auto"
+                    className="size-[5px] sm:size-[8px] text-white m-auto"
                     strokeWidth={3}
                   />
                 </div>

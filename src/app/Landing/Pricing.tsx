@@ -1,8 +1,8 @@
-import { ArrowRight, Check } from "lucide-react"
-import React, { useState } from "react"
-import { BiStopwatch } from "react-icons/bi"
-import { AnimatePresence, motion } from "motion/react"
-import { pricing } from "@/prices"
+import { ArrowRight, Check } from "lucide-react";
+import React, { useState } from "react";
+import { BiStopwatch } from "react-icons/bi";
+import { AnimatePresence, motion } from "motion/react";
+import { pricing } from "@/prices";
 
 const optionData = [
   {
@@ -17,9 +17,9 @@ const optionData = [
       "Figma file delivery",
       "Design: One full page included <b>($99+ per extra page)</b>",
       "Development: 2 pages included <b>($99+ per extra page)</b>",
-      "2 revision requests"
+      "2 revision requests",
     ],
-    price: { amount: pricing.landingPage, detail: " /landing page" }
+    price: { amount: pricing.landingPage, detail: " /landing page" },
   },
   {
     title: "MVP Design & Dev.",
@@ -33,7 +33,7 @@ const optionData = [
       "Own the codebase",
       "2-3 core features",
       "Milestone based pricing",
-      "3 months support <small>(extendable)</small>"
+      "3 months support <small>(extendable)</small>",
     ],
     bullets2: [
       "Complex MVP in 4-8 weeks",
@@ -41,9 +41,9 @@ const optionData = [
       "4-6 core features",
       `${pricing.complexMVP} / complex mvp`,
       "Milestone based pricing",
-      "6 months support <small>(extendable)</small>"
+      "6 months support <small>(extendable)</small>",
     ],
-    price: { amount: pricing.simpleMVP, detail: " /Simple MVP" }
+    price: { amount: pricing.simpleMVP, detail: " /Simple MVP" },
   },
   {
     title: `Subscription`,
@@ -55,10 +55,10 @@ const optionData = [
       "Unlimited development requests",
       "Access to Slack & Notion for async work",
       "Pause or cancel subscription at anytime",
-      "Priority support"
+      "Priority support",
     ],
     bulletsHeading: "Everything that's included:",
-    price: { amount: pricing.subscription, detail: " /month" }
+    price: { amount: pricing.subscription, detail: " /month" },
   },
   {
     title: `Subcription Trial`,
@@ -69,18 +69,18 @@ const optionData = [
       `<a href="#unlimited-requests-faq"><span class="text-zinc-500">Unlimited design</span></a> requests`,
       `<a href="#unlimited-requests-faq"><span class="text-zinc-500">Unlimited development</span></a> requests`,
       "Access to Slack & Notion for async work",
-      "Pause or cancel subscription at anytime",
-      "Priority support"
+      "Coding tasks on production or development enviroments",
+      "Designing actual features or pages for your app",
     ],
     bulletsHeading: "Everything that's included:",
-    price: { amount: pricing.subscriptionTrial, detail: " /2 weeks" }
-  }
-]
+    price: { amount: pricing.subscriptionTrial, detail: " /2 weeks" },
+  },
+];
 
 const Pricing = () => {
-  const [selected, setSelected] = useState(0)
-  const [isTrial] = useState(false)
-  const data = optionData[selected]
+  const [selected, setSelected] = useState(0);
+  const [isTrial] = useState(false);
+  const data = optionData[selected];
 
   return (
     <div className="flex flex-col" id="pricing">
@@ -200,14 +200,14 @@ const Pricing = () => {
                     className="text-2xl sm:text-3xl lg:text-4xl font-semibold capitalize"
                     exit={{
                       opacity: 0,
-                      transition: { duration: 0.5 },
-                      filter: "blur(10px)"
+                      transition: { duration: 1 },
+                      filter: "blur(10px)",
                     }}
                     initial={{ opacity: 0, filter: "blur(2px)" }}
                     animate={{
                       opacity: 1,
-                      transition: { duration: 0.6 },
-                      filter: "blur(0px)"
+                      transition: { duration: 1 },
+                      filter: "blur(0px)",
                     }}
                     key={data.title}
                   >
@@ -219,14 +219,14 @@ const Pricing = () => {
                     exit={{
                       opacity: 0,
                       transition: { duration: 0.5 },
-                      filter: "blur(2px)"
+                      filter: "blur(2px)",
                     }}
                     initial={{ opacity: 0, filter: "blur(2px)" }}
                     animate={{
                       filter: "blur(0px)",
                       opacity: 1,
                       y: 0,
-                      transition: { duration: 0.5 }
+                      transition: { duration: 0.5 },
                     }}
                     key={isTrial ? 1499 : data.price.amount}
                   >
@@ -260,7 +260,7 @@ const Pricing = () => {
                 duration: 1,
                 delay: 0.9,
                 filter: "blur(10px)",
-                type: "spring"
+                type: "spring",
               }}
             >
               <div className="font-medium mr-5 captialize">Get started</div>
@@ -318,7 +318,7 @@ const Pricing = () => {
         <div className="py-5" />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Pricing
+export default Pricing;

@@ -98,7 +98,10 @@ const FAQs = () => {
               </li>
             </ul>
           </Accordion>{" "}
-          <Accordion title="How does unlimited requests work?">
+          <Accordion
+            title="How does unlimited requests work?"
+            id="unlimited-requests-faq"
+          >
             <p>
               With our subscription plan, you can submit as many design and
               development requests as you&#39;d like. We tackle each request one
@@ -134,8 +137,11 @@ const FAQs = () => {
               <li className="-ml-2">
                 <b>We typically require (for MVP Projects):</b>
               </li>
-              <li className="ml-4">50% upfront to begin work </li>
-              <li className="ml-4">50% upon completion</li>
+              <li className="ml-4">25% upfront to begin work </li>
+              <li className="ml-4">
+                The rest of the 75% worth of payments will be broken up by
+                milestone
+              </li>
               <li className="mt-5 text-sm">
                 <p>
                   <b>Note:</b> Our payments are done securely through{" "}
@@ -184,7 +190,7 @@ const FAQs = () => {
               <li>Schedule a consultation</li>
               <li>Receive a proposal</li>
               <li>Sign contract</li>
-              <li>Make initial payment (50% upfront)</li>
+              <li>Make advanced payment (25%)</li>
               <li>Begin project</li>
             </ol>
             <p className="mt-5">
