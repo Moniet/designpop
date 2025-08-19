@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { BiStopwatch } from "react-icons/bi";
 import { AnimatePresence, motion } from "motion/react";
 import { pricing } from "@/prices";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 
 const optionData = [
   {
@@ -49,10 +51,11 @@ const optionData = [
     title: `Subscription`,
     calEvent: "designpop/30-min-meeting-subscription",
     timeline: "",
-    description: "Design + dev. work on a monthly basis",
+    description: "Design or dev work on a monthly basis",
     bullets: [
+      "Unlimited development requests (if selected)",
       "Unlimited monthly design requests",
-      "Unlimited development requests",
+      "Timeline estimates for tasks",
       "Access to Slack & Notion for async work",
       "Pause or cancel subscription at anytime",
       "Priority support",
@@ -81,6 +84,7 @@ const Pricing = () => {
   const [selected, setSelected] = useState(0);
   const [isTrial] = useState(false);
   const data = optionData[selected];
+  const [designSelected, setDesignSelected] = useState(false);
 
   return (
     <div className="flex flex-col" id="pricing">
@@ -193,11 +197,28 @@ const Pricing = () => {
                 </motion.div>
               </AnimatePresence>
             </div>
-            <div className="sm:mt-12 mt-8 lg:mt-16">
+
+            <div className="sm:mt-12 mt-8 lg:mt-16 relative">
+              {selected === 2 && (
+                <div className="flex gap-2 items-center flex-row max-md:mb-2 max-md:flex-row-reverse max-md:justify-start md:justify-end md:absolute h-fit bottom-0 right-0 rounded-full cursor-pointer">
+                  <Label
+                    htmlFor={"design-switch"}
+                    className="text-zinc-500 !font-medium !text-sm "
+                  >
+                    With Design
+                  </Label>
+                  <Switch
+                    id="design-switch"
+                    className="scale-60"
+                    checked={designSelected}
+                    onCheckedChange={setDesignSelected}
+                  />
+                </div>
+              )}
               <div className="flex max-md:flex-col w-full max-md:items-start items-center justify-between">
                 <AnimatePresence mode="popLayout">
                   <motion.div
-                    className="text-2xl sm:text-3xl lg:text-4xl font-semibold capitalize"
+                    className="text-2xl sm:text-3xl lg:text-4xl font-semibold capitalize w-full"
                     exit={{
                       opacity: 0,
                       transition: { duration: 1 },
@@ -213,40 +234,48 @@ const Pricing = () => {
                   >
                     {data.title}
                   </motion.div>
-                  <motion.div
-                    layout="position"
-                    className="text-lg sm:text-xl lg:text-2xl font-semibold whitespace-nowrap"
-                    exit={{
-                      opacity: 0,
-                      transition: { duration: 0.5 },
-                      filter: "blur(2px)",
-                    }}
-                    initial={{ opacity: 0, filter: "blur(2px)" }}
-                    animate={{
-                      filter: "blur(0px)",
-                      opacity: 1,
-                      y: 0,
-                      transition: { duration: 0.5 },
-                    }}
-                    key={isTrial ? 1499 : data.price.amount}
-                  >
-                    {isTrial ? "$1499" : data.price.amount}
-                    <span className="text-zinc-500 text-xl">
-                      {isTrial ? " /2 weeks" : data.price.detail}
-                    </span>
-                  </motion.div>
+                  <div>
+                    <motion.div
+                      layout="position"
+                      className="text-lg sm:text-xl lg:text-2xl font-semibold whitespace-nowrap"
+                      exit={{
+                        opacity: 0,
+                        transition: { duration: 0.5 },
+                        filter: "blur(2px)",
+                      }}
+                      initial={{ opacity: 0, filter: "blur(2px)" }}
+                      animate={{
+                        filter: "blur(0px)",
+                        opacity: 1,
+                        y: 0,
+                        transition: { duration: 0.5 },
+                      }}
+                      key={isTrial ? 1499 : data.price.amount}
+                    >
+                      {isTrial
+                        ? "$1499"
+                        : designSelected && selected === 2
+                          ? "$5999"
+                          : data.price.amount}
+                      <span className="text-zinc-500 text-xl">
+                        {isTrial ? " /2 weeks" : data.price.detail}
+                      </span>
+                    </motion.div>
+                  </div>
                 </AnimatePresence>
               </div>
               <AnimatePresence mode={"wait"}>
-                <motion.p
-                  className="text-base md:text-lg mt-7 text-zinc-500 font-medium md:whitespace-nowrap"
+                <motion.div
                   exit={{ opacity: 0, transition: { duration: 0.2 } }}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1, transition: { duration: 0.5 } }}
                   key={data.description}
+                  className="flex w-full items-center justify-between mt-7"
                 >
-                  {data.description}
-                </motion.p>
+                  <motion.p className="text-base md:text-lg  text-zinc-500 font-medium md:whitespace-nowrap">
+                    {data.description}
+                  </motion.p>
+                </motion.div>
               </AnimatePresence>
             </div>
             <motion.button

@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useCallback, useEffect, useRef, useState } from "react"
-import { motion, useInView, useMotionValue } from "motion/react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import { throttle } from "lodash"
+import { useCallback, useEffect, useRef, useState } from "react";
+import { motion, useInView, useMotionValue } from "motion/react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { throttle } from "lodash";
 
 const testimonials = [
   {
@@ -11,63 +11,73 @@ const testimonials = [
     author: {
       name: "Florian Braeuer",
       position: "CTO of Gavel GmbH",
-      image: "/img/florian.jpeg"
+      image: "/img/florian.jpeg",
     },
-    text: "Working with designpop has been incredibly productive for us founders at Gavel. We have been able to experiment with several ideas in a short time to see what sticks. Their excellent communication keeps things high-quality and quick. I can't recommend them enough!"
+    text: "Working with designpop has been incredibly productive for us founders at Gavel. We have been able to experiment with several ideas in a short time to see what sticks. Their excellent communication keeps things high-quality and quick. I can't recommend them enough!",
+  },
+  {
+    id: "43",
+    author: {
+      name: "Nina Camille Fountain",
+      position: "CEO, IndieVia LLC",
+      image: "/img/nina-headshot.png",
+    },
+    text: `
+    DesignPop did an incredible job creating my company’s landing page! Communication was always clear and prompt, and they truly understood my vision without me needing to over-explain. I highly recommend DesignPop for their quality and value, and I’ll definitely work with them again!"
+    `,
   },
   {
     id: "2",
     author: {
       name: "David Cheung",
       position: "Lead Engineer at Climb Credit",
-      image: "/img/david.jpeg"
+      image: "/img/david.jpeg",
     },
-    text: "I can't recommend designpop highly enough, they are conscientious self-starters, who were able to work closely with our product manager, designers, and other engineers to deliver an MVP of our student facing checkout experience in record time."
+    text: "I can't recommend designpop highly enough, they are conscientious self-starters, who were able to work closely with our product manager, designers, and other engineers to deliver an MVP of our student facing checkout experience in record time.",
   },
-
   {
     id: "4",
     author: {
       name: "Sashikumar",
       position: "M.D at Phoenix Medical Systems",
-      image: "/img/sash.jpeg"
+      image: "/img/sash.jpeg",
     },
-    text: "Designpop re-vamped our website in record time and helped tremendously boost our SEO rankings. We are now outranking our competitors on Google search and also have a high quality design that gives our company a great image to potential customers on a international scale."
+    text: "Designpop re-vamped our website in record time and helped tremendously boost our SEO rankings. We are now outranking our competitors on Google search and also have a high quality design that gives our company a great image to potential customers on a international scale.",
   },
   {
     id: "5",
     author: {
       name: "Kristijan Binski",
       position: "Founder of Wandergates",
-      image: "/img/kris.jpeg"
+      image: "/img/kris.jpeg",
     },
-    text: "I've worked with many agencies, but designpop is the real deal! They worked with us to ship a client's app in just a couple of weeks, and their post-launch support is organised and invaluable."
+    text: "I've worked with many agencies, but designpop is the real deal! They worked with us to ship a client's app in just a couple of weeks, and their post-launch support is organised and invaluable.",
   },
   {
     id: "6",
     author: {
       name: "Mohit Yadav",
       position: "CTO of BoldCare",
-      image: "/img/mohit.jpeg"
+      image: "/img/mohit.jpeg",
     },
-    text: "The development service was simply excellent! designpop not only helped deliver our site re-design in a matter weeks but also cleaned up our React architecture by a long shot. The quality output, coupled with the increase in developer experience was a delightful outcome!"
+    text: "The development service was simply excellent! designpop not only helped deliver our site re-design in a matter weeks but also cleaned up our React architecture by a long shot. The quality output, coupled with the increase in developer experience was a delightful outcome!",
   },
   {
     id: "3",
     author: {
       name: "Marvin Musialek",
       position: "Founder of Strom AI",
-      image: "/img/marvin.jpeg"
+      image: "/img/marvin.jpeg",
     },
-    text: "What impressed me most about designpop was their ability to transform our rough concept into a polished product in just two weeks. Their team's attention to detail and quick turnaround time helped us launch faster than we ever thought possible. They truly deliver on their promise of speed without compromising quality."
-  }
-]
+    text: "What impressed me most about designpop was their ability to transform our rough concept into a polished product in just two weeks. Their team's attention to detail and quick turnaround time helped us launch faster than we ever thought possible. They truly deliver on their promise of speed without compromising quality.",
+  },
+];
 
 type TestimonialCardProps = (typeof testimonials)[0] & {
-  isActive: boolean
-  currentIndex: number
-  width: number
-}
+  isActive: boolean;
+  currentIndex: number;
+  width: number;
+};
 
 const TestimonialCard = ({ isActive, ...props }: TestimonialCardProps) => {
   return (
@@ -86,8 +96,8 @@ const TestimonialCard = ({ isActive, ...props }: TestimonialCardProps) => {
         transition: {
           type: "spring",
           duration: 1.25,
-          bounce: 0.2
-        }
+          bounce: 0.2,
+        },
       }}
       // exit={"exit"}
       className={`md:px-10 md:py-8 py-5 px-8 transition-colors  duration-300 rounded-[15px] border border-[#e8e8e8] flex flex-col-reverse gap-24 flex-1 justify-between min-w-[300px] max-w-[300px] w-full sm:min-w-[500px] sm:max-w-[500px] lg:min-w-[600px] lg:max-w-[600px] ${
@@ -102,7 +112,7 @@ const TestimonialCard = ({ isActive, ...props }: TestimonialCardProps) => {
           <img
             src={props.author.image}
             alt={props.author.name + ", " + props.author.position}
-            className="saturate-0"
+            className="saturate-0 object-cover size-full"
           />
           {/* <div
             className="absolute top-0 right-0 size-full bg-blue-500/40"
@@ -124,63 +134,63 @@ const TestimonialCard = ({ isActive, ...props }: TestimonialCardProps) => {
         {props.text}
       </p>
     </motion.div>
-  )
-}
+  );
+};
 
 const Testimonials = () => {
-  const [index, setIndex] = useState(0)
-  const [width, setWidth] = useState(0)
-  const ref = useRef<HTMLDivElement>(null)
-  const [data, setData] = useState([...testimonials])
+  const [index, setIndex] = useState(0);
+  const [width, setWidth] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const [data, setData] = useState([...testimonials]);
 
   useEffect(() => {
-    setWidth(ref.current!.getBoundingClientRect().width / 2)
-  }, [])
+    setWidth(ref.current!.getBoundingClientRect().width / 2);
+  }, []);
 
   const handleNext = useCallback(
     throttle(() => {
       if (data.at(-1)?.author !== data[index].author) {
-        setData([...data, { ...data[index], id: crypto.randomUUID() }])
+        setData([...data, { ...data[index], id: crypto.randomUUID() }]);
       }
-      setIndex((prevIndex) => Math.min(prevIndex + 1))
+      setIndex((prevIndex) => Math.min(prevIndex + 1));
     }, 1000),
-    [index]
-  )
+    [index],
+  );
 
   const handlePrev = () => {
-    setIndex((prevIndex) => Math.max(0, prevIndex - 1))
-  }
+    setIndex((prevIndex) => Math.max(0, prevIndex - 1));
+  };
 
-  const containerRef = useRef<HTMLDivElement>(null)
-  const headerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
 
-  const inView = useInView(headerRef, { once: true })
+  const inView = useInView(headerRef, { once: true });
 
-  const posX = useMotionValue(0)
-  const posY = useMotionValue(0)
-  const [isHovering, setIsHovering] = useState(false)
+  const posX = useMotionValue(0);
+  const posY = useMotionValue(0);
+  const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (containerRef.current) {
-        posX.set(e.clientX)
-        posY.set(e.clientY)
+        posX.set(e.clientX);
+        posY.set(e.clientY);
       }
-    }
+    };
 
-    const container = containerRef.current
+    const container = containerRef.current;
     if (container) {
-      container.addEventListener("mousemove", handleMouseMove)
-      container.addEventListener("mouseenter", handleMouseMove)
+      container.addEventListener("mousemove", handleMouseMove);
+      container.addEventListener("mouseenter", handleMouseMove);
     }
 
     return () => {
       if (container) {
-        container.removeEventListener("mousemove", handleMouseMove)
-        container.removeEventListener("mouseenter", handleMouseMove)
+        container.removeEventListener("mousemove", handleMouseMove);
+        container.removeEventListener("mouseenter", handleMouseMove);
       }
-    }
-  }, [])
+    };
+  }, []);
 
   return (
     <>
@@ -192,7 +202,7 @@ const Testimonials = () => {
               animate={{
                 y: inView ? 0 : 40,
                 transition: { duration: 1, type: "spring" },
-                rotate: 0
+                rotate: 0,
               }}
               initial={{ y: 40 }}
             >
@@ -211,9 +221,9 @@ const Testimonials = () => {
                   duration: 1,
                   delay: 0.1,
                   type: "spring",
-                  damping: 20
+                  damping: 20,
                 },
-                rotate: 0
+                rotate: 0,
               }}
               initial={{ y: 40 }}
             >
@@ -227,7 +237,7 @@ const Testimonials = () => {
             y: 0,
             opacity: 1,
             rotateX: 0,
-            transition: { duration: 2 }
+            transition: { duration: 2 },
           }}
           initial={{ opacity: 0, y: 30, rotateX: 20 }}
           // viewport={{ once: true }}
@@ -261,13 +271,13 @@ const Testimonials = () => {
         dragElastic={0.4}
         dragConstraints={{ left: 0, right: 0 }}
         onPanEnd={(e, info) => {
-          const width = window.innerWidth >= 768 ? 50 : window.innerWidth / 5
+          const width = window.innerWidth >= 768 ? 50 : window.innerWidth / 5;
 
           if (info.offset.x <= -width) {
-            handleNext()
+            handleNext();
           }
           if (info.offset.x >= width) {
-            handlePrev()
+            handlePrev();
           }
         }}
         onMouseEnter={() => setIsHovering(true)}
@@ -282,7 +292,7 @@ const Testimonials = () => {
             ref={ref}
             className="w-full flex gap-[30px] mt-20 items-stretch"
             animate={{
-              x: -(index * 30)
+              x: -(index * 30),
             }}
             // animate={{
             //   x: -((index / testimonials.length) * scrollWidth) + "px",
@@ -318,7 +328,7 @@ const Testimonials = () => {
           opacity: isHovering ? 1 : 0,
           transition:
             "transform 0.3s ease-out, opacity 0.3s ease, backdrop-filter 0.3s",
-          transformOrigin: "center left"
+          transformOrigin: "center left",
         }}
       >
         <div className="-translate-y-1/2 text-xl gap-2 -translate-x-1/2 pointer-events-none rounded-full flex items-center justify-center bg-black/50  backdrop-blur-[2px] drop-shadow-lg text-white size-[100px] font-semibold">
@@ -328,7 +338,7 @@ const Testimonials = () => {
         </div>
       </motion.div>
     </>
-  )
-}
+  );
+};
 
-export default Testimonials
+export default Testimonials;

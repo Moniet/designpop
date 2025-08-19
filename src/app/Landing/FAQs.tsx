@@ -73,7 +73,7 @@ const FAQs = () => {
               informed throughout the process.
             </p>
           </Accordion>
-          <Accordion title="What is your tech stack?">
+          <Accordion title="What is your tech-stack?">
             {" "}
             <ul className="list-disc pl-2">
               <li>
@@ -83,6 +83,10 @@ const FAQs = () => {
               </li>
               <li>• Next.js</li>
               <li>• React.js</li>
+              <li>• React Native + Expo (For Mobile Apps)</li>
+              <li>
+                • Capacitor.js (For Mobile Apps: Helps with rapid prototyping)
+              </li>
               <li>• Hono.js / Express.js</li>
               <li>• Node.js</li>
               <li>• PostgreSQL</li>

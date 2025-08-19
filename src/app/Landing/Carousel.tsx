@@ -14,11 +14,11 @@ const cards = [
     logo: "/img/logos/roomix logo.jpg",
   },
   {
-    image: "/img/blocs tile 2.png",
-    title: "Blocs - habit tracker widgets for Notion",
-    url: "blocs.me",
-    link: "https://blocs.me",
-    logo: "/img/logos/blocs-logo.svg",
+    image: "/img/indievia tile.jpg",
+    title: "IndieVia - A Community for discovering and rating tattoo arists",
+    url: "indievia.com",
+    link: "https://indievia.com",
+    logo: "/img/indievia logo for tile.svg",
   },
   {
     image: "/img/oneway-tile.jpg",
@@ -94,7 +94,7 @@ const Card = (card: (typeof cards)[0]) => {
     >
       <div className="w-full flex items-center justify-center overflow-hidden relative">
         <div className="flex flex-col items-center">
-          <div className="w-full md:w-[500px] lg:w-[700px] aspect-[16/11] rounded-lg border-[4px] border-zinc-100/20 bg-zinc-100 overflow-hidden relative">
+          <div className="w-full md:w-[750px] lg:w-[900px] aspect-[16/11] rounded-lg border-[4px] border-zinc-100/20 bg-zinc-100 overflow-hidden relative">
             <motion.div
               className="size-full"
               animate={{
@@ -165,7 +165,6 @@ const Carousel = () => {
   });
   const [mounted, setMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  // const inViewProps = useInView({ threshold: 0.5, root: window.document })
 
   useEffect(() => {
     const getAndSetCardHeight = debounce(() => {
@@ -220,7 +219,6 @@ const Carousel = () => {
 
   const scrollX = useTransform(scrollYProgress, [0, 1], [0, -scrollWidth]);
   const h2Opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-  // const h2Blur = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   return (
     <section
@@ -228,20 +226,11 @@ const Carousel = () => {
       className="max-w-screen xl:max-w-[1440px] mx-auto px-5 flex flex-col gap-[20px] relative md:h-[300dvh] max-md:mt-20"
       ref={containerRef}
     >
-      <div className="w-[300px] sm:w-[500px] lg:w-[700px] aspect-[16/11] md:sticky top-0 left-0 items-center justify-center flex-col  md:-mb-[25%] md:translate-y-1/4 flex">
+      <div className="w-[300px] sm:w-[500px] lg:w-[900px] aspect-[16/11] md:sticky top-0 left-0 items-center justify-center flex-col flex">
         <motion.div className="size-full flex items-center">
-          <div className="overflow-hidden pb-2 border-red-300 h-fit max-h-fit md:translate-y-1/4 relative max-w-screen">
+          <div className="overflow-hidden pb-2 border-red-300 h-fit max-h-fit relative max-w-screen">
             <motion.h2
               className="text-[#1f1f1f] h-fit font-semibold !leading-[1.25] -tracking-[0.1rem] text-3xl sm:text-4xl  lg:text-5xl min-h-fit"
-              // initial={{ y: "100%", rotate: 5 }}
-              // whileInView={{
-              //   y: 0,
-              //   rotate: 0,
-              //   transition: {
-              //     duration: 1,
-              //     type: "spring"
-              //   }
-              // }}
               style={{ opacity: h2Opacity }}
             >
               Handpicked examples of our best work. Delivering{" "}
@@ -259,7 +248,7 @@ const Carousel = () => {
               , at lightning speed!
             </motion.h2>
             <motion.div
-              className="absolute top-0 left-0 size-full bg-white backdrop-blur-md "
+              className="absolute lg:top-0 left-0 size-full bg-white backdrop-blur-md "
               initial={{ scaleX: 1 }}
               whileInView={{
                 scaleX: 0,
@@ -271,46 +260,17 @@ const Carousel = () => {
           </div>
         </motion.div>
       </div>
-      <div className="w-full max-w-full md:sticky md:top-48 left-0 max-w-screen md:overflow-visible">
+      <div className="w-full max-w-full md:-mt-[300px] lg:-mt-[600px] md:sticky md:top-10 left-0 max-w-screen md:overflow-visible">
         <motion.div
           id={"carousel-items-container"}
           style={{ x: isMobile ? 0 : scrollX }}
           className="flex w-fit max-md:flex-col"
         >
-          {/* <motion.h3
-            initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-              filter: "blur(0px)",
-              transition: { duration: 1, type: "spring", delay: 0.6 }
-            }}
-            viewport={{ once: true, amount: 0.5 }}
-            className="text-3xl mt-5 text-[#1f1f1f]/70 text-center font-semibold  mx-auto"
-          >
-            Check out a few samples of our most impactful work.
-          </motion.h3> */}
-
-          <div className="flex w-fit gap-10 bg-white/50 backdrop-blur-sm relative z-1 md:ml-[500px] lg:ml-[700px]  cursor-grab max-md:justify-start max-md:flex-col max-md:sticky max-md:top-5 max-md:left-0">
-            {/* <div className="w-[300px] sm:w-[500px] lg:w-[700px] aspect-[16/11]"></div> */}
+          <div className="flex w-fit gap-10 bg-white/50 backdrop-blur-sm relative z-1 md:ml-[500px] lg:ml-[900px]  cursor-grab max-md:justify-start max-md:flex-col max-md:sticky max-md:top-5 max-md:left-0">
             {cards.map((card, i) => (
               <Card {...card} key={i} />
             ))}
           </div>
-
-          {/* <div
-          className="fixed size-[80px] rounded-full bg-zinc-800 text-white flex items-center justify-center z-50"
-          ref={mouse}
-          style={{
-            opacity: showMouse ? 1 : 0,
-            pointerEvents: "none",
-            transition: "opacity 0.5s ease",
-            touchAction: "none"
-          }}
-        >
-          <ArrowLeft className="size-4 mr-1" />
-          Scroll
-        </div> */}
         </motion.div>
       </div>
     </section>
