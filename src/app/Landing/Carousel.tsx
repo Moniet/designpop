@@ -226,11 +226,11 @@ const Carousel = () => {
       className="max-w-screen xl:max-w-[1440px] mx-auto px-5 flex flex-col gap-[20px] relative md:h-[300dvh] max-md:mt-20"
       ref={containerRef}
     >
-      <div className="w-[300px] sm:w-[500px] lg:w-[900px] aspect-[16/11] md:sticky top-0 left-0 items-center justify-center flex-col flex">
+      <div className="w-[300px] sm:w-[500px] lg:w-[900px] aspect-[16/11] md:sticky  md:max-lg:top-20 top-0 left-0 items-center justify-center flex-col flex">
         <motion.div className="size-full flex items-center">
           <div className="overflow-hidden pb-2 border-red-300 h-fit max-h-fit relative max-w-screen">
             <motion.h2
-              className="text-[#1f1f1f] h-fit font-semibold !leading-[1.25] -tracking-[0.1rem] text-3xl sm:text-4xl  lg:text-5xl min-h-fit"
+              className="text-[#1f1f1f]  h-fit font-semibold !leading-[1.25] -tracking-[0.1rem] text-3xl sm:text-4xl  lg:text-5xl min-h-fit"
               style={{ opacity: h2Opacity }}
             >
               Handpicked examples of our best work. Delivering{" "}
