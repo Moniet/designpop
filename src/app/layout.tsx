@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "We build complete MVPs in 2 weeks and deliver designs within 48 hours. You can even subscribe to our design-engineering work on a monthly basis!",
   openGraph: {
-    url: "https://designpop.site",
+    url: "https://designpop.co",
     locale: "en-US",
     siteName: "designpop",
     description:
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "designpop | Your one-stop service for MVP, design and development"
   },
   twitter: {
-    site: "https://designpop.site",
+    site: "https://designpop.co",
     description:
       "designpop aims to be the best design-engineering + MVP development solution for fast growing startups and busy founders worldwide. We turn your vision into a live project in a matter of weeks. Book a call with a today!",
     images: [
