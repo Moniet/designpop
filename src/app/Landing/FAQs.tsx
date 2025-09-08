@@ -47,13 +47,14 @@ const FAQs = () => {
               <li className="ml-4">6 months support (extendable to 1 year)</li>
               <li>
                 <strong className="mt-3 -ml-2 block">
-                  Subscription ({pricing.subscription})
+                  Subscription ({pricing.subscription}) (for design &
+                  development each)
                 </strong>
               </li>
               <li className="ml-4">
                 Ideal for ongoing Design Engineering work
               </li>
-              <li className="ml-4">1 Design request per week</li>
+              <li className="ml-4">Unlimited design requests</li>
               <li className="ml-4">Unlimited development requests</li>
               <li className="ml-4">
                 Flexible: Pause or cancel based your needs

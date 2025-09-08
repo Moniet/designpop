@@ -255,7 +255,7 @@ const Pricing = () => {
                       {isTrial
                         ? "$1499"
                         : designSelected && selected === 2
-                          ? "$5999"
+                          ? "$3999"
                           : data.price.amount}
                       <span className="text-zinc-500 text-xl">
                         {isTrial ? " /2 weeks" : data.price.detail}

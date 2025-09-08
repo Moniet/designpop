@@ -27,6 +27,18 @@ const testimonials = [
     `,
   },
   {
+    id: "44",
+    author: {
+      name: "Raluca Manea",
+      position: "CEO, Sheika Cosmetics",
+      image: "/img/raluca.jpeg",
+    },
+    text: `
+      DesignPop impressed me with their speed, transparent communication, and even gave me guidance which helped shaped the product's features.
+      The design and overall outcome was high quality. I can't recommend them enough!
+    `,
+  },
+  {
     id: "2",
     author: {
       name: "David Cheung",
@@ -52,15 +64,6 @@ const testimonials = [
       image: "/img/kris.jpeg",
     },
     text: "I've worked with many agencies, but designpop is the real deal! They worked with us to ship a client's app in just a couple of weeks, and their post-launch support is organised and invaluable.",
-  },
-  {
-    id: "6",
-    author: {
-      name: "Mohit Yadav",
-      position: "CTO of BoldCare",
-      image: "/img/mohit.jpeg",
-    },
-    text: "The development service was simply excellent! designpop not only helped deliver our site re-design in a matter weeks but also cleaned up our React architecture by a long shot. The quality output, coupled with the increase in developer experience was a delightful outcome!",
   },
   {
     id: "3",

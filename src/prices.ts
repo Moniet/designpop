@@ -1,5 +1,5 @@
 export const pricing = {
-  subscription: "$2999",
+  subscription: "$1999",
   simpleMVP: "$1950",
   complexMVP: "$3950",
   landingPage: "$790",
