@@ -16,6 +16,17 @@ const testimonials = [
     text: "Working with designpop has been incredibly productive for us founders at Gavel. We have been able to experiment with several ideas in a short time to see what sticks. Their excellent communication keeps things high-quality and quick. I can't recommend them enough!",
   },
   {
+    id: "1523",
+    author: {
+      name: "Mark Apter",
+      position: "CEO, Roomix LTD",
+      image: "/img/mark-headshot.png",
+    },
+    text: `
+    Designpop seamlessly migrated our no-code app to a scalable custom platform in just weeks, proactively bringing valuable ideas and suggestions to the table. Their landing page revamp led to a 30% boost in conversions. Highly recommended!
+    `,
+  },
+  {
     id: "43",
     author: {
       name: "Nina Camille Fountain",
