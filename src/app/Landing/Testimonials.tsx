@@ -20,7 +20,7 @@ const testimonials = [
     author: {
       name: "Mark Apter",
       position: "CEO, Roomix LTD",
-      image: "/img/mark-headshot.jpeg",
+      image: "/img/mark.webp",
     },
     text: `
     Designpop seamlessly migrated our no-code app to a scalable custom platform in just weeks, proactively bringing valuable ideas and suggestions to the table. Their landing page revamp led to a 30% boost in conversions. Highly recommended!
