@@ -1,31 +1,31 @@
-"use client"
+"use client";
 
 /* eslint-disable @next/next/no-img-element */
-import Cal, { getCalApi } from "@calcom/embed-react"
-import { ArrowRight, LucidePhoneCall, LucideSend } from "lucide-react"
-import Carousel from "./Landing/Carousel"
-import { AnimatePresence, motion, useScroll, useTransform } from "motion/react"
-import Testimonials from "./Landing/Testimonials"
-import Image from "next/image"
-import { ReactLenis } from "lenis/react"
-import { useEffect, useState } from "react"
-import OurServices from "./Landing/OurServices"
-import Steps from "./Landing/Steps"
-import Pricing from "./Landing/Pricing"
-import AgenticSection from "./Landing/AgenticSection"
+import Cal, { getCalApi } from "@calcom/embed-react";
+import { ArrowRight, LucidePhoneCall, LucideSend } from "lucide-react";
+import Carousel from "./Landing/Carousel";
+import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
+import Testimonials from "./Landing/Testimonials";
+import Image from "next/image";
+import { ReactLenis } from "lenis/react";
+import { useEffect, useState } from "react";
+import OurServices from "./Landing/OurServices";
+import Steps from "./Landing/Steps";
+import Pricing from "./Landing/Pricing";
+import AgenticSection from "./Landing/AgenticSection";
 
-import { useRef } from "react"
-import FAQs from "./Landing/FAQs"
-import CustomCursor from "./Landing/CustomCursor"
-import HeroStackedCards from "./Landing/HeroStackedCards"
-import Switch from "./Landing/Switch"
-import WorkWithoutUsCards from "./Landing/WorkWithoutUsCards"
-import { scrollTo } from "./hooks/scrollTo"
+import { useRef } from "react";
+import FAQs from "./Landing/FAQs";
+import CustomCursor from "./Landing/CustomCursor";
+import HeroStackedCards from "./Landing/HeroStackedCards";
+import Switch from "./Landing/Switch";
+import WorkWithoutUsCards from "./Landing/WorkWithoutUsCards";
+import { scrollTo } from "./hooks/scrollTo";
 
 const MotionNav = () => {
-  const { scrollYProgress } = useScroll()
+  const { scrollYProgress } = useScroll();
 
-  const y = useTransform(scrollYProgress, [0.97, 1], [0, -100])
+  const y = useTransform(scrollYProgress, [0.97, 1], [0, -100]);
 
   return (
     <motion.div
@@ -40,7 +40,7 @@ const MotionNav = () => {
         transition={{
           delay: 1,
           duration: 1,
-          type: "spring"
+          type: "spring",
         }}
       >
         <svg
@@ -95,31 +95,31 @@ const MotionNav = () => {
         </button>
       </motion.nav>
     </motion.div>
-  )
-}
+  );
+};
 
 const RevealText = () => {
-  const containerRef = useRef(null)
+  const containerRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     axis: "y",
-    offset: ["start 0.5", "start start"]
-  })
+    offset: ["start 0.5", "start start"],
+  });
 
   // Split text into individual words
-  const line1 = "We are a results-driven team".split(" ")
-  const line2 = "building high quality digital experiences".split(" ")
-  const line3 = "to ensure your product stands out".split(" ")
-  const transform = useTransform
+  const line1 = "We are a results-driven team".split(" ");
+  const line2 = "building high quality digital experiences".split(" ");
+  const line3 = "to ensure your product stands out".split(" ");
+  const transform = useTransform;
 
   // Helper function to create word elements
   const createWordSpans = (
     words: string[],
     startProgress: number,
-    endProgress: number
+    endProgress: number,
   ) => {
-    const progressPerWord = (endProgress - startProgress) / words.length
+    const progressPerWord = (endProgress - startProgress) / words.length;
 
     return words.map((word: string, i: number) => (
       <div
@@ -134,17 +134,17 @@ const RevealText = () => {
               scrollYProgress,
               [
                 startProgress + i * progressPerWord,
-                startProgress + (i + 1) * progressPerWord
+                startProgress + (i + 1) * progressPerWord,
               ],
-              ["inset(0 100% -6px 0)", "inset(0 0% -6px 0)"]
-            )
+              ["inset(0 100% -6px 0)", "inset(0 0% -6px 0)"],
+            ),
           }}
         >
           {word}
         </motion.span>
       </div>
-    ))
-  }
+    ));
+  };
 
   return (
     <h2
@@ -160,14 +160,14 @@ const RevealText = () => {
       {/* Third Line */}
       {createWordSpans(line3, 0.66, 1)}
     </h2>
-  )
-}
+  );
+};
 
 const staggerFadeIn = {
   initial: {
     opacity: 0,
     y: 20,
-    filter: "blur(10px)"
+    filter: "blur(10px)",
   },
   animate: {
     opacity: 1,
@@ -175,28 +175,28 @@ const staggerFadeIn = {
     filter: "blur(0px)",
     transition: {
       staggerChildren: 0.3,
-      duration: 1
-    }
-  }
-}
+      duration: 1,
+    },
+  },
+};
 
 const RollingText = ({ allText = [""], className = "" }) => {
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const timeout: NodeJS.Timeout =
       window?.innerWidth >= 425
         ? setTimeout(() => {
-            setIndex(index === allText.length - 1 ? 0 : index + 1)
+            setIndex(index === allText.length - 1 ? 0 : index + 1);
           }, 3000)
         : setTimeout(() => {
-            setIndex(0)
-          }, 100)
+            setIndex(0);
+          }, 100);
 
     return () => {
-      if (timeout) clearInterval(timeout)
-    }
-  }, [index])
+      if (timeout) clearInterval(timeout);
+    };
+  }, [index]);
 
   return (
     <AnimatePresence mode="popLayout">
@@ -210,7 +210,7 @@ const RollingText = ({ allText = [""], className = "" }) => {
           type: "spring",
           duration: 1.2,
           damping: 15,
-          stiffness: 150
+          stiffness: 150,
         }}
         className={`${className} max-sm:font-bold inline-block align-baseline`}
       >
@@ -218,35 +218,35 @@ const RollingText = ({ allText = [""], className = "" }) => {
       </motion.span>
       {/* </motion.span> */}
     </AnimatePresence>
-  )
-}
+  );
+};
 
 export default function Home() {
   useEffect(() => {
-    ;(async function () {
-      const cal = await getCalApi({ namespace: "30min" })
-      cal("ui", { hideEventTypeDetails: true, layout: "month_view" })
-    })()
-  }, [])
+    (async function () {
+      const cal = await getCalApi({ namespace: "30min" });
+      cal("ui", { hideEventTypeDetails: true, layout: "month_view" });
+    })();
+  }, []);
 
-  const [isChecked, setIsChecked] = useState(true)
-  const [toggleOffCards, setToggleOffCards] = useState(false)
-  const to = useRef<NodeJS.Timeout>()
+  const [isChecked, setIsChecked] = useState(true);
+  const [toggleOffCards, setToggleOffCards] = useState(false);
+  const to = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
     if (!isChecked) {
       to.current = setTimeout(() => {
-        setToggleOffCards(true)
-      }, 500)
+        setToggleOffCards(true);
+      }, 500);
     } else {
-      if (to.current) clearTimeout(to.current)
-      setToggleOffCards(false)
+      if (to.current) clearTimeout(to.current);
+      setToggleOffCards(false);
     }
 
     return () => {
-      if (to.current) clearTimeout(to.current)
-    }
-  }, [isChecked])
+      if (to.current) clearTimeout(to.current);
+    };
+  }, [isChecked]);
 
   return (
     <ReactLenis root>
@@ -284,7 +284,7 @@ export default function Home() {
                     transition={{
                       duration: 3,
                       type: "spring",
-                      delay: 0.2
+                      delay: 0.2,
                     }}
                     className="text-zinc-950 text-[2rem] sm:text-4xl xl:text-5xl !leading-[1.25] font-semibold cursor-default -tracking-[0.05rem] sm:-tracking-[0.1rem] max-sm:[text-wrap:pretty]"
                   >
@@ -302,7 +302,7 @@ export default function Home() {
                           "Mobile-Apps",
                           "CMS Sites",
                           "Extensions",
-                          "Desktop Apps"
+                          "Desktop Apps",
                         ]}
                         className="text-zinc-900 w-0 overflow-visible inline-block min-[425px]:text-zinc-400 whitespace-nowrap max-sm:min-[400px]:text-3xl max-sm:font-medium max-sm:hidden"
                       />
@@ -334,14 +334,14 @@ export default function Home() {
                         y: 20,
                         opacity: 0,
                         filter: "blur(10px)",
-                        height: 0
+                        height: 0,
                       }}
                       animate={{
                         y: 0,
                         opacity: 1,
                         height: 80,
                         transition: { duration: 1, type: "spring", delay: 0.6 },
-                        filter: "blur(0px)"
+                        filter: "blur(0px)",
                       }}
                     >
                       <p className="text-sm font-medium lg:text-lg min-h-fit max-md:[text-wrap:pretty] text-[#171717]/60">
@@ -365,7 +365,7 @@ export default function Home() {
                           duration: 1,
                           delay: 0.9,
                           filter: "blur(10px)",
-                          type: "spring"
+                          type: "spring",
                         }}
                       >
                         <div className="font-medium mr-5 captialize">
@@ -388,7 +388,7 @@ export default function Home() {
                           duration: 1,
                           delay: 1.2,
                           filter: "blur(0px)",
-                          type: "spring"
+                          type: "spring",
                         }}
                         className="bg-[rgba(0,0,0,0.0)] h-[50px] rounded-full flex items-center justify-center max-sm:w-fit"
                       >
@@ -399,7 +399,7 @@ export default function Home() {
                             <div className="text-[#1f1f1f]/70 font-semibold ml-1">
                               {"  "}for{" "}
                               {Intl.DateTimeFormat("en-US", {
-                                month: "long"
+                                month: "long",
                               }).format(new Date())}
                             </div>
                           </div>
@@ -420,11 +420,11 @@ export default function Home() {
                     <motion.path
                       style={{ strokeDasharray: 1000 }}
                       initial={{
-                        strokeDashoffset: 1000
+                        strokeDashoffset: 1000,
                       }}
                       animate={{
                         strokeDashoffset: 0,
-                        transition: { duration: 6 }
+                        transition: { duration: 6 },
                       }}
                       d="M388.796 -17.3812L386.063 608.374M249.436 213.956H812.343M153.797 283.2L812.343 283.2M0.773438 353.956L822.343 353.956M153.797 424.665L822.343 424.665M77.285 496.642H822.343M263.099 570.421H819.61M473.505 105.584V616.572M563.68 149.305L563.679 619.304M651.121 184.828V619.304M738.563 154.77V619.304M301.355 -20.1137L298.622 605.642"
                       stroke="url(#paint0_radial_5124_7117)"
@@ -441,13 +441,13 @@ export default function Home() {
                       >
                         <motion.stop
                           animate={{
-                            stopColor: isChecked ? "#0012B3" : "#F39696"
+                            stopColor: isChecked ? "#0012B3" : "#F39696",
                           }}
                         />
                         <motion.stop
                           offset="0.54"
                           animate={{
-                            stopColor: isChecked ? "#F3F1FF" : "#F6F6F6"
+                            stopColor: isChecked ? "#F3F1FF" : "#F6F6F6",
                           }}
                         />
                         <stop offset="1" stopColor="white" />
@@ -591,7 +591,7 @@ export default function Home() {
                 whileInView={{
                   y: 0,
                   opacity: 1,
-                  transition: { duration: 1, type: "spring", damping: 15 }
+                  transition: { duration: 1, type: "spring", damping: 15 },
                 }}
                 initial={{ y: 50, opacity: 0 }}
                 viewport={{ once: true, amount: 0.5 }}
@@ -607,7 +607,7 @@ export default function Home() {
                           x: 0,
                           y: 0,
                           opacity: 1,
-                          transition: { type: "spring", duration: 2 }
+                          transition: { type: "spring", duration: 2 },
                         }}
                         viewport={{ amount: "all", once: true }}
                       >
@@ -620,7 +620,7 @@ export default function Home() {
                           x: 0,
                           y: 0,
                           opacity: 1,
-                          transition: { type: "spring", duration: 2 }
+                          transition: { type: "spring", duration: 2 },
                         }}
                         viewport={{ amount: "all", once: true }}
                       >
@@ -633,7 +633,7 @@ export default function Home() {
                           x: 0,
                           y: 0,
                           opacity: 1,
-                          transition: { type: "spring", duration: 2 }
+                          transition: { type: "spring", duration: 2 },
                         }}
                         viewport={{ amount: "all", once: true }}
                       >
@@ -648,12 +648,12 @@ export default function Home() {
                             duration: 0.5,
                             delay: 0.5,
                             type: "spring",
-                            damping: 12
-                          }
+                            damping: 12,
+                          },
                         }}
                         viewport={{ amount: "all", once: true }}
                         initial={{
-                          opacity: 0
+                          opacity: 0,
                         }}
                       >
                         with
@@ -667,8 +667,8 @@ export default function Home() {
                           transition: {
                             duration: 0.5,
                             type: "spring",
-                            delay: 1
-                          }
+                            delay: 1,
+                          },
                         }}
                         viewport={{ amount: "all", once: true }}
                       >
@@ -683,8 +683,8 @@ export default function Home() {
                           transition: {
                             duration: 0.5,
                             type: "spring",
-                            delay: 1.2
-                          }
+                            delay: 1.2,
+                          },
                         }}
                         viewport={{ amount: "all", once: true }}
                       >
@@ -705,7 +705,7 @@ export default function Home() {
                         duration: 1,
                         delay: 0.9,
                         filter: "blur(10px)",
-                        type: "spring"
+                        type: "spring",
                       }}
                     >
                       <div className="font-medium mr-5 captialize">
@@ -732,11 +732,11 @@ export default function Home() {
                       style={{
                         width: "100%",
                         height: "100%",
-                        overflow: "clip"
+                        overflow: "clip",
                       }}
                       config={{
                         layout: "month_view",
-                        theme: "light"
+                        theme: "light",
                       }}
                     />
                   </div>
@@ -773,7 +773,8 @@ export default function Home() {
               </div>
 
               <p className="text-sm text-zinc-400">
-                © designpop {new Date().getFullYear()}. All rights reserved.
+                © Designpop LLC {new Date().getFullYear()}. All rights
+                reserved.
               </p>
             </div>
             <div className="flex items-center gap-5">
@@ -795,5 +796,5 @@ export default function Home() {
       </div>
       <CustomCursor />
     </ReactLenis>
-  )
+  );
 }
