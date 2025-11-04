@@ -773,7 +773,7 @@ export default function Home() {
               </div>
 
               <p className="text-sm text-zinc-400">
-                © Designpop LLC {new Date().getFullYear()}. All rights
+                © Designpop Studio LLC {new Date().getFullYear()}. All rights
                 reserved.
               </p>
             </div>
