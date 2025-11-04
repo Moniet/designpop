@@ -41,13 +41,13 @@ const cards = [
     link: "https://instaapply.co",
     logo: "/img/logos/instaapply-logo.svg",
   },
-  {
-    image: "/img/ficus tile.png",
-    title: "Ficus - Infinite LoFi Music Player",
-    url: "ficus.fm",
-    link: "https://ficus.fm",
-    logo: "/img/logos/ficus-logo.svg",
-  },
+  // {
+  //   image: "/img/ficus tile.png",
+  //   title: "Ficus - Infinite LoFi Music Player",
+  //   url: "ficus.fm",
+  //   link: "https://ficus.fm",
+  //   logo: "/img/logos/ficus-logo.svg",
+  // },
   // {
   //   image: "/img/framerlib tile.png",
   //   title: "FramerLib - No-code components for Framer",
@@ -55,12 +55,13 @@ const cards = [
   //   link: "https://framerlib.com",
   //   logo: "/img/logos/framerlib-logo.svg",
   // },
-  // {
-  //   image: "/img/filebloc-landing-page.png",
-  //   title: "Filebloc - digital asset management directly from slack",
-  //   url: "filebloc.co",
-  //   link: "#"
-  // }
+  {
+    image: "/img/blocs tile 2.png",
+    title: "Blocs - Habit tracker widgets for Notion",
+    url: "blocs.me",
+    link: "https://blocs.me",
+    logo: "/img/logos/blocs-logo.svg",
+  },
 ];
 
 const Card = (card: (typeof cards)[0]) => {
