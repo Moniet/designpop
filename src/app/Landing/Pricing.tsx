@@ -28,24 +28,16 @@ const optionData = [
     timeline: "2-4 weeks",
     calEvent: "designpop/30-min-meeting-mvp",
     description: "Receive a functioning MVP in record time",
-    bulletsHeading: "Build a simple or complex MVP:",
+    bulletsHeading: "Build and launch a complete MVP:",
     bullets: [
-      "Simple MVP in 2 weeks",
+      "MVP delivered in 4-8 weeks",
       "2 design revisions",
-      "Own the codebase",
-      "2-3 core features",
-      "Milestone based pricing",
-      "3 months support <small>(extendable)</small>",
-    ],
-    bullets2: [
-      "Complex MVP in 4-8 weeks",
-      "4 design revisions",
-      "4-6 core features",
-      `${pricing.complexMVP} / complex mvp`,
+      "10 core features",
       "Milestone based pricing",
       "6 months support <small>(extendable)</small>",
     ],
-    price: { amount: pricing.simpleMVP, detail: " /Simple MVP" },
+    bullets2: [],
+    price: { amount: pricing.simpleMVP, detail: " / starting at" },
   },
   {
     title: `Subscription`,
@@ -117,14 +109,14 @@ const Pricing = () => {
         >
           Subscription
         </button>
-        <button
+        {/*<button
           className={`p-4 px-5  md:px-6 transition-all rounded-full text-base text-zinc-900 ${
             selected === 3 ? "bg-white shadow" : "bg-transparent"
           }`}
           onClick={() => setSelected(3)}
         >
           Trial
-        </button>
+        </button>*/}
       </div>
 
       <div
@@ -255,7 +247,7 @@ const Pricing = () => {
                       {isTrial
                         ? "$1499"
                         : designSelected && selected === 2
-                          ? "$3999"
+                          ? "$7999"
                           : data.price.amount}
                       <span className="text-zinc-500 text-xl">
                         {isTrial ? " /2 weeks" : data.price.detail}
