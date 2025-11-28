@@ -145,11 +145,11 @@ const Pricing = () => {
                       selected >= 2 ? "bg-blue-700" : "bg-zinc-200"
                     }`}
                   ></div>
-                  <div
+                  {/*<div
                     className={`size-2 rounded-full ${
                       selected >= 3 ? "bg-blue-700" : "bg-zinc-200"
                     }`}
-                  ></div>
+                  ></div>*/}
                 </div>
               </div>
 
