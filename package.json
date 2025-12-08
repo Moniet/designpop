@@ -25,7 +25,7 @@
     "matter-dom-plugin": "^1.0.0",
     "matter-js": "^0.19.0",
     "motion": "^11.13.1",
-    "next": "15.2.3",
+    "next": "16.0.7",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-audio-visualize": "^1.2.0",
     "react-dom": "19.0.0-rc-66855b96-20241106",
