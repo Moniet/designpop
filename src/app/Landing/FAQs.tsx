@@ -27,7 +27,7 @@ const FAQs = () => {
               <li className="ml-4">2 rounds of revisions</li>
               <li>
                 <strong className="mt-3 -ml-2 block">
-                  Simple MVP ({pricing.simpleMVP})
+                  MVP Design & Development: ({pricing.simpleMVP})
                 </strong>
               </li>
               <li className="ml-4">Basic functionality</li>
@@ -35,11 +35,6 @@ const FAQs = () => {
               <li className="ml-4">2-3 core features </li>
               <li className="ml-4">2 weeks delivery</li>
               <li className="ml-4">3 months support</li>
-              <li>
-                <strong className="mt-3 -ml-2 block">
-                  Complex MVP ({pricing.complexMVP})
-                </strong>
-              </li>
               <li className="ml-4">Advanced functionality</li>
               <li className="ml-4">Receive design in 72 hours</li>
               <li className="ml-4">4-6 core features</li>
