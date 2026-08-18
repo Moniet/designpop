@@ -30,7 +30,7 @@ const FAQs = () => {
                   MVP Design & Development: ({pricing.simpleMVP})
                 </strong>
               </li>
-              <li className="ml-4">4-8 week delivery timeline</li>
+              <li className="ml-4">3-6 week delivery timeline</li>
               <li className="ml-4">Up to 10 core features</li>
               <li className="ml-4">Receive design in 72 hours</li>
               <li className="ml-4">Advanced functionality</li>
