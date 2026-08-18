@@ -142,10 +142,10 @@ const FAQs = () => {
                 <p>
                   <b>Note:</b> Our payments are done securely through{" "}
                   <a
-                    href="https://paypal.com"
+                    href="https://stripe.com"
                     className="h-1 inline-block overflow-visible font-semibold"
                   >
-                    PayPal
+                    Stripe
                   </a>
                 </p>
                 <p>
