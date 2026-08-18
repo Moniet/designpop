@@ -346,10 +346,10 @@ export default function Home() {
                     >
                       <p className="text-sm font-medium lg:text-lg min-h-fit max-md:[text-wrap:pretty] text-[#171717]/60">
                         We build web apps, landing pages, and mobile app MVPs
-                        with a record delivery time of 2-weeks.{" "}
+                        with a record delivery timeline of 3-6 weeks.{" "}
                         {/* <br className="max-md:hidden" /> */}
                         With experience creating projects for startups from the
-                        likes of YCombinator, you can rest assured of our high
+                        likes of YCombinator, you can rest assured we&#39;ll deliver high
                         quality output.
                       </p>
                     </motion.div>

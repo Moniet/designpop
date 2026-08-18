@@ -5,13 +5,13 @@ import "./globals.css"
 export const metadata: Metadata = {
   title: "designpop | Your one-stop service for MVP, Design and Development",
   description:
-    "We build complete MVPs in 2 weeks and deliver designs within 48 hours. You can even subscribe to our design-engineering work on a monthly basis!",
+    "We build complete MVPs in as less as 2 weeks, and deliver designs within 48 hours. You can even subscribe to our design-engineering work on a monthly basis!",
   openGraph: {
     url: "https://designpop.co",
     locale: "en-US",
     siteName: "designpop",
     description:
-      "We build complete MVPs in 2 weeks and deliver designs within 48 hours. You can even subscribe to our design-engineering work on a monthly basis!",
+      "We build complete MVPs in as less as 2 weeks, and deliver designs within 48 hours. You can even subscribe to our design-engineering work on a monthly basis!",
     images: [
       {
         url: "/img/og.jpg",
