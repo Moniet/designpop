@@ -17,7 +17,7 @@ const cards = [
     image: "/img/indievia tile.jpg",
     title: "IndieVia - A Community for discovering and rating tattoo arists",
     url: "indievia.com",
-    link: "https://indievia.com",
+    link: "https://www.figma.com/proto/ob3pdOsbDJxCwzlUf9LB44/IndieVia?node-id=1-6206&t=685y0vxI9RNlgX2p-1",
     logo: "/img/indievia logo for tile.svg",
   },
   {
