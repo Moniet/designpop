@@ -25,12 +25,12 @@ const optionData = [
   },
   {
     title: "MVP Design & Dev.",
-    timeline: "2-4 weeks",
+    timeline: "3-6 weeks",
     calEvent: "designpop/30-min-meeting-mvp",
     description: "Receive a functioning MVP in record time",
     bulletsHeading: "Build and launch a complete MVP:",
     bullets: [
-      "MVP delivered in 4-8 weeks",
+      "MVP delivered in 3-6 weeks",
       "2 design revisions",
       "10 core features",
       "Milestone based pricing",
