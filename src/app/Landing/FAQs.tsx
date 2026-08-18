@@ -165,9 +165,8 @@ const FAQs = () => {
               <li className="ml-4">Complex MVP includes 6 months support</li>
               <li className="ml-4">
                 <span className="text-zinc-700">Extended support</span> packages
-                are available after the initial period costing{" "}
-                <span className="text-zinc-700">{pricing.maintenance}</span> for
-                each 3 month extension.
+                are available after the initial period, at
+                <span className="text-zinc-700">{pricing.maintenance}</span> per month
               </li>
               <li className="mt-4">
                 <b>Support covers</b>
@@ -221,8 +220,7 @@ const FAQs = () => {
               Yes! We provide extended support
             </span>{" "}
             packages even after the initial period; costing{" "}
-            <span className="text-zinc-700">{pricing.maintenance}</span> for
-            each 3 month extension.
+            <span className="text-zinc-700">{pricing.maintenance}</span> per month.
           </Accordion>{" "}
         </div>
       </div>
