@@ -35,6 +35,7 @@ const optionData = [
       "10 core features",
       "Milestone based pricing",
       "6 months support <small>(extendable)</small>",
+      '<a href="https://openclaw.ai/"><b>OpenClaw x Slack</b></a> setup to help you manage the project. <small>(optional)</small>'
     ],
     bullets2: [],
     price: { amount: pricing.simpleMVP, detail: " / starting at" },

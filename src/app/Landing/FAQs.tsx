@@ -35,6 +35,7 @@ const FAQs = () => {
               <li className="ml-4">Receive design in 72 hours</li>
               <li className="ml-4">Advanced functionality</li>
               <li className="ml-4">6 months support (extendable to 1 year)</li>
+              <li className="ml-4">OpenClaw depoloyement for self management (optional)</li>
               <li>
                 <strong className="mt-3 -ml-2 block">
                   Subscription ({pricing.subscription}) (for design &
